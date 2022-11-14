@@ -1,3 +1,19 @@
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['rol'])){
+        header('location: ../login.php');
+    }else{
+        if($_SESSION['rol'] != 2){
+            header('location: ../login.php');
+        }
+    }
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,6 +29,7 @@
         <div class="container-fluid">
             <a class="navbar-brand">Navbar</a>
             <button class="btn btn-outline-success" type="submit">Log In</button>
+            <a href='../logout.php'>cerrar</a>
         </div>
     </nav>
   </body>

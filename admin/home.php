@@ -3,10 +3,10 @@
     session_start();
 
     if(!isset($_SESSION['rol'])){
-        header('location: login.php');
+        header('location: ../login.php');
     }else{
         if($_SESSION['rol'] != 1){
-            header('location: login.php');
+            header('location: ../login.php');
         }
     }
 
@@ -22,5 +22,6 @@
 </head>
 <body>
     <h1>Administrador</h1>
+    <a href='../logout.php'>Cerrar</a>
 </body>
 </html>

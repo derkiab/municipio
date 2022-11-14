@@ -13,11 +13,11 @@
     if(isset($_SESSION['rol'])){
         switch($_SESSION['rol']){
             case 1:
-                header('location: admin.php');
+                header('location: admin/home.php');
             break;
 
             case 2:
-            header('location: colab.php');
+            header('location: pages/home.php');
             break;
 
             default:
@@ -29,22 +29,22 @@
         $password = $_POST['password'];
 
         $db = new Database();
-        $query = $db->connect()->prepare('SELECT *FROM usuarios WHERE username = :username AND password = :password');
+        $query = $db->connect()->prepare('SELECT *FROM users WHERE email_user = :username AND password_user = :password');
         $query->execute(['username' => $username, 'password' => $password]);
 
         $row = $query->fetch(PDO::FETCH_NUM);
         
         if($row == true){
-            $rol = $row[3];
+            $rol = $row[5];
             
             $_SESSION['rol'] = $rol;
             switch($rol){
                 case 1:
-                    header('location: admin.php');
+                    header('location: admin/home.php');
                 break;
 
                 case 2:
-                header('location: colab.php');
+                    header('location: pages/home.php');
                 break;
 
                 default:
