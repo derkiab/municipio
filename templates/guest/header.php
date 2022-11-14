@@ -9,9 +9,9 @@
   </head>
   <body>
     <nav class="navbar" style="background-color: #e3f2fd;">
-        <div class="container-fluid">
-            <a class="navbar-brand">Navbar</a>
-            <button class="btn btn-outline-success" type="submit">Log In</button>
-            <a href='../logout.php'>cerrar</a>
-        </div>
+      <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <button class="btn btn-outline-success" type="submit">Log In</button>
+
+      </div>
     </nav>
