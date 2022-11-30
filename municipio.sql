@@ -1,0 +1,391 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-11-2022 a las 16:02:20
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `municipio`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `commentaries`
+--
+
+CREATE TABLE `commentaries` (
+  `id_commentary` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL,
+  `id_news` int(11) NOT NULL,
+  `commentary_content` text NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `entrepeneurs`
+--
+
+CREATE TABLE `entrepeneurs` (
+  `id_entrepeneur` int(11) NOT NULL,
+  `rut_entrepeneur` int(11) NOT NULL,
+  `name_entrepeneur` varchar(500) NOT NULL,
+  `address_entrepeneur` text NOT NULL,
+  `phone_entrepeneur` int(11) NOT NULL,
+  `email_entrepeneur` varchar(255) NOT NULL,
+  `social_networks_entrepeneur` text NOT NULL,
+  `field_entrepeneur` varchar(255) NOT NULL,
+  `image_entrepeneur` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `events`
+--
+
+CREATE TABLE `events` (
+  `id_event` int(11) NOT NULL,
+  `date_event` date NOT NULL,
+  `time_event` time NOT NULL,
+  `event_description` text NOT NULL,
+  `event_image` varchar(255) NOT NULL,
+  `event_status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `news`
+--
+
+CREATE TABLE `news` (
+  `id_news` int(11) NOT NULL,
+  `date_news` date NOT NULL,
+  `time_news` time NOT NULL,
+  `news_description` text NOT NULL,
+  `news_image` varchar(255) NOT NULL,
+  `news_status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `opinions`
+--
+
+CREATE TABLE `opinions` (
+  `id_opinion` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `opinion_description` text NOT NULL,
+  `opinion_image` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `participates`
+--
+
+CREATE TABLE `participates` (
+  `id_entrepeneur` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `places_of_interest`
+--
+
+CREATE TABLE `places_of_interest` (
+  `id_place` int(11) NOT NULL,
+  `category_place` text NOT NULL,
+  `name_place` text NOT NULL,
+  `latitude_place` varchar(255) NOT NULL,
+  `longitude_place` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `procedures`
+--
+
+CREATE TABLE `procedures` (
+  `id_procedure` int(11) NOT NULL,
+  `type_procedure` text NOT NULL,
+  `type_certificate` text NOT NULL,
+  `date_reserved` date NOT NULL,
+  `time_reserved` time NOT NULL,
+  `department` text NOT NULL,
+  `type_public_information` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `publishes_in`
+--
+
+CREATE TABLE `publishes_in` (
+  `id_commentary` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL,
+  `id_news` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `requests`
+--
+
+CREATE TABLE `requests` (
+  `id_procedure` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `rol_id` int(11) NOT NULL,
+  `rol_nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`rol_id`, `rol_nombre`) VALUES
+(1, 'admin'),
+(2, 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL,
+  `rut_user` int(9) NOT NULL,
+  `name_user` varchar(50) NOT NULL,
+  `lastname_user` varchar(50) NOT NULL,
+  `email_user` varchar(50) NOT NULL,
+  `rol_id` int(11) NOT NULL,
+  `phone_user` int(50) NOT NULL,
+  `password_user` varchar(8) NOT NULL,
+  `address_user` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id_user`, `rut_user`, `name_user`, `lastname_user`, `email_user`, `rol_id`, `phone_user`, `password_user`, `address_user`) VALUES
+(2, 123456789, 'Derqui', 'Sanhueza', 'derquis96@gmail.com', 1, 963434488, '12345', 'dir1'),
+(3, 987654321, 'Diego', 'San Martin', 'dsanmartin@ing.ucsc.cl', 2, 1234567, '54321', 'dir2');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `commentaries`
+--
+ALTER TABLE `commentaries`
+  ADD PRIMARY KEY (`id_commentary`),
+  ADD KEY `commentaries_FK` (`id_user`);
+
+--
+-- Indices de la tabla `entrepeneurs`
+--
+ALTER TABLE `entrepeneurs`
+  ADD PRIMARY KEY (`id_entrepeneur`);
+
+--
+-- Indices de la tabla `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id_event`);
+
+--
+-- Indices de la tabla `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id_news`);
+
+--
+-- Indices de la tabla `opinions`
+--
+ALTER TABLE `opinions`
+  ADD KEY `opinions_FK` (`id_user`);
+
+--
+-- Indices de la tabla `participates`
+--
+ALTER TABLE `participates`
+  ADD PRIMARY KEY (`id_event`,`id_entrepeneur`),
+  ADD KEY `participates_FK` (`id_entrepeneur`);
+
+--
+-- Indices de la tabla `places_of_interest`
+--
+ALTER TABLE `places_of_interest`
+  ADD PRIMARY KEY (`id_place`);
+
+--
+-- Indices de la tabla `procedures`
+--
+ALTER TABLE `procedures`
+  ADD PRIMARY KEY (`id_procedure`);
+
+--
+-- Indices de la tabla `publishes_in`
+--
+ALTER TABLE `publishes_in`
+  ADD PRIMARY KEY (`id_commentary`,`id_event`,`id_news`),
+  ADD KEY `publishes_in_FK_1` (`id_event`),
+  ADD KEY `publishes_in_FK_2` (`id_news`);
+
+--
+-- Indices de la tabla `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`id_procedure`,`id_user`),
+  ADD KEY `requests_FK` (`id_user`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`rol_id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `rut_user` (`rut_user`),
+  ADD KEY `users_FK` (`rol_id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `commentaries`
+--
+ALTER TABLE `commentaries`
+  MODIFY `id_commentary` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `entrepeneurs`
+--
+ALTER TABLE `entrepeneurs`
+  MODIFY `id_entrepeneur` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `events`
+--
+ALTER TABLE `events`
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `news`
+--
+ALTER TABLE `news`
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `places_of_interest`
+--
+ALTER TABLE `places_of_interest`
+  MODIFY `id_place` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `procedures`
+--
+ALTER TABLE `procedures`
+  MODIFY `id_procedure` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `commentaries`
+--
+ALTER TABLE `commentaries`
+  ADD CONSTRAINT `commentaries_FK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `opinions`
+--
+ALTER TABLE `opinions`
+  ADD CONSTRAINT `opinions_FK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `participates`
+--
+ALTER TABLE `participates`
+  ADD CONSTRAINT `participates_FK` FOREIGN KEY (`id_entrepeneur`) REFERENCES `entrepeneurs` (`id_entrepeneur`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `participates_FK_1` FOREIGN KEY (`id_event`) REFERENCES `events` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `publishes_in`
+--
+ALTER TABLE `publishes_in`
+  ADD CONSTRAINT `publishes_in_FK` FOREIGN KEY (`id_commentary`) REFERENCES `commentaries` (`id_commentary`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `publishes_in_FK_1` FOREIGN KEY (`id_event`) REFERENCES `events` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `publishes_in_FK_2` FOREIGN KEY (`id_news`) REFERENCES `news` (`id_news`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `requests`
+--
+ALTER TABLE `requests`
+  ADD CONSTRAINT `requests_FK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `requests_FK_1` FOREIGN KEY (`id_procedure`) REFERENCES `procedures` (`id_procedure`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_FK` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`rol_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
