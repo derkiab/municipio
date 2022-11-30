@@ -29,19 +29,19 @@
             </div>
 
             <div class="list-group list-group-flush my-3">
-                <a href="./home.php" class="list-group-item list-group-item-action bg-transparent second-text active">
+                <a href="../home.php" class="list-group-item list-group-item-action bg-transparent second-text active">
                 <i class="fa-solid fa-gauge-high me-2"></i>Dasboard
                 </a>
-                <a href="./users.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../user/users.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-user me-2"></i>Usuarios
                 </a>
-                <a href="./news.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../news/news.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-newspaper me-2"></i>Noticias
                 </a>
-                <a href="./events.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../event/events.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-calendar-days me-2"></i>Eventos
                 </a>
-                <a href="./pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../pymes/pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-briefcase me-2"></i>Pymes
                 </a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
