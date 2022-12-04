@@ -42,7 +42,6 @@ $(document).ready(function(){
             var url = "../../pages/user/query/update.php"
             datos += "&user_id=" + user_id;
         }
-        console.log(url);
         $.ajax({
             method: "POST",
             url: url,
@@ -51,15 +50,11 @@ $(document).ready(function(){
                 if (data == "success") {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Realizado con exito',
-                        
-                    })
+                        title: data,
+                        showConfirmButton: true,
+                    }) 
                 } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Algo salio mal!',
-                    })
+                    alert("error");
                 }
             },
             error: function (data) {
@@ -118,10 +113,11 @@ $(document).ready(function(){
                     user_id: user_id
                 },
                 success: function (data) {
+                    console.log(data);
                     if (data == "success") {
                         Swal.fire({
                             icon: 'success',
-                            title: data,
+                            title: "Eliminado con exito",
                             showConfirmButton: true,
                         }).then((result) => {
                             location.reload();
