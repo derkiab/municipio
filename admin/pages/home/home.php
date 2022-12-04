@@ -1,16 +1,11 @@
 <?php
-require_once('../templates/header.php');
-?>
-<!-- empezar aqui -->
-
-<?php
-require_once('../templates/header.php');
+require_once('../../templates/header.php');
 ?>
 <!-- empezar aqui -->
 
 <!-- Contenido Datatables -->
 <?php
-    require('../../database.php');
+    require('../../../database.php');
 
 
     $consulta = "SELECT * FROM users";
@@ -138,9 +133,5 @@ require_once('../templates/header.php');
 
 <!-- Fin Contenido -->
 <?php
-    require_once('../templates/footer.php');
-?>
-<!-- Fin Contenido -->
-<?php
-    require_once('../templates/footer.php');
+    require_once('../../templates/footer.php');
 ?>
