@@ -1,11 +1,11 @@
 <span class="border border-light" >
-   <div id="carouselExampleDark" class="carousel carousel-dark slide container text-center rounded-4" data-bs-ride="carousel" >
+   <div id="carouselExampleDark" class="carousel carousel-dark slide container text-center " data-bs-ride="carousel" >
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner rounded-4">
             <div class="carousel-item active" data-bs-interval="10000" style="width: 90rem;" >
                 <a class="navbar-link" href="...">
                     <img src="https://i.pinimg.com/originals/e0/19/17/e0191785c29396e42bccc19c6c3db098.jpg" class="d-block w-100 " alt="..." width="100%" height="70%">
