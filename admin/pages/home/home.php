@@ -1,16 +1,16 @@
 <?php
-require_once('../templates/header.php');
+require_once('../../templates/header.php');
 ?>
 <!-- empezar aqui -->
 
 <?php
-require_once('../templates/header.php');
+require_once('../../templates/header.php');
 ?>
 <!-- empezar aqui -->
 
 <!-- Contenido Datatables -->
 <?php
-    require('../../database.php');
+    require('../../../database.php');
 
 
     $consulta = "SELECT * FROM users";
@@ -56,21 +56,21 @@ require_once('../templates/header.php');
                             <td><?php echo $users['lastname_user']?></td>
                             <td><?php echo $users['email_user']?></td>
                             <td>
-                                <?php 
+                                <?php
                                     if($users['rol_id'] == 1) echo "admin";
                                     else echo "user";
                                 ?>
                             </td>
                             <td><?php echo $users['phone_user']?></td>
                             <td><?php echo $users['address_user']?></td>
-                            <td>   
+                            <td>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
                     </tbody>
-                </table>     
+                </table>
             </div>
         </div>
     </div>
@@ -108,7 +108,7 @@ require_once('../templates/header.php');
                         <select class="form-control" name="user_rol" id="user_rol">
                             <?php
                              while($roles=mysqli_fetch_assoc($rol)){
-                                echo '<option value="'.$roles['rol_id'].'">'.$roles['rol_nombre'].'</option>';                                        
+                                echo '<option value="'.$roles['rol_id'].'">'.$roles['rol_nombre'].'</option>';
                             }
                             ?>
                         </select>
@@ -126,7 +126,7 @@ require_once('../templates/header.php');
                         <input type="text" class="form-control" name="address" id="address">
                     </div>
                 </div>
-            
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" id="btn_guardar" class="btn btn-success">Guardar</button>
@@ -138,9 +138,9 @@ require_once('../templates/header.php');
 
 <!-- Fin Contenido -->
 <?php
-    require_once('../templates/footer.php');
+    require_once('../../templates/footer.php');
 ?>
 <!-- Fin Contenido -->
 <?php
-    require_once('../templates/footer.php');
+    require_once('../../templates/footer.php');
 ?>
