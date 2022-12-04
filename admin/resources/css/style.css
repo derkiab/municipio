@@ -1,13 +1,14 @@
 :root{
-    --main-bg-color: #009d63;
+    --main-bg-color: #bdc6cf;
     --main-text-color: #009d63;
     --second-text-color: #bbbec5;
-    --second-bg-color: #c1efde;
+    --second-bg-color: #303f9f;
 }
 
 .primary-text{
     color: var(--main-text-color);
 }
+.primary-text
 .second-text{
     color: var(--second-text-color);
 }
@@ -22,7 +23,8 @@
 }
 #wrapper{
     overflow-x: hidden;
-    background-image: linear-gradient(to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef);
+    /* background-image: linear-gradient(to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef); */
+    background: var(--main-bg-color);
 }
 #sidebar-wrapper{
     min-height: 100vh;

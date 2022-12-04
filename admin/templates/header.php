@@ -22,12 +22,12 @@
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
-                <i></i>Municipalidad
-            </div>
-
+        <div class="secondary-bg" id="sidebar-wrapper">
+        <div class="sidebar-heading text-center pb-6 primary-text fs-4 fw-bold text-uppercase primary-bg">
+                    <i></i>Municipalidad
+                </div>
             <div class="list-group list-group-flush my-3" id="navarea">
+                
                 <a href="../home/home.php" class="list-group-item list-group-item-action bg-transparent second-text btn-active active">
                 <i class="fa-solid fa-gauge-high me-2"></i>Tablero
                 </a>
@@ -43,7 +43,7 @@
                 <a href="../pymes/pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-briefcase me-2"></i>Pymes
                 </a>
-                <a href="../../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+                <a href="../../../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
                     <i class="fa-solid fa-right-from-bracket me-2"></i>Cerrar Sesion
                    
                 </a>
@@ -53,7 +53,7 @@
         
         <!-- Contenido -->
         <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white pb-4 px-4 mb-4">
                 <div class="d-flex aling-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
                     <h2 class="fs-2 m-0">Tablero</h2>
