@@ -12,5 +12,12 @@
 
     $sql = "INSERT INTO users VALUES ('','$rut_user', '$name_user', '$lastname_user', '$email_user', '$rol_id', '$phone_user', '$password_user', '$address_user')";
 
-    mysqli_query($conexion, $sql);
+    $resultado = mysqli_query($conexion, $sql);
+    
+    if ($resultado) {
+        echo "success";
+    } else 
+    {
+        echo 'error';
+    }
 ?>
