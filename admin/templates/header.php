@@ -18,7 +18,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="../../resources/css/style.css">
-    
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -28,20 +27,20 @@
                 <i></i>Municipalidad
             </div>
 
-            <div class="list-group list-group-flush my-3">
-                <a href="../home.php" class="list-group-item list-group-item-action bg-transparent second-text active">
-                <i class="fa-solid fa-gauge-high me-2"></i>Dasboard
+            <div class="list-group list-group-flush my-3" id="navarea">
+                <a href="../home/home.php" class="list-group-item list-group-item-action bg-transparent second-text btn-active active">
+                <i class="fa-solid fa-gauge-high me-2"></i>Tablero
                 </a>
-                <a href="../user/users.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../user/users.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-user me-2"></i>Usuarios
                 </a>
-                <a href="../news/news.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../news/news.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-newspaper me-2"></i>Noticias
                 </a>
-                <a href="../event/events.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../event/events.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-calendar-days me-2"></i>Eventos
                 </a>
-                <a href="../pymes/pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../pymes/pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-briefcase me-2"></i>Pymes
                 </a>
                 <a href="../../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
@@ -57,7 +56,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex aling-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Dasboard</h2>
+                    <h2 class="fs-2 m-0">Tablero</h2>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar_content">
                     <ul class="navbar nav ms-auto mb-2 mb-lg-0">
