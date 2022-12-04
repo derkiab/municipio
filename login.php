@@ -17,7 +17,7 @@
             break;
 
             case 2:
-                header('location: user/pages/home.php');
+                header('location: user/index.php');
             break;
 
             default:
@@ -25,37 +25,43 @@
     }
 
     if(isset($_POST['username']) && isset($_POST['password'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+       $username = $_POST['username'];
+       $password = $_POST['password'];
 
-        $db = new Database();
-        $query = $db->connect()->prepare('SELECT *FROM users WHERE email_user = :username AND password_user = :password');
-        $query->execute(['username' => $username, 'password' => $password]);
+       $consulta = "SELECT * FROM users";
+       $user = mysqli_query($conexion, $consulta);
 
-        $row = $query->fetch(PDO::FETCH_NUM);
-
-        if($row == true){
-            $rol = $row[5];
-
-            $_SESSION['rol'] = $rol;
-            switch($rol){
-                case 1:
-                    header('location: admin/pages/home/home.php');
-                break;
-
-                case 2:
-                    header('location: user/index.php');
-                break;
-
-                default:
-            }
-        }else{
-            // no existe el usuario
-            echo "Nombre de usuario o contraseña incorrecto";
-        }
+       $consulta_rol = "SELECT * FROM roles";
+       $rol = mysqli_query($conexion, $consulta_rol);
 
 
-    }
+       $consulta="SELECT *FROM users";
+       $resultado= mysqli_query($conexion,$consulta);
+
+       while($row= mysqli_fetch_assoc ($resultado)){
+           $username_consultado=$row['email_user'];
+           $password_consultado =$row['password_user'];
+           $rol_consultado =$row['rol_id'];
+           if( $username==$username_consultado){
+               echo  "usuario encontrado";
+               if( $password==$password_consultado){
+                   echo  "contraseña correcta";
+                   if($rol_consultado==1){
+                       $_SESSION['rol'] = $rol_consultado;
+                       header('Location: admin/pages/home/home.php');
+                   }elseif($rol_consultado==2){
+                       $_SESSION['rol'] = $rol_consultado;
+                       header('location: user/index.php');
+                   }
+               }
+               else{
+                   echo  "contraseña incorrecta";
+               }
+           }
+       }
+
+
+   }
 
 ?>
 <!doctype html>

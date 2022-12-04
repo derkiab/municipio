@@ -26,7 +26,6 @@
     <p class="card-text">Revisa tus contribuciones pasadas</p>
     <a href="#" class="btn btn-primary">Ver</a>
   </div>
-
 </div>
 
 
