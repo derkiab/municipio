@@ -40,7 +40,7 @@
             $_SESSION['rol'] = $rol;
             switch($rol){
                 case 1:
-                    header('location: admin/home.php');
+                    header('location: admin/pages/home/home.php');
                 break;
 
                 case 2:
