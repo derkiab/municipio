@@ -43,8 +43,9 @@
                 <a href="../pymes/pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-briefcase me-2"></i>Pymes
                 </a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+                <a href="../../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
                     <i class="fa-solid fa-right-from-bracket me-2"></i>Cerrar Sesion
+                   
                 </a>
             </div> 
         </div>
