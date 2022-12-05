@@ -53,8 +53,7 @@ require_once('../../templates/header.php');
                                     <td><?php echo $news['news_image']?></td>
                                     <td><?php echo $news['news_status']?></td>
                                     <td>
-                                        <!-- <div class='text-center'>
-                                            
+                                         <div class='text-center'>   
                                             <div class='btn-group'>
                                                 <button class='btn btn-primary btn-editar update' id="<?php echo $users['id_user']; ?>">
                                                     <i class='fa-solid fa-pen'></i>
@@ -62,7 +61,7 @@ require_once('../../templates/header.php');
                                                 <button class='btn btn-danger btn-editar delete' id="<?php echo $users['id_user']; ?>">
                                                     <i class='fa-solid fa-trash'></i>
                                                 </button>
-                                            </div> -->
+                                            </div> 
                                         </div>   
                                     </td>
                                 </tr>
@@ -91,11 +90,11 @@ require_once('../../templates/header.php');
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="" class="col-form-label">Fecha</label>
-                        <input type="text" class="form-control" name="date" id="date" required>
+                        <input type="date" class="form-control" name="date" id="date" required>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">tiempo</label>
-                        <input type="text" class="form-control" name="time" id="time" required>
+                        <input type="time" class="form-control" name="time" id="time" required>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Descripcion</label>
@@ -103,7 +102,7 @@ require_once('../../templates/header.php');
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Imagen</label>
-                        <input type="image" class="form-control" name="image" id="image" required>
+                        <input type="text" class="form-control" name="image" id="image" required>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label" >Estado</label>
