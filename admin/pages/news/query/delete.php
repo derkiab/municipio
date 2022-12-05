@@ -4,7 +4,7 @@
 
     $id_new = $_POST["new_id"];
 
-    $sql = "DELETE FROM `users` WHERE id_new = '$id_new'";
+    $sql = "DELETE FROM `news` WHERE id_new = '$id_new'";
 
     $resultado = mysqli_query($conexion, $sql);
     if ($resultado) {

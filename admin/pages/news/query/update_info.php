@@ -12,7 +12,7 @@ $resultado = mysqli_query($conexion, $sql);
 
 if ($resultado) {
     $userData = $resultado->fetch_assoc();
-    $data['result'] = $userData;
+    $data['result'] = $newsData;
     echo json_encode($data);
 } else {
     echo 'error';

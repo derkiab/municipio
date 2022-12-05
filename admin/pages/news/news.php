@@ -11,8 +11,12 @@ require_once('../../templates/header.php');
     $consulta = "SELECT * FROM users";
     $user = mysqli_query($conexion, $consulta);
 
-    $consulta_rol = "SELECT * FROM news";
-    $new = mysqli_query($conexion, $consulta_rol);
+    $consulta_rol = "SELECT * FROM roles";
+    $rol = mysqli_query($conexion, $consulta_rol);
+
+    $consulta_news = "SELECT * FROM news";
+    $new = mysqli_query($conexion, $consulta_news);
+
 ?>
 
 <!-- Tabla de usuarios -->
@@ -55,10 +59,10 @@ require_once('../../templates/header.php');
                                     <td>
                                          <div class='text-center'>   
                                             <div class='btn-group'>
-                                                <button class='btn btn-primary btn-editar update' id="<?php echo $users['id_user']; ?>">
+                                                <button class='btn btn-primary btn-editar update' id="<?php echo $news['id_news']; ?>">
                                                     <i class='fa-solid fa-pen'></i>
                                                 </button>
-                                                <button class='btn btn-danger btn-editar delete' id="<?php echo $users['id_user']; ?>">
+                                                <button class='btn btn-danger btn-editar delete' id="<?php echo $news['id_news']; ?>">
                                                     <i class='fa-solid fa-trash'></i>
                                                 </button>
                                             </div> 
@@ -132,45 +136,28 @@ require_once('../../templates/header.php');
             </div>
 
             <form id="frm_update">
-                <input type="text" hidden name="id_user_update" id="id_user_update">
+                <input type="text" hidden name="id_news_update" id="id_news_update">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="" class="col-form-label">Rut</label>
-                        <input type="text" class="form-control" name="rut_update" id="rut_update">
+                        <label for="" class="col-form-label">Fecha</label>
+                        <input type="text" class="form-control" name="date_update" id="date_update">
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Nombre</label>
-                        <input type="text" class="form-control" name="name_update" id="name_update">
+                        <label for="" class="col-form-label">Hora</label>
+                        <input type="text" class="form-control" name="time_update" id="time_update">
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Apellido</label>
-                        <input type="text" class="form-control" name="last_name_update" id="last_name_update">
+                        <label for="" class="col-form-label">Descripcion</label>
+                        <input type="text" class="form-control" name="description_update" id="description_update">
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Email</label>
-                        <input type="email" class="form-control" name="email_update" id="email_update">
+                        <label for="" class="col-form-label">Imagen</label>
+                        <input type="text" class="form-control" name="image_update" id="image_update">
                     </div>
+                    
                     <div class="form-group">
-                        <label for="" class="col-form-label">Rol</label>
-                        <select class="form-control" name="user_rol_update" id="user_rol_update">
-                            <?php
-                            foreach ($roles as $rol) {
-                                echo '<option value="' . $rol['rol_id'] . '">' . $rol['rol_nombre'] . '</option>';
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Telefono</label>
-                        <input type="tel" name="phone_update" id="phone_update" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="password_update" id="password_update">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Dirección</label>
-                        <input type="text" class="form-control" name="address_update" id="address_update">
+                        <label for="" class="col-form-label">Estado</label>
+                        <input type="password" class="form-control" name="status_update" id="status_update">
                     </div>
                 </div>
 
