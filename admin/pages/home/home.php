@@ -1,13 +1,13 @@
 <?php
 require_once('../../templates/header.php');
-require_once('../../templates/header.php');
+
 ?>
 <!-- empezar aqui -->
 
 <!-- Contenido Datatables -->
 <?php
     require('../../../database.php');
-    require('../../../database.php');
+ 
 
 
     $consulta = "SELECT * FROM users";

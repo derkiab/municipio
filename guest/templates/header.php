@@ -12,7 +12,7 @@
   </head>
   <body>
     <nav class="navbar" style="background-color: #e3f2fd;">
-      <div class="container-fluid">
+      <div class="container-fluid text-center">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
             
               <a class="navbar-link" href="https://www.facebook.com/MuniConce/">

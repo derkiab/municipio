@@ -11,8 +11,8 @@ require_once('../../templates/header.php');
     $consulta = "SELECT * FROM users";
     $user = mysqli_query($conexion, $consulta);
 
-    $consulta_rol = "SELECT * FROM roles";
-    $rol = mysqli_query($conexion, $consulta_rol);
+    $consulta_rol = "SELECT * FROM news";
+    $new = mysqli_query($conexion, $consulta_rol);
 ?>
 
 <!-- Tabla de usuarios -->
@@ -20,7 +20,7 @@ require_once('../../templates/header.php');
     <div class="card-header">
         <div class="row">
             <div class="col-lg-4">
-                <h5>Usuarios</h5>
+                <h5>Noticias</h5>
             </div>
             <div class="col-lg-8 text-end">
                 <button id="btn_agregar" type="button" class="btn btn-success">Agregar</button>
@@ -35,35 +35,25 @@ require_once('../../templates/header.php');
                         <table id="tabla_personas" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
-                                    <th>Rut</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido</th>
-                                    <th>Email</th>
-                                    <th>Rol</th>
-                                    <th>Telefono</th>
-                                    <th>Direccion</th>
-                                    <th>Acciones</th>
+                                    <th>Fecha</th>
+                                    <th>Tiempo</th>
+                                    <th>Descripcion</th>
+                                    <th>Imagen</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    while($users=mysqli_fetch_assoc($user)){
+                                    while($news=mysqli_fetch_assoc($new)){
                                 ?>
                                 <tr>
-                                    <td><?php echo $users['rut_user']?></td>
-                                    <td><?php echo $users['name_user']?></td>
-                                    <td><?php echo $users['lastname_user']?></td>
-                                    <td><?php echo $users['email_user']?></td>
+                                    <td><?php echo $news['date_news']?></td>
+                                    <td><?php echo $news['time_news']?></td>
+                                    <td><?php echo $news['news_description']?></td>
+                                    <td><?php echo $news['news_image']?></td>
+                                    <td><?php echo $news['news_status']?></td>
                                     <td>
-                                        <?php 
-                                            if($users['rol_id'] == 1) echo "admin";
-                                            else echo "user";
-                                        ?>
-                                    </td>
-                                    <td><?php echo $users['phone_user']?></td>
-                                    <td><?php echo $users['address_user']?></td>
-                                    <td>
-                                        <div class='text-center'>
+                                        <!-- <div class='text-center'>
                                             
                                             <div class='btn-group'>
                                                 <button class='btn btn-primary btn-editar update' id="<?php echo $users['id_user']; ?>">
@@ -72,7 +62,7 @@ require_once('../../templates/header.php');
                                                 <button class='btn btn-danger btn-editar delete' id="<?php echo $users['id_user']; ?>">
                                                     <i class='fa-solid fa-trash'></i>
                                                 </button>
-                                            </div>
+                                            </div> -->
                                         </div>   
                                     </td>
                                 </tr>
@@ -93,50 +83,33 @@ require_once('../../templates/header.php');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar persona</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar noticia</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <form id="frm_registrar">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="" class="col-form-label">Rut</label>
-                        <input type="text" class="form-control" name="rut" id="rut" required>
+                        <label for="" class="col-form-label">Fecha</label>
+                        <input type="text" class="form-control" name="date" id="date" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Nombre</label>
-                        <input type="text" class="form-control" name="name" id="name" required>
+                        <label for="" class="col-form-label">tiempo</label>
+                        <input type="text" class="form-control" name="time" id="time" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Apellido</label>
-                        <input type="text" class="form-control" name="last_name" id="last_name" required>
+                        <label for="" class="col-form-label">Descripcion</label>
+                        <input type="text" class="form-control" name="description" id="description" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" required>
+                        <label for="" class="col-form-label">Imagen</label>
+                        <input type="image" class="form-control" name="image" id="image" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Rol</label>
-                        <select class="form-control" name="user_rol" id="user_rol" required>
-                            <?php
-                             while($roles=mysqli_fetch_assoc($rol)){
-                                echo '<option value="'.$roles['rol_id'].'">'.$roles['rol_nombre'].'</option>';                                        
-                            }
-                            ?>
-                        </select>
+                        <label for="" class="col-form-label" >Estado</label>
+                        <input type="text" class="form-control" name="status" id="status" required>
                     </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label" >Telefono</label>
-                        <input type="tel" class="form-control" name="phone" id="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label" >Contraseña</label>
-                        <input type="password" class="form-control" name="password" id="password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label" >Dirección</label>
-                        <input type="text" class="form-control" name="address" id="address" required>
-                    </div>
+                   
                 </div>
             
                 <div class="modal-footer">
