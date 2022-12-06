@@ -13,6 +13,8 @@ require_once('../../templates/header.php');
 
     $consulta_rol = "SELECT * FROM roles";
     $rol = mysqli_query($conexion, $consulta_rol);
+
+    $js = "user/js/main.js";
 ?>
 
 <!-- Tabla de usuarios -->
@@ -89,7 +91,7 @@ require_once('../../templates/header.php');
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modal_insert" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal_user" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -148,6 +150,7 @@ require_once('../../templates/header.php');
     </div>
 </div>
 
+       
 <!-- Fin Contenido -->
 <?php
     require_once('../../templates/footer.php');

@@ -7,7 +7,6 @@ require_once('../../templates/header.php');
 <?php
     require('../../../database.php');
 
-
     $consulta = "SELECT * FROM users";
     $user = mysqli_query($conexion, $consulta);
 
@@ -16,7 +15,7 @@ require_once('../../templates/header.php');
 
     $consulta_news = "SELECT * FROM news";
     $new = mysqli_query($conexion, $consulta_news);
-
+    $js = "news/js/mainnews.js";
 ?>
 
 <!-- Tabla de usuarios -->
@@ -27,7 +26,7 @@ require_once('../../templates/header.php');
                 <h5>Noticias</h5>
             </div>
             <div class="col-lg-8 text-end">
-                <button id="btn_agregar" type="button" class="btn btn-success">Agregar</button>
+                <button id="btn_agregar_news" type="button" class="btn btn-success">Agregar</button>
             </div>
         </div>
     </div>
@@ -36,18 +35,20 @@ require_once('../../templates/header.php');
             <div class="row">
                 <div class="col-lg-12">
                     <div class="table-responsive">
-                        <table id="tabla_personas" class="table table-striped table-bordered table-condensed" style="width:100%">
+                        <table id="tabla_noticias" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
                                     <th>Fecha</th>
-                                    <th>Tiempo</th>
+                                    <th>Hora</th>
                                     <th>Descripcion</th>
                                     <th>Imagen</th>
                                     <th>Estado</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
+
                                     while($news=mysqli_fetch_assoc($new)){
                                 ?>
                                 <tr>
@@ -82,22 +83,22 @@ require_once('../../templates/header.php');
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modal_crud" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal_news" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar noticia</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <form id="frm_registrar">
+            <form id="frm_registrar_news">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="" class="col-form-label">Fecha</label>
                         <input type="date" class="form-control" name="date" id="date" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">tiempo</label>
+                        <label for="" class="col-form-label">Hora</label>
                         <input type="time" class="form-control" name="time" id="time" required>
                     </div>
                     <div class="form-group">
@@ -125,50 +126,8 @@ require_once('../../templates/header.php');
 </div>
 
 
-<!-- Modal Update -->
-<div class="modal fade" id="modal_update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-success">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel2">Agregar persona</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
 
-            <form id="frm_update">
-                <input type="text" hidden name="id_news_update" id="id_news_update">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Fecha</label>
-                        <input type="text" class="form-control" name="date_update" id="date_update">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Hora</label>
-                        <input type="text" class="form-control" name="time_update" id="time_update">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Descripcion</label>
-                        <input type="text" class="form-control" name="description_update" id="description_update">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Imagen</label>
-                        <input type="text" class="form-control" name="image_update" id="image_update">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Estado</label>
-                        <input type="password" class="form-control" name="status_update" id="status_update">
-                    </div>
-                </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" id="btn_update" class="btn btn-success insert">Guardar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <!-- Fin Contenido -->
 <?php
     require_once('../../templates/footer.php');

@@ -2,9 +2,9 @@
     require ("../../../../database.php");
     session_start();
 
-    $id_new = $_POST["new_id"];
+    $id_news = $_POST["new_id"];
 
-    $sql = "DELETE FROM `news` WHERE id_new = '$id_new'";
+    $sql = "DELETE FROM `news` WHERE id_news = '$id_news'";
 
     $resultado = mysqli_query($conexion, $sql);
     if ($resultado) {
