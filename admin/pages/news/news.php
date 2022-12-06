@@ -40,7 +40,6 @@ require_once('../../templates/header.php');
                                 <tr>
                                     <th>Fecha</th>
                                     <th>Hora</th>
-                                    <th>Titulo</th>
                                     <th>Descripcion</th>
                                     <th>Imagen</th>
                                     <th>Estado</th>
@@ -55,7 +54,6 @@ require_once('../../templates/header.php');
                                 <tr>
                                     <td><?php echo $news['date_news']?></td>
                                     <td><?php echo $news['time_news']?></td>
-                                    <td><?php echo $news['title_news']?></td>
                                     <td><?php echo $news['news_description']?></td>
                                     <td><?php echo "<img src='".$news['news_image']."'style=' width:50%; height:50%; '>" ?></td>
                                     <td><?php echo $news['news_status']?></td>
@@ -102,10 +100,6 @@ require_once('../../templates/header.php');
                     <div class="form-group">
                         <label for="" class="col-form-label">Hora</label>
                         <input type="time" class="form-control" name="time" id="time" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Titulo</label>
-                        <input type="text" class="form-control" name="title" id="title" required>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Descripcion</label>

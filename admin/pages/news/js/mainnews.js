@@ -94,7 +94,6 @@ $(document).ready(function(){
                     $('#id_news_update').val(data.result.id_news);
                     $('#date').val(data.result.date_news);
                     $('#time').val(data.result.time_news);
-                    $('#title').val(data.result.title_news);
                     $('#description').val(data.result.news_description);
                     $('#image').val(data.result.news_image);
                     $('#status').val(data.result.news_status);
@@ -157,10 +156,6 @@ $(document).ready(function(){
                 number: true,
                 minleght: 3
             },
-            title:{
-                required: true,
-                minleght: 3
-            },
             description:{
                 required: true,
                 minleght: 3
@@ -183,9 +178,6 @@ $(document).ready(function(){
             time:{
                 required: "Por favor ingrese su nombre",
                 number: "Por favor solo ingrese numeros"
-            },
-            description:{
-                required: "Por favor ingrese un titulo"
             },
             description:{
                 required: "Por favor ingrese una descripcion"

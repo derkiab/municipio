@@ -78,7 +78,7 @@ $(document).ready(function(){
         $(".modal-header").css("color", "white");
         $(".modal-title").text("Actualizar Persona");
         $("#btn_guardar").attr("name", "actualizar");
-        $("#modal_user").modal("show");
+        $("#modal_insert").modal("show");
         
         if (user_id != '') {
             $.ajax({

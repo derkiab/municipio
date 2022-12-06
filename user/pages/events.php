@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <?php
     require('../database.php');
@@ -96,3 +97,5 @@
     </div>
 </div>
 
+=======
+>>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)

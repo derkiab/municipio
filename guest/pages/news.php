@@ -1,19 +1,3 @@
-<?php
-    require('../database.php');
-
-    $consulta = "SELECT * FROM users";
-    $user = mysqli_query($conexion, $consulta);
-
-    $consulta_rol = "SELECT * FROM roles";
-    $rol = mysqli_query($conexion, $consulta_rol);
-
-    $consulta_news = "SELECT * FROM news";
-    $new = mysqli_query($conexion, $consulta_news);
-    $js = "news/js/mainnews.js";
-?>
-
-
-
 <span class="border border-light" >
    <div id="carouselExampleDark" class="carousel carousel-dark slide container text-center " data-bs-ride="carousel" >
         <div class="carousel-indicators">
@@ -61,37 +45,66 @@
     </div>
 </span>
 <br>
-
 <div class="container text-center">
     <div class="row">
-    <?php
-        while($news=mysqli_fetch_assoc($new)){
-    ?>
         <div class="col">
             <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
                 <div class="card" style="width: 18rem;">
-                
-                <img src="<?php echo $news['news_image'] ?>" class="card-img-top" alt="..." width="300" height="300">
+                    <img src="https://i.pinimg.com/originals/e0/19/17/e0191785c29396e42bccc19c6c3db098.jpg" class="card-img-top" alt="..." width="300" height="300">
                     <div class="card">
                         <div class="card-header">
-                            <?php echo $news['date_news']?>
+                            Quote
                         </div>
                         <div class="card-body">
                             <blockquote class="blockquote mb-0">
-                            <H3><?php echo $news['title_news']?></H3>
-                            <p><?php echo $news['news_description']?></p>
+                            <p>A well-known quote, contained in a blockquote element.</p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
                             </blockquote>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                        <?php echo $news['news_status']?>
                         </div>
                     </div>
                 </a> 
             </div>
-        <?php
-         }
-        ?>
+       
+       
+        <div class="col">
+            <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPYNtKNXX05yrfCWjT7gmPLPXC42sPsld0rg&usqp=CAU" class="card-img-top" alt="..." width="300" height="300">
+                    <div class="card">
+                        <div class="card-header">
+                            Quote
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                            <p>A well-known quote, contained in a blockquote element.</p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+       
+     
+        <div class="col">
+            <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://s3.abcstatics.com/media/sociedad/2016/10/20/gato-huerfano2-kM2--620x349@abc.jpg" class="card-img-top" alt="..." width="300" height="300">
+                    <div class="card">
+                        <div class="card-header">
+                            Quote
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                            <p>A well-known quote, contained in a blockquote element.</p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </a >
+        </div>
+       
     </div>
 </div>
-
