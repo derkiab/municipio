@@ -8,7 +8,7 @@
     $news_image  = $_POST["image"];
     $news_status  = $_POST["status"];
 
-    $sql = "INSERT INTO news VALUES ('','$date_news ', '$time_news ','$title_news ', '$news_description ', '$news_image', '$news_status')";
+    $sql = "INSERT INTO news VALUES ('','$date_news ', '$time_news ', '$news_description ', '$news_image', '$news_status','$title_news ')";
 
     $resultado = mysqli_query($conexion, $sql);
     
