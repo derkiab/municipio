@@ -6,8 +6,8 @@ require_once('../../templates/header.php');
 <!-- Contenido Datatables -->
 <?php
     require('../../../database.php');
-
-
+    
+    $js = "user/js/user.js";
     $consulta = "SELECT * FROM users";
     $user = mysqli_query($conexion, $consulta);
 
@@ -18,6 +18,7 @@ require_once('../../templates/header.php');
 ?>
 
 <!-- Tabla de usuarios -->
+
 <div class="card">
     <div class="card-header">
         <div class="row">
@@ -99,7 +100,7 @@ require_once('../../templates/header.php');
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <form id="frm_registrar">
+            <form id="frm_registrar" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="" class="col-form-label">Rut</label>
@@ -140,7 +141,7 @@ require_once('../../templates/header.php');
                         <input type="text" class="form-control" name="address" id="address" required>
                     </div>
                 </div>
-            
+              
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Guardar</button>

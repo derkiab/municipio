@@ -28,13 +28,13 @@ $(document).ready(function(){
         $(".modal-header").css("color", "white");
         $(".modal-title").text("Agregar Persona");
         $("#btn_guardar").attr("name", "guardar");
-        $("#modal_user").modal("show");
+        $("#modal_insert").modal("show");
     });
 
     $("#btn_guardar").on('click', function () {
         var datos = $("#frm_registrar").serialize();
         var name = $("#btn_guardar").attr("name");
-        e.preventDefault();
+
         var user_id = $(".update").attr("id");
         if(name == "guardar"){
             var url = "../../pages/user/query/insert.php";
@@ -42,6 +42,7 @@ $(document).ready(function(){
             var url = "../../pages/user/query/update.php"
             datos += "&user_id=" + user_id;
         }
+       
         $.ajax({
             method: "POST",
             url: url,
@@ -52,9 +53,7 @@ $(document).ready(function(){
                         icon: 'success',
                         title: data,
                         showConfirmButton: true,
-                    }).then((result) => {
-                        location.reload();
-                    });
+                    }) 
                 } else {
                     alert("error");
                 }
@@ -75,7 +74,7 @@ $(document).ready(function(){
         $(".modal-header").css("color", "white");
         $(".modal-title").text("Actualizar Persona");
         $("#btn_guardar").attr("name", "actualizar");
-        $("#modal_user").modal("show");
+        $("#modal_insert").modal("show");
         
         if (user_id != '') {
             $.ajax({
@@ -109,7 +108,7 @@ $(document).ready(function(){
         var user_id = $(this).attr("id");
         if (user_id != '') {
             $.ajax({
-                url: "../user/query/delete.php",
+                url: "../../pages/user/query/delete.php",
                 method: "POST",
                 data:{
                     user_id: user_id

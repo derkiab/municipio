@@ -12,21 +12,22 @@
   </head>
   <body>
     <nav class="navbar" style="background-color: #e3f2fd;">
-      <div class="container-fluid">
+      <div class="container-fluid ">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <li class="nav-item">
+          <div class="d-flex">
+            <li class="nav-item px-2">
               <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
-              <i class="fa-brands fa-facebook"></i>
-
+              <i class="fa-brands fa-align-left fa-facebook"></i>    
             </a></li>
-            <li class="nav-item">
+            <li class="nav-item px-2">
               <a class="navbar-link" href="https://www.instagram.com/muni_conce/?hl=es">
-              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-align-left fa-instagram"></i>
             </a></li>
-            <li class="nav-item">
+            <li class="nav-item px-2">
               <a class="navbar-link" href="https://twitter.com/Muni_Concepcion?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-align-left fa-twitter"></i>
             </a></li>
+            </div>
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2 mt-3" type="search" placeholder="BUSQUEDA" aria-label="Search">

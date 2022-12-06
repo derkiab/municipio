@@ -1,6 +1,6 @@
 // Configuracion Data Tables
 $(document).ready(function(){
-    tablaPersonas = $("#tabla_personas").DataTable({
+    tablaPersonas = $("#tabla_contribuciones").DataTable({
 
         "language":{
             "lengthMenu":"Mostrar _MENU_ registros",
@@ -28,20 +28,21 @@ $(document).ready(function(){
         $(".modal-header").css("color", "white");
         $(".modal-title").text("Agregar Persona");
         $("#btn_guardar").attr("name", "guardar");
-        $("#modal_user").modal("show");
+        $("#modal_insert").modal("show");
     });
 
     $("#btn_guardar").on('click', function () {
         var datos = $("#frm_registrar").serialize();
         var name = $("#btn_guardar").attr("name");
-        e.preventDefault();
-        var user_id = $(".update").attr("id");
+
+        var id_opinion = $(".update").attr("id");
         if(name == "guardar"){
             var url = "../../pages/user/query/insert.php";
         }else{
-            var url = "../../pages/user/query/update.php"
-            datos += "&user_id=" + user_id;
+            var url = "../../pages/contributions/query/update.php"
+            datos += "&id_opinion=" + id_opinion;
         }
+       
         $.ajax({
             method: "POST",
             url: url,
@@ -52,11 +53,13 @@ $(document).ready(function(){
                         icon: 'success',
                         title: data,
                         showConfirmButton: true,
-                    }).then((result) => {
-                        location.reload();
-                    });
+                    }) 
                 } else {
-                    alert("error");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Algo salio mal!',
+                    })
                 }
             },
             error: function (data) {
@@ -68,32 +71,28 @@ $(document).ready(function(){
     // Boton Actualizar
  
     $(document).on('click', '.update', function(){
-        var user_id = $(this).attr("id");
+        var id_opinion = $(this).attr("id");
         
         $("#form_personas").trigger("reset");
         $(".modal-header").css("background-color", "#0D6EFD");
         $(".modal-header").css("color", "white");
         $(".modal-title").text("Actualizar Persona");
         $("#btn_guardar").attr("name", "actualizar");
-        $("#modal_user").modal("show");
+        $("#modal_insert").modal("show");
         
-        if (user_id != '') {
+        if (id_opinion != '') {
             $.ajax({
-                url: "../../pages/user/query/update_info.php",
+                url: "../../pages/contributions/query/update_info.php",
                 method: "POST",
                 dataType: "json",
                 data: {
-                    user_id: user_id
+                    id_opinion: id_opinion
                 },
                 success: function (data) {
-                    $('#id_user_update').val(data.result.id_user);
-                    $('#rut').val(data.result.rut_user);
-                    $('#name').val(data.result.name_user);
-                    $('#last_name').val(data.result.lastname_user);
-                    $('#email').val(data.result.email_user);
-                    $('#phone').val(data.result.phone_user);
-                    $('#password').val(data.result.password_user);
-                    $('#address').val(data.result.address_user);
+                    console.log(data);
+                    $('#id_user').attr("value", data.result.id_user);
+                    $('#departament').val(data.result.departament);
+                    $('#opinion').val(data.result.opinion_description);
 
                 },
                 error: function (e) {
@@ -109,7 +108,7 @@ $(document).ready(function(){
         var user_id = $(this).attr("id");
         if (user_id != '') {
             $.ajax({
-                url: "../user/query/delete.php",
+                url: "../../pages/user/query/delete.php",
                 method: "POST",
                 data:{
                     user_id: user_id
