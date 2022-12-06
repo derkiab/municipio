@@ -14,7 +14,8 @@ require_once('../../templates/header.php');
     $consulta_rol = "SELECT * FROM roles";
     $rol = mysqli_query($conexion, $consulta_rol);
 
-    
+    $consulta_department = "SELECT * FROM departments";
+    $department = mysqli_query($conexion, $consulta_department);
 ?>
 
 <!-- Tabla de usuarios -->
@@ -95,6 +96,7 @@ require_once('../../templates/header.php');
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Departamento</label>
+                        
                         <input type="text" class="form-control" name="departament" id="departament" readonly>
                     </div>
                     <div class="form-group">

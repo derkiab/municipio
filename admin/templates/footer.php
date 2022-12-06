@@ -20,9 +20,13 @@
         <!-- SweetAlert2 -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+        <!-- Chart JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js" integrity="sha512-tQYZBKe34uzoeOjY9jr3MX7R/mo7n25vnqbnrkskGr4D6YOoPYSpyafUAzQVjV6xAozAqUFIEFsCO4z8mnVBXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- Javascript -->
+         <script type="text/javascript "src="../../resources/js/active-tab.js"></script>
         
         <script type="text/javascript" src="<?php echo "../".$js ?>"></script>
-        <!-- Javascript --> <script type="text/javascript "src="../../resources/js/active-tab.js"></script>
 
 
     </footer>
