@@ -19,7 +19,10 @@ require_once('../templates/header.php');
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
 =======
 >>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
 <!-- Tabla de usuarios -->
@@ -218,6 +221,9 @@ require_once('../templates/header.php');
     </div>
 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
+=======
 >>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
 =======
 >>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)

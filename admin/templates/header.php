@@ -30,7 +30,7 @@
 
             <div class="list-group list-group-flush my-3" id="navarea">
                 <a href="../home/home.php" class="list-group-item list-group-item-action bg-transparent second-text btn-active active">
-                <i class="fa-solid fa-gauge-high me-2"></i>Tablero
+                <i class="fa-solid fa-gauge-high me-2"></i>Graficos
                 </a>
                 <a href="../user/users.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-user me-2"></i>Usuarios
@@ -46,7 +46,11 @@
                 </a>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+=======
+                <a href="..." class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+>>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
 =======
                 <a href="..." class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
 >>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
@@ -65,7 +69,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex aling-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Tablero</h2>
+                    <h2 class="fs-2 m-0">Panel de control</h2>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar_content">
                     <ul class="navbar nav ms-auto mb-2 mb-lg-0">

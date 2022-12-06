@@ -94,6 +94,7 @@ $(document).ready(function(){
                     $('#id_news_update').val(data.result.id_news);
                     $('#date').val(data.result.date_news);
                     $('#time').val(data.result.time_news);
+                    $('#title').val(data.result.title_news);
                     $('#description').val(data.result.news_description);
                     $('#image').val(data.result.news_image);
                     $('#status').val(data.result.news_status);
