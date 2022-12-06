@@ -139,11 +139,7 @@ require_once('../../templates/header.php');
                         <input type="text" class="form-control" name="address" id="address" required>
                     </div>
                 </div>
-                <div class="form-group">
-                            <label for="" class="col-form-label">Imagen de perfil</label>
-                    <input type="file" accept="image/png, .jpeg, .jpg .svg .jpg" class="form-control shadow-sm" name="image_user" required>
-
-                </div>
+              
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Guardar</button>
