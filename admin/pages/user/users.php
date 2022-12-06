@@ -14,7 +14,7 @@ require_once('../../templates/header.php');
     $consulta_rol = "SELECT * FROM roles";
     $rol = mysqli_query($conexion, $consulta_rol);
 
-    $js = "user/js/main.js";
+    $js = "user/js/mainuser.js";
 ?>
 
 <!-- Tabla de usuarios -->

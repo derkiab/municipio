@@ -55,7 +55,7 @@ require_once('../../templates/header.php');
                                     <td><?php echo $news['date_news']?></td>
                                     <td><?php echo $news['time_news']?></td>
                                     <td><?php echo $news['news_description']?></td>
-                                    <td><?php echo $news['news_image']?></td>
+                                    <td><?php echo "<img src='".$news['news_image']."'style=' width:50%; height:50%; '>" ?></td>
                                     <td><?php echo $news['news_status']?></td>
                                     <td>
                                          <div class='text-center'>   
