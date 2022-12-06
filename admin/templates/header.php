@@ -31,7 +31,7 @@
             <div class="list-group list-group-flush my-3" id="navarea">
                 
                 <a href="../home/home.php" class="list-group-item list-group-item-action bg-transparent second-text btn-active active">
-                <i class="fa-solid fa-gauge-high me-2"></i>Tablero
+                <i class="fa-solid fa-gauge-high me-2"></i>Graficos
                 </a>
                 <a href="../user/users.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-user me-2"></i>Usuarios

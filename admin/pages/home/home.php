@@ -97,7 +97,7 @@ const datos = <?php echo json_encode($news) ?>;
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)'
             ],
-            hoverOffset: 4
+            hoverOffset: 2
         }]
     },
     options: {
@@ -111,9 +111,5 @@ const datos = <?php echo json_encode($news) ?>;
 </script>
 <!-- Fin Contenido -->
 <?php
-    require_once('../templates/footer.php');
-?>
-<!-- Fin Contenido -->
-<?php
-    require_once('../templates/footer.php');
+    require_once('../../templates/footer.php');
 ?>
