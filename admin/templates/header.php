@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <!-- Bootstrap-5.2.2 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="../../resources/css/style.css">
+    
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -43,14 +44,14 @@
                 <a href="../pymes/pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-briefcase me-2"></i>Pymes
                 </a>
-                <a href="../../../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
                     <i class="fa-solid fa-right-from-bracket me-2"></i>Cerrar Sesion
                    
                 </a>
-            </div> 
+            </div>
         </div>
         <!-- Fin Sidebar  -->
-        
+
         <!-- Contenido -->
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
@@ -72,5 +73,5 @@
                         </li>
                     </ul>
                 </div>
-            </nav>        
+            </nav>
             <div class="container-fluid px-4">
