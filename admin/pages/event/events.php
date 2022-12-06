@@ -119,6 +119,8 @@ require_once('../../templates/header.php');
                         <label for="" class="col-form-label" >Estado</label>
                         <input type="text" class="form-control" name="status" id="status" required>
                     </div>
+                   
+                </div>
             
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
