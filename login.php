@@ -17,7 +17,7 @@
             break;
 
             case 2:
-                header('location: user/index.php');
+                header('location: user\index.php');
             break;
 
             default:
@@ -31,6 +31,8 @@
        $consulta = "SELECT * FROM users";
        $user = mysqli_query($conexion, $consulta);
 
+
+
        $consulta_rol = "SELECT * FROM roles";
        $rol = mysqli_query($conexion, $consulta_rol);
 
@@ -39,23 +41,34 @@
        $resultado= mysqli_query($conexion,$consulta);
 
        while($row= mysqli_fetch_assoc ($resultado)){
+           $iduser = $row['id_user'];
+           $username2 = $row['name_user'];
+           $lastname = $row['lastname_user'];
            $username_consultado=$row['email_user'];
            $password_consultado =$row['password_user'];
            $rol_consultado =$row['rol_id'];
            if( $username==$username_consultado){
-               echo  "usuario encontrado";
+
                if( $password==$password_consultado){
-                   echo  "contraseña correcta";
+
                    if($rol_consultado==1){
+                       $_SESSION['iduser'] = $iduser;
+                       $_SESSION['last_name'] = $lastname;
+                       $_SESSION['username'] = $username2;
+                       $_SESSION['email_user'] = $username_consultado;
                        $_SESSION['rol'] = $rol_consultado;
                        header('Location: admin/pages/home/home.php');
                    }elseif($rol_consultado==2){
+                       $_SESSION['iduser'] = $iduser;
+                       $_SESSION['last_name'] = $lastname;
+                       $_SESSION['username'] = $username2;
+                       $_SESSION['email_user'] = $username_consultado;
                        $_SESSION['rol'] = $rol_consultado;
                        header('location: user/index.php');
                    }
                }
                else{
-                   echo  "contraseña incorrecta";
+
                }
            }
        }
