@@ -2,7 +2,7 @@
 $servidor = "localhost";
 $usuario = "root";
 $contrasenna = "";
-$bd = "municipio";
+$bd = "test";
 
 $conexion = mysqli_connect($servidor, $usuario, $contrasenna, $bd);
 ?>
