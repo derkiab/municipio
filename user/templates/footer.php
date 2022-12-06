@@ -17,15 +17,19 @@
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                                 <li class="nav-item">
                                 <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
-                                <i class="fa-brands fa-facebook">&nbsp Municipalidad de Concepcion</i>
+                                <i class="fa-brands fa-facebook"></i>
+                                <label>Municipalidad de Concepcion</label>
                                 </a></li>
                                 <li class="nav-item">
                                 <a class="navbar-link" href="https://www.instagram.com/muni_conce/?hl=es">
-                                <i class="fa-brands fa-instagram">&nbsp @muni_conce</i>
+                                <i class="fa-brands fa-instagram"></i>
+                                <label>@muni_conce</label>
+                                
                                 </a></li>
                                 <li class="nav-item">
                                 <a class="navbar-link" href="https://twitter.com/Muni_Concepcion?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-                                <i class="fa-brands fa-twitter">&nbsp @Muni_Concepcion</i>
+                                <i class="fa-brands fa-twitter"></i>
+                                <label> @Muni_Concepcion</label>
                                 </a></li>
                             </ul>
                         </div>

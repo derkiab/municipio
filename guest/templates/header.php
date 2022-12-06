@@ -14,18 +14,20 @@
     <nav class="navbar" style="background-color: #e3f2fd;">
       <div class="container-fluid">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            
+          <div class="d-flex">
+            <li class="nav-item px-2">
               <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
-              <i class="fa-brands fa-facebook"></i>
-            </a>
-           
+              <i class="fa-brands fa-align-left fa-facebook"></i>    
+            </a></li>
+            <li class="nav-item px-2">
               <a class="navbar-link" href="https://www.instagram.com/muni_conce/?hl=es">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-           
+              <i class="fa-brands fa-align-left fa-instagram"></i>
+            </a></li>
+            <li class="nav-item px-2">
               <a class="navbar-link" href="https://twitter.com/Muni_Concepcion?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
+              <i class="fa-brands fa-align-left fa-twitter"></i>
+            </a></li>
+            </div>
           </ul>
         <!-- <button class="btn btn-outline-success " type="submit" >INICIAR SESION</button> -->
           <a class="btn btn-primary" href="../login.php" role="button">INICIAR SESION</a>

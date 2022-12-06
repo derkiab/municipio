@@ -9,8 +9,9 @@
     $phone_user = $_POST["phone"];
     $password_user = $_POST["password"];
     $address_user = $_POST["address"];
+    $image_user = addslashes(file_get_contents($_FILES['image_user']['tmp_name']));
 
-    $sql = "INSERT INTO users VALUES ('','$rut_user', '$name_user', '$lastname_user', '$email_user', '$rol_id', '$phone_user', '$password_user', '$address_user')";
+    $sql = "INSERT INTO users VALUES ('','$rut_user', '$name_user', '$lastname_user', '$email_user', '$rol_id', '$phone_user', '$password_user', '$address_user', '$image_user')";
 
     $resultado = mysqli_query($conexion, $sql);
     

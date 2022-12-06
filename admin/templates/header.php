@@ -18,6 +18,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="../../resources/css/style.css">
+
+   
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -56,7 +58,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white pb-4 px-4 mb-4">
                 <div class="d-flex aling-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Tablero</h2>
+                    <h2 class="fs-2 m-0">Panel de control</h2>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar_content">
                     <ul class="navbar nav ms-auto mb-2 mb-lg-0">
@@ -67,7 +69,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbar_dropdown">
                                 <li><a href="#" class="dropdown-item">Perfil</a></li>
                                 <li><a href="#" class="dropdown-item">Configuracion</a></li>
-                                <li><a href="#" class="dropdown-item">Cerrar Sesion</a></li>
+                                <li><a href="../../../logout.php" class="dropdown-item">Cerrar Sesion</a></li>
                             </ul>
                         </li>
                     </ul>
