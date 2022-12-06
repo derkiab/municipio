@@ -45,7 +45,11 @@
                     <i class="fa-solid fa-briefcase me-2"></i>Pymes
                 </a>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+=======
+                <a href="..." class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+>>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
 =======
                 <a href="..." class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
 >>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
