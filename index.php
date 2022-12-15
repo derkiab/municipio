@@ -8,10 +8,11 @@
       if($_SESSION['rol'] != 2 || $_SESSION['rol'] != 1){
           header('location: login.php');
       }else if($_SESSION['rol'] == 1){
-          header('location: admin/home.php');
+          header('location: admin\pages\home\home.php');
         }else{
-          header('location: user/index.php');
+          header('location: user\index.php');
         }
+
     }
 
 

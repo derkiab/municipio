@@ -17,48 +17,6 @@ require_once('../../templates/header.php');
     $new = mysqli_query($conexion, $consulta_news);
     $js = "news/js/mainnews.js";
 ?>
-<<<<<<< Updated upstream
-<div class="container">
-    <div class="row">
-        <!-- Boton Activador modal -->
-        <div class="col-lg-12">
-            <button id="btn_agregar" type="button" class="btn btn-success">Agregar</button>
-        </div>
-    </div>
-</div>
-
-<!-- Tabla de usuarios -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="table-responsive">
-                <table id="tabla_personas" class="table table-striped table-bordered table-condensed" style="width:100%">
-                    <thead class="text-center">
-                        <tr>
-                            <th>Rut</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Rol</th>
-                            <th>Telefono</th>
-                            <th>Direccion</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            while($users=mysqli_fetch_assoc($user)){
-                        ?>
-                        <tr>
-                            <td><?php echo $users['rut_user']?></td>
-                            <td><?php echo $users['name_user']?></td>
-                            <td><?php echo $users['lastname_user']?></td>
-                            <td><?php echo $users['email_user']?></td>
-                            <td>
-                                <?php 
-                                    if($users['rol_id'] == 1) echo "admin";
-                                    else echo "user";
-=======
 
 <!-- Tabla de usuarios -->
 <div class="card">
@@ -117,19 +75,11 @@ require_once('../../templates/header.php');
                                 </tr>
                                 <?php
                                     }
->>>>>>> Stashed changes
                                 ?>
-                            </td>
-                            <td><?php echo $users['phone_user']?></td>
-                            <td><?php echo $users['address_user']?></td>
-                            <td>   
-                            </td>
-                        </tr>
-                        <?php
-                            }
-                        ?>
-                    </tbody>
-                </table>     
+                            </tbody>
+                        </table>     
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -147,44 +97,6 @@ require_once('../../templates/header.php');
             <form id="frm_registrar_news">
                 <div class="modal-body">
                     <div class="form-group">
-<<<<<<< Updated upstream
-                        <label for="" class="col-form-label">Rut</label>
-                        <input type="text" class="form-control" name="rut" id="rut">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Nombre</label>
-                        <input type="text" class="form-control" name="name" id="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Apellido</label>
-                        <input type="text" class="form-control" name="last_name" id="last_name">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Email</label>
-                        <input type="email" class="form-control" name="email" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label">Rol</label>
-                        <select class="form-control" name="user_rol" id="user_rol">
-                            <?php
-                             while($roles=mysqli_fetch_assoc($rol)){
-                                echo '<option value="'.$roles['rol_id'].'">'.$roles['rol_nombre'].'</option>';                                        
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label" >Telefono</label>
-                        <input type="tel" class="form-control" name="phone" id="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label" >Contraseña</label>
-                        <input type="password" class="form-control" name="password" id="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-form-label" >Dirección</label>
-                        <input type="text" class="form-control" name="address" id="address">
-=======
                         <label for="" class="col-form-label">Fecha</label>
                         <input type="date" class="form-control" name="date" id="date" required>
                     </div>
@@ -207,7 +119,6 @@ require_once('../../templates/header.php');
                     <div class="form-group">
                         <label for="" class="col-form-label" >Estado</label>
                         <input type="text" class="form-control" name="status" id="status" required>
->>>>>>> Stashed changes
                     </div>
                    
                 </div>
@@ -221,12 +132,9 @@ require_once('../../templates/header.php');
     </div>
 </div>
 
-<<<<<<< Updated upstream
-=======
 
 
 
->>>>>>> Stashed changes
 <!-- Fin Contenido -->
 <?php
     require_once('../../templates/footer.php');
