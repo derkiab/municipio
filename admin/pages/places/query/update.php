@@ -8,7 +8,7 @@ $type_place = $_POST["type"];
 $icon_place  = $_POST["icon"];
 
 
-$sql = "UPDATE news SET name_category='$type_place', icon_category='$icon_place' WHERE id_category ='$id'";
+$sql = "UPDATE category_places_of_interest SET name_category='$type_place', icon_category='$icon_place' WHERE id_category ='$id'";
 
 $resultado = mysqli_query($conexion, $sql);
 

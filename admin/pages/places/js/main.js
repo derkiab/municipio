@@ -123,5 +123,40 @@ $(document).ready(function(){
       }
   });
 
+    $(document).on('click', '.delete', function () {
+        var new_id = $(this).attr("id");
+        if (new_id != '') {
+            $.ajax({
+                url: "../places/query/delete.php",
+                method: "POST",
+                data:{
+                    new_id: new_id
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data == "success") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: "Eliminado con exito",
+                            showConfirmButton: true,
+                        }).then((result) => {
+                            location.reload();
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Algo salio mal!',
+                        })
+                    }
+
+                },
+                error: function (e) {
+                    alert("fallo");
+
+                }
+            });
+        }
+    });
 
 });
