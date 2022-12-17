@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 <?php
     require('../database.php');
 
@@ -47,7 +43,7 @@
             <div class="carousel-item" style="width: 90rem;">
                 <a class="navbar-link" href="...">
                     <img src="https://s3.abcstatics.com/media/sociedad/2016/10/20/gato-huerfano2-kM2--620x349@abc.jpg" class="d-block w-100 " alt="..." width="100%" height="70%">
-                </a>    
+                </a>
             <div class="carousel-caption d-none d-md-block">
                 <h5>NOTICIA 3</h5>
                 <p>MICHI 3</p>
@@ -74,7 +70,7 @@
         <div class="col">
             <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
                 <div class="card" style="width: 18rem;">
-                
+
                 <img src="<?php echo $events['event_image'] ?>" class="card-img-top" alt="..." width="300" height="300">
                     <div class="card">
                         <div class="card-header">
@@ -91,17 +87,10 @@
                         <?php echo $events['event_status']?>
                         </div>
                     </div>
-                </a> 
+                </a>
             </div>
         <?php
          }
         ?>
     </div>
 </div>
-
-=======
->>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
-=======
->>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)
-=======
->>>>>>> parent of fefa2ae (mostrar noticias y eventos en usuarios y visita)

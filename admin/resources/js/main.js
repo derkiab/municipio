@@ -28,13 +28,13 @@ $(document).ready(function(){
         $(".modal-header").css("color", "white");
         $(".modal-title").text("Agregar Persona");
         $("#btn_guardar").attr("name", "guardar");
-        $("#modal_user").modal("show");
+        $("#modal_insert").modal("show");
     });
 
     $("#btn_guardar").on('click', function () {
         var datos = $("#frm_registrar").serialize();
         var name = $("#btn_guardar").attr("name");
-
+        e.preventDefault();
         var user_id = $(".update").attr("id");
         if(name == "guardar"){
             var url = "../../pages/user/query/insert.php";
@@ -42,7 +42,6 @@ $(document).ready(function(){
             var url = "../../pages/user/query/update.php"
             datos += "&user_id=" + user_id;
         }
-        console.log(url);
         $.ajax({
             method: "POST",
             url: url,
@@ -51,15 +50,13 @@ $(document).ready(function(){
                 if (data == "success") {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Realizado con exito',
-                        
-                    })
+                        title: data,
+                        showConfirmButton: true,
+                    }).then((result) => {
+                        location.reload();
+                    });
                 } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Algo salio mal!',
-                    })
+                    alert("error");
                 }
             },
             error: function (data) {
@@ -69,17 +66,17 @@ $(document).ready(function(){
     });
 
     // Boton Actualizar
- 
+
     $(document).on('click', '.update', function(){
         var user_id = $(this).attr("id");
-        
+
         $("#form_personas").trigger("reset");
         $(".modal-header").css("background-color", "#0D6EFD");
         $(".modal-header").css("color", "white");
         $(".modal-title").text("Actualizar Persona");
         $("#btn_guardar").attr("name", "actualizar");
         $("#modal_insert").modal("show");
-        
+
         if (user_id != '') {
             $.ajax({
                 url: "../../pages/user/query/update_info.php",
@@ -112,16 +109,17 @@ $(document).ready(function(){
         var user_id = $(this).attr("id");
         if (user_id != '') {
             $.ajax({
-                url: "../user/query/delete.php",
+                url: "../../pages/user/query/delete.php",
                 method: "POST",
                 data:{
                     user_id: user_id
                 },
                 success: function (data) {
+                    console.log(data);
                     if (data == "success") {
                         Swal.fire({
                             icon: 'success',
-                            title: data,
+                            title: "Eliminado con exito",
                             showConfirmButton: true,
                         }).then((result) => {
                             location.reload();
@@ -142,7 +140,7 @@ $(document).ready(function(){
             });
         }
     });
-    
+
 
     // Jquery Validate
     $("frm_registrar").validate({
@@ -200,7 +198,7 @@ $(document).ready(function(){
                 email: "la direccion de correo debe tener el formato ejemplo@ejemplo.cl"
             },
             user_rol:{
-                required: "Por favor seleccione un tipo de usuario" 
+                required: "Por favor seleccione un tipo de usuario"
             },
             phone:{
                 required: "Por favor ingrese su numero de telefono",
@@ -216,5 +214,6 @@ $(document).ready(function(){
             }
         }
     });
-})
+    
 
+})

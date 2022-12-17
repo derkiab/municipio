@@ -2,15 +2,18 @@
     require ("../../../../database.php");
     session_start();
 
-    $id_user = $_POST["user_id"];
+    $type_place = $_POST["type"];
+    $icon_place  = $_POST["icon"];
 
-    $sql = "DELETE FROM `users` WHERE id_user = '$id_user'";
+
+    $sql = "INSERT INTO category_places_of_interest VALUES ('','$type_place ', '$icon_place')";
 
     $resultado = mysqli_query($conexion, $sql);
-    
+
     if ($resultado) {
         echo "success";
-    } else {
+    } else
+    {
         echo 'error';
     }
 ?>

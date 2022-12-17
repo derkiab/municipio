@@ -17,9 +17,8 @@ $sql = "UPDATE users SET rut_user='$rut_user', name_user='$name_user', lastname_
 
 $resultado = mysqli_query($conexion, $sql);
 
-
 if ($resultado) {
-    echo 'success';
+    echo "success";
 } else {
     echo 'error';
 }

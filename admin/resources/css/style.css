@@ -1,13 +1,14 @@
 :root{
-    --main-bg-color: #009d63;
+    --main-bg-color: #bdc6cf;
     --main-text-color: #009d63;
     --second-text-color: #bbbec5;
-    --second-bg-color: #e9f4f0;
+    --second-bg-color: #edeffa;
 }
 
 .primary-text{
     color: var(--main-text-color);
 }
+.primary-text
 .second-text{
     color: var(--second-text-color);
 }
@@ -22,7 +23,8 @@
 }
 #wrapper{
     overflow-x: hidden;
-    background-image: linear-gradient(to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef);
+    /* background-image: linear-gradient(to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef); */
+    background: var(--main-bg-color);
 }
 #sidebar-wrapper{
     min-height: 100vh;
@@ -54,6 +56,13 @@
     color: var(--main-text-color);
     font-weight: bold;
     border:none;
+}
+
+.sidebar-heading{
+    background-image: url('../../../assets/munimg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 @media (min-width: 768px){
     #sidebar-wrapper{

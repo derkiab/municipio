@@ -12,7 +12,7 @@
 
 
 
-    $sql = "INSERT INTO opinions (id_user,opinion_description,department,id_type_contribution) VALUES ($user, '$descripcion', '$department', '$contribution')";
+    $sql = "INSERT INTO opinions VALUES ('','$user', '$descripcion', '', '$department', '$contribution')";
 
     $resultado = mysqli_query($conexion, $sql);
     header ('Location: ../../index.php');
