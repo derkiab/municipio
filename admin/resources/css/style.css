@@ -57,6 +57,13 @@
     font-weight: bold;
     border:none;
 }
+
+.sidebar-heading{
+    background-image: url('../../../assets/munimg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 @media (min-width: 768px){
     #sidebar-wrapper{
         margin-left: 0;
