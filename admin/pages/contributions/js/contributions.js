@@ -89,9 +89,8 @@ $(document).ready(function(){
                     id_opinion: id_opinion
                 },
                 success: function (data) {
-                    console.log(data);
                     $('#id_user').attr("value", data.result.id_user);
-                    $('#departament').val(data.result.departament);
+                    $('#department').attr("value",data.result.department);
                     $('#opinion').val(data.result.opinion_description);
 
                 },

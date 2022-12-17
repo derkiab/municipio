@@ -14,8 +14,7 @@ require_once('../../templates/header.php');
     $consulta_rol = "SELECT * FROM roles";
     $rol = mysqli_query($conexion, $consulta_rol);
 
-    $consulta_department = "SELECT * FROM departments";
-    $department = mysqli_query($conexion, $consulta_department);
+    
 ?>
 
 <!-- Tabla de usuarios -->
@@ -40,6 +39,7 @@ require_once('../../templates/header.php');
                                     <th>Descripcion</th>
                                     <th>Imagen (Opcional)</th>
                                     <th>Departamento</th>
+                                    <th>Tipo</th>
                                     <th>Respuesta</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -52,7 +52,32 @@ require_once('../../templates/header.php');
                                     <td><?php echo $opinions['id_user']?></td>
                                     <td><?php echo $opinions['opinion_description']?></td>
                                     <td><?php echo $opinions['opinion_image']?></td>
-                                    <td><?php echo $opinions['department']?></td>                                
+                                    <td><?php 
+                                    
+                                    $namedepa;
+                                    $iddepa = $opinions['department'];
+                                    $sql1 = "SELECT * FROM departments";
+                                    $query = mysqli_query($conexion, $sql1);
+                                    while($rows = mysqli_fetch_assoc($query)){
+                                        if($rows['id_department']== $iddepa){
+                                            $namedepa = $rows['name_department'];
+                                        }
+                                    }
+                                    echo $namedepa;
+
+                                    ?></td> 
+                                    <td><?php $nametype;
+                                            $idtype = $opinions['id_type_contribution'];
+                                            $sql2 = "SELECT * FROM contribution_types";
+                                             $query2 = mysqli_query($conexion, $sql2);
+                                            while($rows = mysqli_fetch_assoc($query2)){
+                                                 if($rows['id_contribution_type']== $idtype){
+                                                        $nametype = $rows['name_contribution_type'];
+                                                 }
+                                            }
+                                    echo $nametype;
+                                    
+                                    ?></td>                                
                                     <td><?php echo $opinions['answer']?></td>                                
                                     <td>
                                         <div class='text-center'>
@@ -91,13 +116,12 @@ require_once('../../templates/header.php');
             <form id="frm_registrar">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="" class="col-form-label">Id usario</label>
+                        <label for="" class="col-form-label">Id usuario</label>
                         <input type="text" class="form-control" name="id_user" id="id_user" readonly>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Departamento</label>
-                        
-                        <input type="text" class="form-control" name="departament" id="departament" readonly>
+                        <input type="text" class="form-control" name="department" id="department" readonly>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Opinion</label>

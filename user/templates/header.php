@@ -6,28 +6,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style/styles.css">
     <!-- iconos -->
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <nav class="navbar" style="background-color: #e3f2fd;">
-      <div class="container-fluid ">
+      <div class="container-fluid">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          <div class="d-flex">
-            <li class="nav-item px-2">
+            <li class="nav-item">
               <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
-              <i class="fa-brands fa-align-left fa-facebook"></i>    
+              <i class="fa-brands fa-facebook"></i>
+
             </a></li>
-            <li class="nav-item px-2">
+            <li class="nav-item">
               <a class="navbar-link" href="https://www.instagram.com/muni_conce/?hl=es">
-              <i class="fa-brands fa-align-left fa-instagram"></i>
+              <i class="fa-brands fa-instagram"></i>
             </a></li>
-            <li class="nav-item px-2">
+            <li class="nav-item">
               <a class="navbar-link" href="https://twitter.com/Muni_Concepcion?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-              <i class="fa-brands fa-align-left fa-twitter"></i>
+              <i class="fa-brands fa-twitter"></i>
             </a></li>
-            </div>
           </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 mt-3" type="search" placeholder="BUSQUEDA" aria-label="Search">
+            <button class="btn btn-outline-success me-2 mt-3" type="submit">BUSQUEDA</button>
+          </form>
           <a class="btn btn-primary" href="../logout.php" role="button">CERRAR SESION</a>
       </div>
     </nav>
@@ -47,7 +51,7 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php?p=commune">NUESTRA COMUNA</a>
             </li>
-            
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="index.php?p=formalities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 TRAMITES
@@ -68,12 +72,9 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php?p=contributions">CONTRIBUCIONES</a>
             </li>
-            
+
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="BUSQUEDA" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">BUSQUEDA</button>
-          </form>
+          
         </div>
       </div>
     </nav>

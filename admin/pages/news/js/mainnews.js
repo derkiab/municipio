@@ -1,6 +1,6 @@
 // Configuracion Data Tables
 $(document).ready(function(){
-    tablaPersonas = $("#tabla_personas").DataTable({
+    tablaNoticias = $("#tabla_noticias").DataTable({
 
         "language":{
             "lengthMenu":"Mostrar _MENU_ registros",
@@ -22,41 +22,46 @@ $(document).ready(function(){
 // Configuracion Modal
 
 //Mostrar modal agregar
-    $("#btn_agregar").click(function(){
-        $("#form_personas").trigger("reset");
+    $("#btn_agregar_news").click(function(){
+        $("#form_noticias").trigger("reset");
         $(".modal-header").css("background-color", "#28a745");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Agregar Persona");
+        $(".modal-title").text("Agregar Noticia");
         $("#btn_guardar").attr("name", "guardar");
-        $("#modal_insert").modal("show");
+        $("#modal_news").modal("show");
     });
 
     $("#btn_guardar").on('click', function () {
-        var datos = $("#frm_registrar").serialize();
+        var datos = $("#frm_registrar_news").serialize();
         var name = $("#btn_guardar").attr("name");
-        e.preventDefault();
-        var user_id = $(".update").attr("id");
+
+        var new_id = $(".update").attr("id");
         if(name == "guardar"){
-            var url = "../../pages/user/query/insert.php";
+            var url = "../../pages/news/query/insert.php";
         }else{
-            var url = "../../pages/user/query/update.php"
-            datos += "&user_id=" + user_id;
+            var url = "../../pages/news/query/update.php"
+            datos += "&new_id=" + new_id;
         }
+        console.log(url);
         $.ajax({
             method: "POST",
             url: url,
             data: datos,
             success: function (data) {
+                // alert(data);
+                console.log(data);
                 if (data == "success") {
                     Swal.fire({
                         icon: 'success',
-                        title: data,
-                        showConfirmButton: true,
-                    }).then((result) => {
-                        location.reload();
-                    });
+                        title: 'Realizado con exito',
+                        
+                    })
                 } else {
-                    alert("error");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Algo salio mal!',
+                    })
                 }
             },
             error: function (data) {
@@ -66,35 +71,33 @@ $(document).ready(function(){
     });
 
     // Boton Actualizar
-
+ 
     $(document).on('click', '.update', function(){
-        var user_id = $(this).attr("id");
-
-        $("#form_personas").trigger("reset");
+        var new_id = $(this).attr("id");
+        
+        $("#form_noticias").trigger("reset");
         $(".modal-header").css("background-color", "#0D6EFD");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Actualizar Persona");
+        $(".modal-title").text("Actualizar Noticia");
         $("#btn_guardar").attr("name", "actualizar");
-        $("#modal_insert").modal("show");
-
-        if (user_id != '') {
+        $("#modal_news").modal("show");
+        
+        if (new_id != '') {
             $.ajax({
-                url: "../../pages/user/query/update_info.php",
+                url: "../../pages/news/query/update_info.php",
                 method: "POST",
                 dataType: "json",
                 data: {
-                    user_id: user_id
+                    new_id: new_id
                 },
                 success: function (data) {
-                    $('#id_user_update').val(data.result.id_user);
-                    $('#rut').val(data.result.rut_user);
-                    $('#name').val(data.result.name_user);
-                    $('#last_name').val(data.result.lastname_user);
-                    $('#email').val(data.result.email_user);
-                    $('#phone').val(data.result.phone_user);
-                    $('#password').val(data.result.password_user);
-                    $('#address').val(data.result.address_user);
-
+                    $('#id_news_update').val(data.result.id_news);
+                    $('#date').val(data.result.date_news);
+                    $('#time').val(data.result.time_news);
+                    $('#title').val(data.result.title_news);
+                    $('#description').val(data.result.news_description);
+                    $('#image').val(data.result.news_image);
+                    $('#status').val(data.result.news_status);
                 },
                 error: function (e) {
                     alert("fallo");
@@ -106,20 +109,19 @@ $(document).ready(function(){
 
     // Boton Eliminar
     $(document).on('click', '.delete', function () {
-        var user_id = $(this).attr("id");
-        if (user_id != '') {
+        var new_id = $(this).attr("id");
+        if (new_id != '') {
             $.ajax({
-                url: "../../pages/user/query/delete.php",
+                url: "../news/query/delete.php",
                 method: "POST",
                 data:{
-                    user_id: user_id
+                    new_id: new_id
                 },
                 success: function (data) {
-                    console.log(data);
                     if (data == "success") {
                         Swal.fire({
                             icon: 'success',
-                            title: "Eliminado con exito",
+                            title: data,
                             showConfirmButton: true,
                         }).then((result) => {
                             location.reload();
@@ -140,80 +142,56 @@ $(document).ready(function(){
             });
         }
     });
-
+    
 
     // Jquery Validate
-    $("frm_registrar").validate({
+    $("frm_registrar_news").validate({
         rules:{
-            rut:{
+            date:{
                 required: true,
                 number: true,
                 minleght: 7
             },
-            name:{
-                required: true,
-                minleght: 3
-            },
-            last_name:{
-                required: true,
-                minleght: 3
-            },
-            email:{
-                required: true,
-                email: true,
-                minleght: 3
-            },
-            user_rol:{
-                required: true,
-                minleght: 3
-            },
-            phone:{
+            time:{
                 required: true,
                 number: true,
                 minleght: 3
             },
-            password:{
-                required: true,
-                minleght: 8
-            },
-            address:{
+            description:{
                 required: true,
                 minleght: 3
-            }
+            },
+            image:{
+                required: true,
+                minleght: 3
+            },
+
+            status:{
+                required: true,
+                minleght: 3
+            },
         },
         messages:{
-            rut:{
-                required: "Por favor ingrese su rut sin guion",
+            date:{
+                required: "Por favor ingrese la fecha",
                 number: "Por favor solo ingrese numeros",
-                minleght: "Por favor ingrese un rut valido"
             },
-            name:{
-                required: "Por favor ingrese su nombre"
+            time:{
+                required: "Por favor ingrese su nombre",
+                number: "Por favor solo ingrese numeros"
             },
-            last_name:{
-                required: "Por favor ingrese su apellido"
+            description:{
+                required: "Por favor ingrese una descripcion"
             },
-            email:{
-                required: "Por favor ingrese su direccion de correo",
-                email: "la direccion de correo debe tener el formato ejemplo@ejemplo.cl"
+            image:{
+                required: "Por favor ingrese una imagen",
             },
-            user_rol:{
-                required: "Por favor seleccione un tipo de usuario"
+  
+            status:{
+                required: "Por favor ingrese el estado",
+
             },
-            phone:{
-                required: "Por favor ingrese su numero de telefono",
-                number: "Por favor solo ingrese numeros",
-                minleght: "Por favor ingrese un numero valido"
-            },
-            password:{
-                required: "Por favor ingrese una contraseña",
-                minleght: "La contraseña debe contener como minimo ocho caracteres"
-            },
-            address:{
-                required: "Por favor ingrese su direccion"
-            }
         }
     });
-    
-
 })
+
