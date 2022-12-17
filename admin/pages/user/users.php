@@ -57,8 +57,8 @@ require_once('../../templates/header.php');
                                     <td><?php echo $users['email_user']?></td>
                                     <td>
                                         <?php 
-                                            if($users['rol_id'] == 1) echo "admin";
-                                            else echo "user";
+                                            if($users['rol_id'] == 1) echo "Administrador";
+                                            else echo "Usuario";
                                         ?>
                                     </td>
                                     <td><?php echo $users['phone_user']?></td>
@@ -118,7 +118,7 @@ require_once('../../templates/header.php');
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Rol</label>
-                        <select class="form-control" name="user_rol" id="user_rol" required>
+                        <select class="form-select" name="user_rol" id="user_rol" required>
                             <?php
                             while($roles=mysqli_fetch_assoc($rol)){
                                 echo '<option value="'.$roles['rol_id'].'">'.$roles['rol_nombre'].'</option>';                                        
