@@ -157,6 +157,10 @@ $(document).ready(function(){
                 number: true,
                 minleght: 3
             },
+            title:{
+                required: true,
+                minleght: 3
+            },
             description:{
                 required: true,
                 minleght: 3
@@ -179,6 +183,9 @@ $(document).ready(function(){
             time:{
                 required: "Por favor ingrese su nombre",
                 number: "Por favor solo ingrese numeros"
+            },
+            title:{
+                required: "Por favor ingrese un titulo"
             },
             description:{
                 required: "Por favor ingrese una descripcion"

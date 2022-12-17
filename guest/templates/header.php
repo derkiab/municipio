@@ -34,7 +34,7 @@
       </div>
     </nav>
     
-    <img src="../assets/media/images/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
+    <img src="../assets/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
 
     <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
       <div class="container-fluid ">

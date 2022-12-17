@@ -34,7 +34,7 @@
           <a class="btn btn-primary" href="../logout.php" role="button">CERRAR SESION</a>
       </div>
     </nav>
-    <img src="../assets/media/images/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
+    <img src="../assets/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
 
     <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
       <div class="container-fluid ">

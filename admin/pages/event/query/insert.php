@@ -6,8 +6,9 @@
     $event_description = $_POST["description"];
     $event_image  = $_POST["image"];
     $event_status  = $_POST["status"];
+    $title_event  = $_POST["title"];
 
-    $sql = "INSERT INTO events VALUES ('','$date_event  ', '$time_event  ', '$event_description ', '$event_image', '$event_status')";
+    $sql = "INSERT INTO events VALUES ('','$date_event  ', '$time_event ', '$event_description ', '$event_image', '$event_status','$title_event ')";
 
     $resultado = mysqli_query($conexion, $sql);
     
