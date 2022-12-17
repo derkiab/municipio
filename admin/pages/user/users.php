@@ -24,7 +24,7 @@ require_once('../../templates/header.php');
                 <h5>Usuarios</h5>
             </div>
             <div class="col-lg-8 text-end">
-                <button id="btn_agregar" type="button" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-success add">Agregar</button>
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@ require_once('../../templates/header.php');
                         <label for="" class="col-form-label">Rol</label>
                         <select class="form-control" name="user_rol" id="user_rol" required>
                             <?php
-                             while($roles=mysqli_fetch_assoc($rol)){
+                            while($roles=mysqli_fetch_assoc($rol)){
                                 echo '<option value="'.$roles['rol_id'].'">'.$roles['rol_nombre'].'</option>';                                        
                             }
                             ?>
@@ -142,7 +142,7 @@ require_once('../../templates/header.php');
               
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Guardar</button>
+                    <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success save">Guardar</button>
                 </div>
             </form>
         </div>

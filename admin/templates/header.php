@@ -32,7 +32,7 @@
                 </div>
             <div class="list-group list-group-flush my-3" id="navarea">
 
-                <a href="../home/home.php" class="list-group-item list-group-item-action bg-transparent second-text btn-active active">
+                <a href="../home/home.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                 <i class="fa-solid fa-gauge-high me-2"></i>Tablero
                 </a>
                 <a href="../user/users.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
@@ -44,9 +44,9 @@
                 <a href="../event/events.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-calendar-days me-2"></i>Eventos
                 </a>
-                <!-- <a href="../pymes/pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
+                <a href="../pymes/pymes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-briefcase me-2"></i>Pymes
-                </a> -->
+                </a>
                 <a href="../contributions/contributions.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-briefcase me-2"></i>Contribucion
                 </a>

@@ -22,7 +22,7 @@ $(document).ready(function(){
 // Configuracion Modal
 
 //Mostrar modal agregar
-    $("#btn_agregar").click(function(){
+    $(document).on('click', '.add', function(){
         $("#form_personas").trigger("reset");
         $(".modal-header").css("background-color", "#28a745");
         $(".modal-header").css("color", "white");
@@ -31,36 +31,37 @@ $(document).ready(function(){
         $("#modal_insert").modal("show");
     });
 
-    $("#btn_guardar").on('click', function () {
+    $(document).on('click', '.save', function(e){
+        e.preventDefault();
         var datos = $("#frm_registrar").serialize();
-        var name = $("#btn_guardar").attr("name");
+        var name = $(".save").attr("name");
 
         var user_id = $(".update").attr("id");
         if(name == "guardar"){
             var url = "../../pages/user/query/insert.php";
+            var title = "Guardado";
         }else{
             var url = "../../pages/user/query/update.php"
             datos += "&user_id=" + user_id;
+            var title = "Actualizado";
         }
-       
-        $.ajax({
-            method: "POST",
-            url: url,
-            data: datos,
-            success: function (data) {
-                if (data == "success") {
-                    Swal.fire({
-                        icon: 'success',
-                        title: data,
-                        showConfirmButton: true,
-                    }) 
-                } else {
-                    alert("error");
+        Swal.fire({
+            icon: 'success',
+            title: title + " con exito",
+            showConfirmButton: true,
+        }).then((result) => {
+            $.ajax({
+                method: "POST",
+                url: url,
+                data: datos,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    alert("fallo");
                 }
-            },
-            error: function (data) {
-                alert("fallo");
-            }
+            });
+            location.reload();
         });
     });
 
@@ -137,80 +138,6 @@ $(document).ready(function(){
 
                 }
             });
-        }
-    });
-    
-
-    // Jquery Validate
-    $("frm_registrar").validate({
-        rules:{
-            rut:{
-                required: true,
-                number: true,
-                minleght: 7
-            },
-            name:{
-                required: true,
-                minleght: 3
-            },
-            last_name:{
-                required: true,
-                minleght: 3
-            },
-            email:{
-                required: true,
-                email: true,
-                minleght: 3
-            },
-            user_rol:{
-                required: true,
-                minleght: 3
-            },
-            phone:{
-                required: true,
-                number: true,
-                minleght: 3
-            },
-            password:{
-                required: true,
-                minleght: 8
-            },
-            address:{
-                required: true,
-                minleght: 3
-            }
-        },
-        messages:{
-            rut:{
-                required: "Por favor ingrese su rut sin guion",
-                number: "Por favor solo ingrese numeros",
-                minleght: "Por favor ingrese un rut valido"
-            },
-            name:{
-                required: "Por favor ingrese su nombre"
-            },
-            last_name:{
-                required: "Por favor ingrese su apellido"
-            },
-            email:{
-                required: "Por favor ingrese su direccion de correo",
-                email: "la direccion de correo debe tener el formato ejemplo@ejemplo.cl"
-            },
-            user_rol:{
-                required: "Por favor seleccione un tipo de usuario" 
-            },
-            phone:{
-                required: "Por favor ingrese su numero de telefono",
-                number: "Por favor solo ingrese numeros",
-                minleght: "Por favor ingrese un numero valido"
-            },
-            password:{
-                required: "Por favor ingrese una contraseña",
-                minleght: "La contraseña debe contener como minimo ocho caracteres"
-            },
-            address:{
-                required: "Por favor ingrese su direccion"
-            }
         }
     });
 })

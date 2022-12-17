@@ -49,9 +49,6 @@ require_once('../../templates/header.php');
     </div>
 </div>
 
-
-
-
 <script>
 const datos = <?php echo json_encode($news) ?>;
 
