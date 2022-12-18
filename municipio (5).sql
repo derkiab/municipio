@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2022 a las 03:05:30
+-- Tiempo de generación: 18-12-2022 a las 23:42:03
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.1
 
@@ -38,39 +38,11 @@ CREATE TABLE `category_places_of_interest` (
 --
 
 INSERT INTO `category_places_of_interest` (`id_category`, `name_category`, `icon_category`) VALUES
-(3, 'Parque', 'https://img.icons8.com/color-glass/512/carousel.png'),
-(5, 'eddd ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(6, 'Edificio ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(7, 'Edificio  ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(8, 'eddd 2 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(9, 'eddd 2 3 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(10, 'eee ', ' Icono (Inserte '),
-(11, 'Parque2 ', 'https://img.icons8.com/color-glass/512/carousel.png'),
-(12, 'Parque2 4312 ', 'https://img.icons8.com/color-glass/512/carousel.png'),
-(13, 'terea ', '223123123'),
-(14, 'Carousel ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(15, 'Carousel42 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(16, '23 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(17, '23  ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(18, 'Parque545 ', 'https://img.icons8.com/color-glass/512/carousel.png'),
-(19, 'Carousel |1231231 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(20, 'Diego ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(21, 'Diego2 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(22, 'Derqui ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(23, 'Carousel 123123 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(24, 'Diego2 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(25, 'Diego3 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(26, 'Derqui2222 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(27, '12314123125412341 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(28, 'Fernando ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(29, 'fernandoxd ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(30, 'derqui2232 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(31, 'diego12345 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(32, 'test1 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(33, 'ttttt ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(34, 'aaaaaaa ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(35, 'aaaaaaaa2 ', 'https://img.icons8.com/color-glass/512/city-buildings.png'),
-(36, 'aaaaaaaa3 ', 'https://img.icons8.com/color-glass/512/city-buildings.png');
+(42, 'Parque ', 'https://img.icons8.com/fluency/512/park-with-street-light.png'),
+(43, 'Zoologico', 'https://img.icons8.com/fluency/512/zoo.png'),
+(44, 'Plaza', 'https://img.icons8.com/fluency/512/fountain.png'),
+(45, 'Museo', 'https://img.icons8.com/fluency/512/museum.png'),
+(46, 'Mall', 'https://img.icons8.com/fluency/512/shopping-mall.png');
 
 -- --------------------------------------------------------
 
@@ -162,6 +134,53 @@ CREATE TABLE `events` (
   `event_image` varchar(255) NOT NULL,
   `event_status` text NOT NULL,
   `title_event` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `maps`
+--
+
+CREATE TABLE `maps` (
+  `id_map` int(11) NOT NULL,
+  `lat_northeast` float NOT NULL,
+  `lng_northeast` float NOT NULL,
+  `lat_southwest` float NOT NULL,
+  `lng_southwest` float NOT NULL,
+  `center_x` float NOT NULL,
+  `center_y` float NOT NULL,
+  `min_zoom` float NOT NULL,
+  `max_zoom` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `map_icons`
+--
+
+CREATE TABLE `map_icons` (
+  `id_map_icon` int(11) NOT NULL,
+  `name_icon` text NOT NULL,
+  `img_icon` text NOT NULL,
+  `id_map` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `map_locations`
+--
+
+CREATE TABLE `map_locations` (
+  `id_map_location` int(11) NOT NULL,
+  `lat_location` float NOT NULL,
+  `lng_location` float NOT NULL,
+  `name_location` text NOT NULL,
+  `description_location` text NOT NULL,
+  `img_location` text NOT NULL,
+  `id_map` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -366,6 +385,26 @@ ALTER TABLE `events`
   ADD PRIMARY KEY (`id_event`);
 
 --
+-- Indices de la tabla `maps`
+--
+ALTER TABLE `maps`
+  ADD PRIMARY KEY (`id_map`);
+
+--
+-- Indices de la tabla `map_icons`
+--
+ALTER TABLE `map_icons`
+  ADD PRIMARY KEY (`id_map_icon`),
+  ADD KEY `id_map_fk` (`id_map`);
+
+--
+-- Indices de la tabla `map_locations`
+--
+ALTER TABLE `map_locations`
+  ADD PRIMARY KEY (`id_map_location`),
+  ADD KEY `id_map_fk2` (`id_map`);
+
+--
 -- Indices de la tabla `news`
 --
 ALTER TABLE `news`
@@ -437,7 +476,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `category_places_of_interest`
 --
 ALTER TABLE `category_places_of_interest`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `commentaries`
@@ -470,6 +509,24 @@ ALTER TABLE `events`
   MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `maps`
+--
+ALTER TABLE `maps`
+  MODIFY `id_map` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `map_icons`
+--
+ALTER TABLE `map_icons`
+  MODIFY `id_map_icon` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `map_locations`
+--
+ALTER TABLE `map_locations`
+  MODIFY `id_map_location` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `news`
 --
 ALTER TABLE `news`
@@ -485,7 +542,7 @@ ALTER TABLE `opinions`
 -- AUTO_INCREMENT de la tabla `places_of_interest`
 --
 ALTER TABLE `places_of_interest`
-  MODIFY `id_place` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_place` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `procedures`
@@ -516,6 +573,18 @@ ALTER TABLE `commentaries`
   ADD CONSTRAINT `commentaries_FK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Filtros para la tabla `map_icons`
+--
+ALTER TABLE `map_icons`
+  ADD CONSTRAINT `id_map_fk` FOREIGN KEY (`id_map`) REFERENCES `maps` (`id_map`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `map_locations`
+--
+ALTER TABLE `map_locations`
+  ADD CONSTRAINT `id_map_fk2` FOREIGN KEY (`id_map`) REFERENCES `maps` (`id_map`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `opinions`
 --
 ALTER TABLE `opinions`
@@ -529,12 +598,6 @@ ALTER TABLE `opinions`
 ALTER TABLE `participates`
   ADD CONSTRAINT `participates_FK` FOREIGN KEY (`id_entrepeneur`) REFERENCES `entrepeneurs` (`id_entrepeneur`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `participates_FK_1` FOREIGN KEY (`id_event`) REFERENCES `events` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `places_of_interest`
---
-ALTER TABLE `places_of_interest`
-  ADD CONSTRAINT `categort_place_FK` FOREIGN KEY (`category_place`) REFERENCES `category_places_of_interest` (`id_category`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `publishes_in`
