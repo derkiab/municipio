@@ -14,7 +14,6 @@ require_once('../../templates/header.php');
     $consulta_rol = "SELECT * FROM roles";
     $rol = mysqli_query($conexion, $consulta_rol);
 
-    
 ?>
 
 <!-- Tabla de usuarios -->
@@ -35,7 +34,7 @@ require_once('../../templates/header.php');
                         <table id="tabla_contribuciones" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
-                                    <th>ID Usuario</th>
+                                    <th>Nombre Usuario</th>
                                     <th>Descripcion</th>
                                     <th>Imagen (Opcional)</th>
                                     <th>Departamento</th>
@@ -49,7 +48,13 @@ require_once('../../templates/header.php');
                                     while($opinions=mysqli_fetch_assoc($opinion)){
                                 ?>
                                 <tr>
-                                    <td><?php echo $opinions['id_user']?></td>
+                                    <?php
+                                        $id_user = $opinions['id_user'];
+                                        $consulta_user = "SELECT name_user, lastname_user FROM users WHERE id_user = '$id_user'";
+                                        $sql_user = mysqli_query($conexion, $consulta_user);
+                                        $name_user = mysqli_fetch_assoc($sql_user);
+                                    ?>
+                                    <td><?php echo $name_user['name_user'] ?></td>
                                     <td><?php echo $opinions['opinion_description']?></td>
                                     <td><?php echo $opinions['opinion_image']?></td>
                                     <td><?php 
@@ -112,21 +117,22 @@ require_once('../../templates/header.php');
                 <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <form id="frm_registrar">
+            
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="" class="col-form-label">Id usuario</label>
-                        <input type="text" class="form-control" name="id_user" id="id_user" readonly>
+                        <input type="text" class="form-control" name="id_user" id="id_user" disabled>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Departamento</label>
-                        <input type="text" class="form-control" name="department" id="department" readonly>
+                        <input type="text" class="form-control" name="department" id="department" disabled>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Opinion</label>
-                        <input type="text" class="form-control" name="opinion" id="opinion" readonly>
+                        <input type="text" class="form-control" name="opinion" id="opinion" disabled>
                     </div>
+            
                     <div class="form-group">
                         <label for="" class="col-form-label">Respuesta</label>
                         <textarea class="form-control" name="answer" id="answer" required></textarea>

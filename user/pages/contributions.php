@@ -29,7 +29,7 @@
 
 ?>
 <div class="container d-flex justify-content-center py-5">
-<div class="card border-success mb-3 " style="max-width: 24rem;">
+<div class="card border-dark mb-3 " style="max-width: 24rem;">
   <div class="card-header bg-transparent border-success">Contribucion</div>
   <div class="card-body">
     <form action="pages/insert.php" method="POST" id="contributionform">

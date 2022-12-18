@@ -11,33 +11,27 @@
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
   <body >
-    <nav class="navbar" style="background-color: #004794;">
-      <div class="container-fluid">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <div class="d-flex">
+     <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
+      <div class="container-fluid ">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <div class="d-flex">
             <li class="nav-item px-1">
               <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
               <i class="fa-brands fa-facebook"></i>
-
-            </a></li>
+              </a>
+            </li>
             <li class="nav-item px-1">
               <a class="navbar-link" href="https://www.instagram.com/muni_conce/?hl=es">
               <i class="fa-brands fa-instagram"></i>
-            </a></li>
+              </a>
+            </li>
             <li class="nav-item px-1">
               <a class="navbar-link" href="https://twitter.com/Muni_Concepcion?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
               <i class="fa-brands fa-twitter"></i>
-            </a></li>
-            </div>
-          </ul>
-          
-          <a class="btn btn-primary" href="../logout.php" role="button">CERRAR SESION</a>
-      </div>
-    </nav>
-    <img src="../assets/media/images/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
-
-    <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
-      <div class="container-fluid ">
+              </a>
+            </li>
+          </div>
+        </ul>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center ms-auto">
             <li class="nav-item ">
@@ -73,7 +67,39 @@
             </li>
 
           </ul>
-          
+          <div class="collapse navbar-collapse" id="navbar_content">
+            <ul class="navbar nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item-dropdown">
+                <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbar_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-envelope"></i>
+                  <sup>1</sup>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbar_dropdown">
+                  <li><a href="#" class="dropdown-item">Perfil</a></li>
+                  <li><a href="#" class="dropdown-item">Configuracion</a></li>
+                  <li><a href="../logout.php" class="dropdown-item">Ver todas</a></li>
+                </ul>
+              </li>
+              
+              <li class="nav-item-dropdown">
+                <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbar_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user me-2"></i>Demo
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbar_dropdown">
+                    <li><a href="#" class="dropdown-item">Perfil</a></li>
+                    <li><a href="#" class="dropdown-item">Configuracion</a></li>
+                    <li><a href="../logout.php" class="dropdown-item">Cerrar Sesion</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+    </nav>
+    <img src="../assets/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
     </nav>

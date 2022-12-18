@@ -94,8 +94,8 @@ $(document).ready(function(){
                     $('#opinion').val(data.result.opinion_description);
 
                 },
-                error: function (e) {
-                    alert("fallo");
+                error: function (data) {
+                    alert(data);
 
                 }
             });
