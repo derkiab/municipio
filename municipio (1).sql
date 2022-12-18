@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2022 a las 11:13:33
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.1
+-- Tiempo de generación: 18-12-2022 a las 07:47:15
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -107,11 +107,19 @@ CREATE TABLE `events` (
   `id_event` int(11) NOT NULL,
   `date_event` date NOT NULL,
   `time_event` time NOT NULL,
+  `title_event` varchar(255) NOT NULL,
   `event_description` text NOT NULL,
   `event_image` varchar(255) NOT NULL,
-  `event_status` text NOT NULL,
-  `title_event` varchar(255) NOT NULL
+  `id_status_event` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `events`
+--
+
+INSERT INTO `events` (`id_event`, `date_event`, `time_event`, `title_event`, `event_description`, `event_image`, `id_status_event`) VALUES
+(2, '2022-12-15', '19:25:00', 'michitos', 'la pelusa la gata mas bella de la vida ', 'https://i.pinimg.com/736x/e0/c0/a4/e0c0a4aab16f04f250f4cc6b7946cf9d.jpg', 2),
+(3, '2022-12-15', '19:25:00', 'michis felices', 'la pelusa la gata mas bella de la vida ', 'https://i.pinimg.com/736x/e0/c0/a4/e0c0a4aab16f04f250f4cc6b7946cf9d.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -123,20 +131,19 @@ CREATE TABLE `news` (
   `id_news` int(11) NOT NULL,
   `date_news` date NOT NULL,
   `time_news` time NOT NULL,
+  `title_news` varchar(255) NOT NULL,
   `news_description` text NOT NULL,
   `news_image` varchar(255) NOT NULL,
-  `news_status` varchar(50) NOT NULL,
-  `title_news` varchar(255) NOT NULL
+  `id_status_news` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `news`
 --
 
-INSERT INTO `news` (`id_news`, `date_news`, `time_news`, `news_description`, `news_image`, `news_status`, `title_news`) VALUES
-(1, '2022-12-09', '09:59:00', 'Noticias ', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 'www', 'ja'),
-(5, '2022-12-17', '12:12:00', 'descripcion1 ', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 'estado1', 'Titulo1'),
-(6, '2022-12-15', '10:16:00', ' ', '', '', '');
+INSERT INTO `news` (`id_news`, `date_news`, `time_news`, `title_news`, `news_description`, `news_image`, `id_status_news`) VALUES
+(1, '2022-12-07', '15:15:00', 'michis de hasmterdar', 'michis de hamsterdas se divorcian', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 2),
+(8, '2022-12-17', '12:12:00', 'michis de hasmterdar', 'michis de hamsterdas se divorcian', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 2);
 
 -- --------------------------------------------------------
 
@@ -248,6 +255,45 @@ INSERT INTO `roles` (`rol_id`, `rol_nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `status_events`
+--
+
+CREATE TABLE `status_events` (
+  `id_status_event` int(12) NOT NULL,
+  `status_event_name` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `status_events`
+--
+
+INSERT INTO `status_events` (`id_status_event`, `status_event_name`) VALUES
+(1, 'Próximamente'),
+(2, 'En curso'),
+(3, 'Finalizado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `status_news`
+--
+
+CREATE TABLE `status_news` (
+  `id_status_news` int(30) NOT NULL,
+  `status_news_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `status_news`
+--
+
+INSERT INTO `status_news` (`id_status_news`, `status_news_name`) VALUES
+(1, 'En curso'),
+(2, 'Finalizada');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -305,13 +351,15 @@ ALTER TABLE `entrepeneurs`
 -- Indices de la tabla `events`
 --
 ALTER TABLE `events`
-  ADD PRIMARY KEY (`id_event`);
+  ADD PRIMARY KEY (`id_event`),
+  ADD KEY `id_status_event` (`id_status_event`);
 
 --
 -- Indices de la tabla `news`
 --
 ALTER TABLE `news`
-  ADD PRIMARY KEY (`id_news`);
+  ADD PRIMARY KEY (`id_news`),
+  ADD KEY `id_status_news` (`id_status_news`);
 
 --
 -- Indices de la tabla `opinions`
@@ -363,6 +411,18 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`rol_id`);
 
 --
+-- Indices de la tabla `status_events`
+--
+ALTER TABLE `status_events`
+  ADD PRIMARY KEY (`id_status_event`);
+
+--
+-- Indices de la tabla `status_news`
+--
+ALTER TABLE `status_news`
+  ADD PRIMARY KEY (`id_status_news`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -402,13 +462,13 @@ ALTER TABLE `entrepeneurs`
 -- AUTO_INCREMENT de la tabla `events`
 --
 ALTER TABLE `events`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `news`
 --
 ALTER TABLE `news`
-  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `opinions`
@@ -433,6 +493,18 @@ ALTER TABLE `procedures`
 --
 ALTER TABLE `roles`
   MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `status_events`
+--
+ALTER TABLE `status_events`
+  MODIFY `id_status_event` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `status_news`
+--
+ALTER TABLE `status_news`
+  MODIFY `id_status_news` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

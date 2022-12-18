@@ -15,6 +15,8 @@ require_once('../../templates/header.php');
 
     $consulta_event = "SELECT * FROM events";
     $event = mysqli_query($conexion, $consulta_event);
+    $consulta_status_event = "SELECT * FROM status_events";
+    $status_event = mysqli_query($conexion, $consulta_status_event);
     $js = "event/js/mainevent.js";
 ?>
 
@@ -58,7 +60,13 @@ require_once('../../templates/header.php');
                                     <td><?php echo $events['title_event']?></td>
                                     <td><?php echo $events['event_description']?></td>
                                     <td><?php echo "<img src='".$events['event_image']."'style=' width:50%; height:50%; '>" ?></td>
-                                    <td><?php echo $events['event_status']?></td>
+                                    <td>
+                                        <?php 
+                                            if($events['id_status_event'] == 1) echo "Proximamente";
+                                            elseif($events['id_status_event'] == 2)echo "En curso";
+                                            else echo "Finalizado";
+                                        ?>
+                                    </td>
                                     <td>
                                          <div class='text-center'>   
                                             <div class='btn-group'>
@@ -116,8 +124,14 @@ require_once('../../templates/header.php');
                         <input type="text" class="form-control" name="image" id="image" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label" >Estado</label>
-                        <input type="text" class="form-control" name="status" id="status" required>
+                        <label for="" class="col-form-label">Estado</label>
+                        <select class="form-select" name="status" id="status" required>
+                            <?php
+                            while($status_events=mysqli_fetch_assoc($status_event)){
+                                echo '<option value="'.$status_events['id_status_event'].'">'.$status_events['status_event_name'].'</option>';                                        
+                            }
+                            ?>
+                        </select>
                     </div>
                    
                 </div>

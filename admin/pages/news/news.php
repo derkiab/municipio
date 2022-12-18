@@ -15,7 +15,12 @@ require_once('../../templates/header.php');
 
     $consulta_news = "SELECT * FROM news";
     $new = mysqli_query($conexion, $consulta_news);
+
+    $consulta_status_new = "SELECT * FROM status_news";
+    $status_new = mysqli_query($conexion, $consulta_status_new);
     $js = "news/js/mainnews.js";
+
+
 ?>
 
 <!-- Tabla de usuarios -->
@@ -59,7 +64,12 @@ require_once('../../templates/header.php');
 
                                     <td><?php echo $news['news_description']?></td>
                                     <td><?php echo "<img src='".$news['news_image']."'style=' width:50%; height:50%; '>" ?></td>
-                                    <td><?php echo $news['news_status']?></td>
+                                    <td>
+                                        <?php 
+                                            if($news['id_status_news'] == 1) echo "En curso";
+                                            else echo "Finalizado";
+                                        ?>
+                                    </td>
                                     <td>
                                          <div class='text-center'>   
                                             <div class='btn-group'>
@@ -117,8 +127,14 @@ require_once('../../templates/header.php');
                         <input type="text" class="form-control" name="image" id="image" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label" >Estado</label>
-                        <input type="text" class="form-control" name="status" id="status" required>
+                        <label for="" class="col-form-label">Estado</label>
+                        <select class="form-select" name="status" id="status" required>
+                            <?php
+                            while($status_news=mysqli_fetch_assoc($status_new)){
+                                echo '<option value="'.$status_news['id_status_news'].'">'.$status_news['status_news_name'].'</option>';                                        
+                            }
+                            ?>
+                        </select>
                     </div>
                    
                 </div>

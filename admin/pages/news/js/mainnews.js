@@ -97,7 +97,7 @@ $(document).ready(function(){
                     $('#title').val(data.result.title_news);
                     $('#description').val(data.result.news_description);
                     $('#image').val(data.result.news_image);
-                    $('#status').val(data.result.news_status);
+                   
                 },
                 error: function (e) {
                     alert("fallo");
@@ -144,61 +144,6 @@ $(document).ready(function(){
     });
     
 
-    // Jquery Validate
-    $("frm_registrar_news").validate({
-        rules:{
-            date:{
-                required: true,
-                number: true,
-                minleght: 7
-            },
-            time:{
-                required: true,
-                number: true,
-                minleght: 3
-            },
-            title:{
-                required: true,
-                minleght: 3
-            },
-            description:{
-                required: true,
-                minleght: 3
-            },
-            image:{
-                required: true,
-                minleght: 3
-            },
-
-            status:{
-                required: true,
-                minleght: 3
-            },
-        },
-        messages:{
-            date:{
-                required: "Por favor ingrese la fecha",
-                number: "Por favor solo ingrese numeros",
-            },
-            time:{
-                required: "Por favor ingrese su nombre",
-                number: "Por favor solo ingrese numeros"
-            },
-            title:{
-                required: "Por favor ingrese un titulo"
-            },
-            description:{
-                required: "Por favor ingrese una descripcion"
-            },
-            image:{
-                required: "Por favor ingrese una imagen",
-            },
-  
-            status:{
-                required: "Por favor ingrese el estado",
-
-            },
-        }
-    });
+   
 })
 
