@@ -15,8 +15,10 @@ require_once('../../templates/header.php');
 
     $consulta_event = "SELECT * FROM events";
     $event = mysqli_query($conexion, $consulta_event);
+
     $consulta_status_event = "SELECT * FROM status_events";
     $status_event = mysqli_query($conexion, $consulta_status_event);
+    
     $js = "event/js/mainevent.js";
 ?>
 
