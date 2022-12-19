@@ -34,13 +34,11 @@ $(document).ready(function(){
     $("#btn_guardar").on('click', function () {
         var datos = $("#frm_registrar_news").serialize();
         var name = $("#btn_guardar").attr("name");
-
-        var new_id = $(".update").attr("id");
+        
         if(name == "guardar"){
             var url = "../../pages/news/query/insert.php";
         }else{
             var url = "../../pages/news/query/update.php"
-            datos += "&new_id=" + new_id;
         }
         console.log(url);
         $.ajax({
