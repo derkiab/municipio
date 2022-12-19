@@ -10,25 +10,29 @@
 ?>
 
 <div class="card">
-    <div class="card-body " style="width: 90rem;">
+    <div class="card-body.justify-content-start m-5 ">
     <?php
     
     $news=mysqli_fetch_assoc($new);
     
     ?>
-        <h5 class="card-title"><?php echo $news['title_news']?></h5>
-        <p class="card-text"><?php echo $news['news_description']?></p>
-
+        <h3 class="card-title fw-bold"  ><?php echo $news['title_news']?></h3>
+        <hr>
     </div>
     
     <div class="text-center">
         <img src="<?php echo $news['news_image'] ?>" class="rounded" alt="..." width="80%" height="500px">
     </div>
-
-    <div class="card-footer text-muted">
+  
+    <div class="card-body m-5 ">
+    <HR></HR>
+        <h5 class="card-text.justify-content-start" ><?php echo $news['news_description']?></h5>
+        Noticia:&nbsp; 
         <?php 
-            if($news['id_status_news'] == 1) echo "En curso";
-            else echo "Finalizado";
+           if($news['id_status_news'] == 1) echo "En curso";
+            else echo "Finalizada";
         ?>
-  </div>
+    </div>
+
 </div>
+
