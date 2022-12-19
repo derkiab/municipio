@@ -27,6 +27,74 @@ $(document).ready(function(){
     document.documentElement.scrollTop = 0;
   }
 
+  var maxBounds = L.latLngBounds(
+    L.latLng(-36.881560492888575, -73.08421820120873), //Southwest
+    L.latLng(-36.763447946173144, -72.98434534959863)  //Northeast
+    );
+
+    var map = L.map('map', {
+                'center': [0, 0],
+                'zoom': 0,
+                'maxBounds': maxBounds
+            }).fitBounds(maxBounds);
+
+    map.options.minZoom = 12;          
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var LeafIcon = L.Icon.extend({
+        options: {
+            
+            iconSize:     [29, 29],
+            
+            iconAnchor:   [29/2, 29/2],
+            shadowAnchor: [4, 62],
+            popupAnchor:  [29/2, 29/2]
+        }
+    });
+
+    var parkIcon = new LeafIcon({
+        
+        iconUrl: 'https://img.icons8.com/fluency/512/park-with-street-light.png'
+
+    });
+
+    L.marker([-36.832731107744216, -73.04735135017759], {icon: parkIcon}).addTo(map).bindPopup("I am a green leaf.");
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
 
@@ -50,7 +118,7 @@ $(document).ready(function(){
 });
 
 $("#btn_agregar_places").click(function(){
-    $("#frm_registrar_places").trigger("reset");
+    $("#frm_places").trigger("reset");
     $(".modal-header").css("background-color", "#28a745");
     $(".modal-header").css("color", "white");
     $(".modal-title").text("Agregar Tipo de Lugar");

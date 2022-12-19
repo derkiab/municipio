@@ -30,13 +30,14 @@
 
         <!-- Leaflet-->
         
-    
+        
         <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
         <!-- Esri-->
 
         <script src="https://unpkg.com/esri-leaflet@^3.0.9/dist/esri-leaflet.js"></script>
         <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.3/dist/esri-leaflet-geocoder.js"></script>
-
+        <script src="https://unpkg.com/leaflet-search@2.3.3/dist/leaflet-search.src.js"></script>
+        
     </footer>
 </body>
 </html>

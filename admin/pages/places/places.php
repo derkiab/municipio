@@ -249,6 +249,36 @@ $queryLugar = mysqli_query($conexion, $sqllugar);
           </div>
       </div>
   </div>
+    
+  <div class="card">
+  <div class="card-header">
+    <h5>Mapa</h5>
+
+  </div class="card-body">
+  
+  <div class="container map-container">
+     <div class="" id="map">
+
+     </div>
+     <br>
+     <div class="">
+        <div class="card-header">
+            <h5>Configuracion del mapa</h5>
+        </div>
+        
+        <form action="mapconfig">
+            
+
+        </form>
+     </div>
+  </div>                          
+
+
+  
+
+
+
+
 
 <button type="button" class="btn btn-success btn-floating btn-lg" id="btn-back-to-top"
 style="position: fixed;

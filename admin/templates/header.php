@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.3/dist/esri-leaflet-geocoder.css" crossorigin="" />
 
+    <link rel="stylesheet" href="../places/style/styles.css">
 
 </head>
 <body>

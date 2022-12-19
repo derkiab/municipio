@@ -5,7 +5,7 @@ $data = array();
 
 $id = $_POST["new_id"];
 
-$sql = "SELECT * FROM `category_places_of_interest` WHERE id_category = '$id'";
+$sql = "SELECT * FROM category_places_of_interest WHERE id_category = '$id'";
 
 $resultado = mysqli_query($conexion, $sql);
 
