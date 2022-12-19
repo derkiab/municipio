@@ -43,6 +43,7 @@ require_once('../../templates/header.php');
                         <table id="tabla_noticias" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
+                                    <th>ID</th>
                                     <th>Fecha</th>
                                     <th>Hora</th>
                                     <th>Titulo</th>
@@ -58,6 +59,7 @@ require_once('../../templates/header.php');
                                     while($news=mysqli_fetch_assoc($new)){
                                 ?>
                                 <tr>
+                                    <td><?php echo $news['id_news']?></td>
                                     <td><?php echo $news['date_news']?></td>
                                     <td><?php echo $news['time_news']?></td>
                                     <td><?php echo $news['title_news']?></td>
@@ -106,6 +108,7 @@ require_once('../../templates/header.php');
 
             <form id="frm_registrar_news">
                 <div class="modal-body">
+                
                     <div class="form-group">
                         <label for="" class="col-form-label">Fecha</label>
                         <input type="date" class="form-control" name="date" id="date" required>

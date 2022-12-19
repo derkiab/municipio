@@ -91,6 +91,7 @@ $(document).ready(function(){
                     new_id: new_id
                 },
                 success: function (data) {
+                    console.log(data);
                     $('#id_news_update').val(data.result.id_news);
                     $('#date').val(data.result.date_news);
                     $('#time').val(data.result.time_news);

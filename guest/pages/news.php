@@ -71,7 +71,7 @@
         while($news=mysqli_fetch_assoc($new)){
     ?>
         <div class="col">
-            <a class="navbar-link" href="index.php?p=show_news" id="<?php echo $news['id_news']; ?>">
+            <a class="navbar-link" href="index.php?p=show_news&id_news=<?php echo $news['id_news']; ?>" >
            
                 <div class="card" style="width: 18rem;">
 
