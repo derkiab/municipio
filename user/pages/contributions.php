@@ -1,13 +1,4 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
-    }else{
-        if($_SESSION['rol'] != 2){
-            header('location: ../login.php');
-        }
-    }
-?>
+
 
 <?php
 
@@ -20,10 +11,10 @@
 
   $consulta3 = "SELECT * FROM users";
   $user = mysqli_query($conexion,$consulta3);
-  $userid=0;
+  $userid = 0;
   while ($rows = mysqli_fetch_assoc($user)) {
     if($rows['email_user'] == $_SESSION['email_user'])
-      $userid = (int)$rows['id_user'];
+      $userid = (int)$rows['id_user'];  
       
   }
 
@@ -52,7 +43,7 @@
                   <?php
                     while($departamentos=mysqli_fetch_assoc($department)){
                       echo '<option value="'.$departamentos['id_department'].'">'.$departamentos['name_department'].'</option>';
-                  }
+                    }
                   ?>
               </select>
           </div>

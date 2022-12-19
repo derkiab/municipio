@@ -92,11 +92,10 @@ $(document).ready(function(){
                     $('#id_user').attr("value", data.result.id_user);
                     $('#department').attr("value",data.result.department);
                     $('#opinion').val(data.result.opinion_description);
-
+                    console.log(data);
                 },
                 error: function (data) {
                     alert(data);
-
                 }
             });
         }
