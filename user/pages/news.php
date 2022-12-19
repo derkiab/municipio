@@ -9,6 +9,9 @@
 
     $consulta_news = "SELECT * FROM news";
     $new = mysqli_query($conexion, $consulta_news);
+
+    $consulta_status_new = "SELECT * FROM status_news";
+    $status_new = mysqli_query($conexion, $consulta_status_new);
     $js = "news/js/mainnews.js";
 ?>
 
@@ -68,7 +71,7 @@
         while($news=mysqli_fetch_assoc($new)){
     ?>
         <div class="col">
-            <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
+            <a class="navbar-link" href="index.php?p=show_news">
                 <div class="card" style="width: 18rem;">
 
                 <img src="<?php echo $news['news_image'] ?>" class="card-img-top" alt="..." width="300" height="300">
@@ -84,7 +87,11 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                        <?php echo $news['news_status']?>
+                            <p><?php 
+                                if($news['id_status_news'] == 1) echo "En curso";
+                                else echo "Finalizado";
+                            ?></p>
+
                         </div>
                     </div>
                 </a>

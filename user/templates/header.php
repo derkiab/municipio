@@ -10,50 +10,49 @@
     <!-- iconos -->
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
-  <body>
-    <nav class="navbar" style="background-color: #e3f2fd;">
+  <body >
+    <nav class="navbar" style="background-color: #004794;">
       <div class="container-fluid">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <li class="nav-item">
+            <div class="d-flex">
+            <li class="nav-item px-1">
               <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
               <i class="fa-brands fa-facebook"></i>
 
             </a></li>
-            <li class="nav-item">
+            <li class="nav-item px-1">
               <a class="navbar-link" href="https://www.instagram.com/muni_conce/?hl=es">
               <i class="fa-brands fa-instagram"></i>
             </a></li>
-            <li class="nav-item">
+            <li class="nav-item px-1">
               <a class="navbar-link" href="https://twitter.com/Muni_Concepcion?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
               <i class="fa-brands fa-twitter"></i>
             </a></li>
+            </div>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 mt-3" type="search" placeholder="BUSQUEDA" aria-label="Search">
-            <button class="btn btn-outline-success me-2 mt-3" type="submit">BUSQUEDA</button>
-          </form>
+          
           <a class="btn btn-primary" href="../logout.php" role="button">CERRAR SESION</a>
       </div>
     </nav>
-    <img src="../assets/media/images/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
+    <img src="../assets/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
 
-    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
       <div class="container-fluid ">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.php?p=home">INICIO</a>
+            <li class="nav-item ">
+              <a class="nav-link text-white" aria-current="page" href="index.php?p=home">INICIO</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=map">MAPA INTERACTIVO</a>
+              <a class="nav-link text-white" href="index.php?p=map">MAPA INTERACTIVO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=commune">NUESTRA COMUNA</a>
+              <a class="nav-link text-white" href="index.php?p=commune">NUESTRA COMUNA</a>
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="index.php?p=formalities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-white" href="index.php?p=formalities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 TRAMITES
               </a>
               <ul class="dropdown-menu">
@@ -64,13 +63,13 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=news">NOTICIAS</a>
+              <a class="nav-link text-white" href="index.php?p=news">NOTICIAS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=events">EVENTOS</a>
+              <a class="nav-link text-white" href="index.php?p=events">EVENTOS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=contributions">CONTRIBUCIONES</a>
+              <a class="nav-link text-white" href="index.php?p=contributions">CONTRIBUCIONES</a>
             </li>
 
           </ul>

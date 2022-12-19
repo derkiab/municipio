@@ -2,7 +2,7 @@
     --main-bg-color: #bdc6cf;
     --main-text-color: #009d63;
     --second-text-color: #bbbec5;
-    --second-bg-color: #303f9f;
+    --second-bg-color: #edeffa;
 }
 
 .primary-text{
@@ -56,6 +56,13 @@
     color: var(--main-text-color);
     font-weight: bold;
     border:none;
+}
+
+.sidebar-heading{
+    background-image: url('../../../assets/munimg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 @media (min-width: 768px){
     #sidebar-wrapper{

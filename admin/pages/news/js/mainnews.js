@@ -1,6 +1,6 @@
 // Configuracion Data Tables
 $(document).ready(function(){
-    tablaPersonas = $("#tabla_personas").DataTable({
+    tablaNoticias = $("#tabla_noticias").DataTable({
 
         "language":{
             "lengthMenu":"Mostrar _MENU_ registros",
@@ -22,78 +22,81 @@ $(document).ready(function(){
 // Configuracion Modal
 
 //Mostrar modal agregar
-    $(document).on('click', '.add', function(){
-        $("#form_personas").trigger("reset");
+    $("#btn_agregar_news").click(function(){
+        $("#form_noticias").trigger("reset");
         $(".modal-header").css("background-color", "#28a745");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Agregar Persona");
+        $(".modal-title").text("Agregar Noticia");
         $("#btn_guardar").attr("name", "guardar");
-        $("#modal_insert").modal("show");
+        $("#modal_news").modal("show");
     });
 
-    $(document).on('click', '.save', function(e){
-        e.preventDefault();
-        var datos = $("#frm_registrar").serialize();
-        var name = $(".save").attr("name");
-
-        var user_id = $(".update").attr("id");
+    $("#btn_guardar").on('click', function () {
+        var datos = $("#frm_registrar_news").serialize();
+        var name = $("#btn_guardar").attr("name");
+        
         if(name == "guardar"){
-            var url = "../../pages/user/query/insert.php";
-            var title = "Guardado";
+            var url = "../../pages/news/query/insert.php";
         }else{
-            var url = "../../pages/user/query/update.php"
-            var title = "Actualizado";
+            var url = "../../pages/news/query/update.php"
         }
-        Swal.fire({
-            icon: 'success',
-            title: title + " con exito",
-            showConfirmButton: true,
-        }).then((result) => {
-            $.ajax({
-                method: "POST",
-                url: url,
-                data: datos,
-                success: function (data) {
-                    console.log(data);
-                },
-                error: function (data) {
-                    alert("fallo");
+        console.log(url);
+        $.ajax({
+            method: "POST",
+            url: url,
+            data: datos,
+            success: function (data) {
+                // alert(data);
+                console.log(data);
+                if (data == "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Realizado con exito',
+                        
+                    })
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Algo salio mal!',
+                    })
                 }
-            });
-            location.reload();
+            },
+            error: function (data) {
+                alert("fallo");
+            }
         });
     });
 
     // Boton Actualizar
  
     $(document).on('click', '.update', function(){
-        var user_id = $(this).attr("id");
+        var new_id = $(this).attr("id");
         
-        $("#form_personas").trigger("reset");
+        $("#form_noticias").trigger("reset");
         $(".modal-header").css("background-color", "#0D6EFD");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Actualizar Persona");
+        $(".modal-title").text("Actualizar Noticia");
         $("#btn_guardar").attr("name", "actualizar");
-        $("#modal_insert").modal("show");
+        $("#modal_news").modal("show");
         
-        if (user_id != '') {
+        if (new_id != '') {
             $.ajax({
-                url: "../../pages/user/query/update_info.php",
+                url: "../../pages/news/query/update_info.php",
                 method: "POST",
                 dataType: "json",
                 data: {
-                    user_id: user_id
+                    new_id: new_id
                 },
                 success: function (data) {
-                    $('#id_user_update').val(data.result.id_user);
-                    $('#rut').val(data.result.rut_user);
-                    $('#name').val(data.result.name_user);
-                    $('#last_name').val(data.result.lastname_user);
-                    $('#email').val(data.result.email_user);
-                    $('#phone').val(data.result.phone_user);
-                    $('#password').val(data.result.password_user);
-                    $('#address').val(data.result.address_user);
-
+                    console.log(data);
+                    $('#id_news_update').val(data.result.id_news);
+                    $('#date').val(data.result.date_news);
+                    $('#time').val(data.result.time_news);
+                    $('#title').val(data.result.title_news);
+                    $('#description').val(data.result.news_description);
+                    $('#image').val(data.result.news_image);
+                   
                 },
                 error: function (e) {
                     alert("fallo");
@@ -105,20 +108,19 @@ $(document).ready(function(){
 
     // Boton Eliminar
     $(document).on('click', '.delete', function () {
-        var user_id = $(this).attr("id");
-        if (user_id != '') {
+        var new_id = $(this).attr("id");
+        if (new_id != '') {
             $.ajax({
-                url: "../../pages/user/query/delete.php",
+                url: "../news/query/delete.php",
                 method: "POST",
                 data:{
-                    user_id: user_id
+                    new_id: new_id
                 },
                 success: function (data) {
-                    console.log(data);
                     if (data == "success") {
                         Swal.fire({
                             icon: 'success',
-                            title: "Eliminado con exito",
+                            title: data,
                             showConfirmButton: true,
                         }).then((result) => {
                             location.reload();
@@ -139,5 +141,8 @@ $(document).ready(function(){
             });
         }
     });
+    
+
+   
 })
 

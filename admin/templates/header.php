@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <!-- Bootstrap-5.2.2 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
@@ -19,18 +19,19 @@
 
     <link rel="stylesheet" href="../../resources/css/style.css">
 
-   
+
+
+
 </head>
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="secondary-bg" id="sidebar-wrapper">
-        <div class="sidebar-heading text-center pb-6 primary-text fs-4 fw-bold text-uppercase primary-bg">
-                    <i></i>Municipalidad
-                </div>
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center pb-5 mt-2 primary-text fs-4 fw-bold text-uppercase">
+            </div>
             <div class="list-group list-group-flush my-3" id="navarea">
-                
-                <a href="../home/home.php" class="list-group-item list-group-item-action bg-transparent second-text btn-active active">
+
+                <a href="../home/home.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                 <i class="fa-solid fa-gauge-high me-2"></i>Tablero
                 </a>
                 <a href="../user/users.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
@@ -48,17 +49,20 @@
                 <a href="../contributions/contributions.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
                     <i class="fa-solid fa-briefcase me-2"></i>Contribucion
                 </a>
+                <a href="../places/places.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold btn-active">
+                    <i class="fa-solid fa-map me-2"></i>Mapa
+                </a>
                 <a href="../../../logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
                     <i class="fa-solid fa-right-from-bracket me-2"></i>Cerrar Sesion
-                   
+
                 </a>
-            </div> 
+            </div>
         </div>
         <!-- Fin Sidebar  -->
-        
+
         <!-- Contenido -->
         <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white pb-4 px-4 mb-4">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 mb-4">
                 <div class="d-flex aling-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
                     <h2 class="fs-2 m-0">Panel de control</h2>
@@ -77,5 +81,5 @@
                         </li>
                     </ul>
                 </div>
-            </nav>        
+            </nav>
             <div class="container-fluid px-4">

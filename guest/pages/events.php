@@ -9,6 +9,10 @@
 
     $consulta_event = "SELECT * FROM events";
     $event = mysqli_query($conexion, $consulta_event);
+    
+    $consulta_status_event = "SELECT * FROM status_events";
+    $status_event = mysqli_query($conexion, $consulta_status_event);
+
     $js = "event/js/mainevent.js";
 ?>
 
@@ -68,7 +72,7 @@
         while($events=mysqli_fetch_assoc($event)){
     ?>
         <div class="col">
-            <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
+            <a class="navbar-link" href="index.php?p=show_events">
                 <div class="card" style="width: 18rem;">
 
                 <img src="<?php echo $events['event_image'] ?>" class="card-img-top" alt="..." width="300" height="300">
@@ -84,7 +88,11 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                        <?php echo $events['event_status']?>
+                            <?php 
+                                if($events['id_status_event'] == 1) echo "Proximamente";
+                                elseif($events['id_status_event'] == 2)echo "En curso";
+                                else echo "Finalizado";
+                            ?>
                         </div>
                     </div>
                 </a>

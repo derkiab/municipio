@@ -1,5 +1,5 @@
 <footer>
-        <div class="card " style="background-color:#e3f2fd;">
+        <div class="card " style="background-color:#486FAF;">
         <div class="card-body">
            
             <div class="container text-star">
