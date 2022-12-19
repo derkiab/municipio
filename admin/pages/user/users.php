@@ -100,6 +100,7 @@ require_once('../../templates/header.php');
 
             <form id="frm_registrar" enctype="multipart/form-data">
                 <div class="modal-body">
+                <input hidden type="number" id="id_users_update" name="user_id"> 
                     <div class="form-group">
                         <label for="" class="col-form-label">Rut</label>
                         <input type="text" class="form-control" name="rut" id="rut" required>

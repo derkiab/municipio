@@ -42,7 +42,6 @@ $(document).ready(function(){
             var title = "Guardado";
         }else{
             var url = "../../pages/user/query/update.php"
-            datos += "&user_id=" + user_id;
             var title = "Actualizado";
         }
         Swal.fire({

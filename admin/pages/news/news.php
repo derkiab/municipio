@@ -108,7 +108,7 @@ require_once('../../templates/header.php');
 
             <form id="frm_registrar_news">
                 <div class="modal-body">
-                    <input type="number" id="id_news_update" name="new_id">              
+                    <input hidden type="number" id="id_news_update" name="new_id">              
                     <div class="form-group">
                         <label for="" class="col-form-label">Fecha</label>
                         <input type="date" class="form-control" name="date" id="date" required>

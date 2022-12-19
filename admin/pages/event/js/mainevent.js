@@ -40,7 +40,6 @@ $(document).ready(function(){
             var url = "../../pages/event/query/insert.php";
         }else{
             var url = "../../pages/event/query/update.php"
-            datos += "&event_id=" + event_id;
         }
         console.log(url);
         $.ajax({
