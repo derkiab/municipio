@@ -3,7 +3,7 @@ require ("../../../../database.php");
 session_start();
 $data = array();
 
-$id = $_POST["new_id"];
+$id = $_POST["id_place"];
 
 $sql = "SELECT * FROM category_places_of_interest WHERE id_category = '$id'";
 

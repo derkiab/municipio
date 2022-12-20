@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2022 a las 23:42:03
+-- Tiempo de generación: 20-12-2022 a las 12:09:34
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.1
 
@@ -38,11 +38,8 @@ CREATE TABLE `category_places_of_interest` (
 --
 
 INSERT INTO `category_places_of_interest` (`id_category`, `name_category`, `icon_category`) VALUES
-(42, 'Parque ', 'https://img.icons8.com/fluency/512/park-with-street-light.png'),
-(43, 'Zoologico', 'https://img.icons8.com/fluency/512/zoo.png'),
-(44, 'Plaza', 'https://img.icons8.com/fluency/512/fountain.png'),
-(45, 'Museo', 'https://img.icons8.com/fluency/512/museum.png'),
-(46, 'Mall', 'https://img.icons8.com/fluency/512/shopping-mall.png');
+(47, 'Parque', 'https://img.icons8.com/fluency/512/park-with-street-light.png'),
+(48, 'Plaza', 'https://img.icons8.com/color-glass/512/carousel.png');
 
 -- --------------------------------------------------------
 
@@ -154,6 +151,13 @@ CREATE TABLE `maps` (
   `max_zoom` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `maps`
+--
+
+INSERT INTO `maps` (`id_map`, `lat_northeast`, `lng_northeast`, `lat_southwest`, `lng_southwest`, `center_x`, `center_y`, `min_zoom`, `max_zoom`) VALUES
+(1, 10, 20, 30, 40, 50, 60, 15, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -229,10 +233,11 @@ CREATE TABLE `opinions` (
 --
 
 INSERT INTO `opinions` (`id_opinion`, `id_user`, `opinion_description`, `opinion_image`, `department`, `id_type_contribution`, `answer`) VALUES
-(41, 3, 'reclamo saluud', '', 2, 2, 'Hola '),
+(41, 3, 'reclamo saluud', '', 2, 2, 'hola'),
 (42, 3, 'te denuncio', '', 3, 3, ''),
 (43, 3, 'Te denuncia', '', 2, 3, ''),
-(44, 3, 'no hay pan', '', 2, 2, '');
+(44, 3, 'no hay pan', '', 2, 2, ''),
+(45, 3, 'me robaron el celu', '', 4, 2, '');
 
 -- --------------------------------------------------------
 
@@ -258,6 +263,15 @@ CREATE TABLE `places_of_interest` (
   `latitude_place` varchar(255) NOT NULL,
   `longitude_place` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `places_of_interest`
+--
+
+INSERT INTO `places_of_interest` (`id_place`, `category_place`, `name_place`, `latitude_place`, `longitude_place`) VALUES
+(9, 47, 'Parque Ecuador', '-36.83280540911221', '-73.04740383069989'),
+(10, 47, 'Parque Bicentenario', '-36.83161998486917', '-73.06268668429821'),
+(11, 48, 'Plaza Independencia', '-36.827196903880065', '-73.05022841526745');
 
 -- --------------------------------------------------------
 
@@ -476,7 +490,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `category_places_of_interest`
 --
 ALTER TABLE `category_places_of_interest`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `commentaries`
@@ -512,7 +526,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT de la tabla `maps`
 --
 ALTER TABLE `maps`
-  MODIFY `id_map` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_map` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `map_icons`
@@ -536,13 +550,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT de la tabla `opinions`
 --
 ALTER TABLE `opinions`
-  MODIFY `id_opinion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_opinion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `places_of_interest`
 --
 ALTER TABLE `places_of_interest`
-  MODIFY `id_place` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_place` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `procedures`

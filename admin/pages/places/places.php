@@ -101,7 +101,10 @@ $queryLugar = mysqli_query($conexion, $sqllugar);
 
               <form id="frm_registrar_places">
                   <div class="modal-body">
-
+                       <div class="form-group">
+                          
+                          <input type="hidden" class="form-control" name="id" id="id" required>
+                      </div>         
                       <div class="form-group">
                           <label for="" class="col-form-label">Tipo</label>
                           <input type="text" class="form-control" name="type" id="type" required>
@@ -144,7 +147,6 @@ $queryLugar = mysqli_query($conexion, $sqllugar);
                                 <th>Nombre Lugar</th>
                                 <th class="text-center">Tipo de lugar</th>
                                 <th class="text-center">Latitud / Longitud</th>
-
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -173,7 +175,7 @@ $queryLugar = mysqli_query($conexion, $sqllugar);
                                 <?php
 
 
-                                echo $latitud .' / '.$longitud;
+                                    echo $latitud .' / '.$longitud;
                                
                                 ?>
                                 
@@ -216,6 +218,10 @@ $queryLugar = mysqli_query($conexion, $sqllugar);
               <form id="frm_registrar_lugar">
                   <div class="modal-body">
                       <div class="form-group">
+                          
+                          <input type="hidden" class="form-control" name="id1" id="id1" required>
+                      </div>
+                      <div class="form-group">
                           <label for="" class="col-form-label">Nombre Lugar</label>
                           <input type="text" class="form-control" name="nombreLugar" id="nombreLugar" required>
                       </div>
@@ -250,34 +256,123 @@ $queryLugar = mysqli_query($conexion, $sqllugar);
       </div>
   </div>
     
+
+  <?php
+
+  $consultamapa = "SELECT * FROM maps";
+  $querymapa = mysqli_query($conexion, $consultamapa);
+  $mapid = mysqli_fetch_assoc($querymapa);
+  
+  ?>
   <div class="card">
   <div class="card-header">
     <h5>Mapa</h5>
 
-  </div class="card-body">
+  </div>
   
   <div class="container map-container">
-     <div class="" id="map">
-
-     </div>
+     
      <br>
      <div class="">
-        <div class="card-header">
+        <div class="card-header mb-5">
             <h5>Configuracion del mapa</h5>
         </div>
         
-        <form action="mapconfig">
-            
-
+        <form action="" class="mapconfig" id="form_mapconfig_update">
+            <div class="row">
+                <div class="col">              
+                    <div class="form-group">
+                        <label for="" class="col-form-label">Latitud del limite Noreste de la ciudad</label>
+                        <input type="text" class="form-control" name="latitudlimitenoreste" id="latitudlimitenoreste" required>
+                    </div>
+                </div>
+                <div class="col"> 
+                    <div class="form-group">
+                        <label for="" class="col-form-label">Longitud del limite Noreste de la ciudad</label>
+                        <input type="text" class="form-control" name="longitudlimitenoreste" id="longitudlimitenoreste" required>
+                    </div>
+                </div>
+                <div class="col"> 
+                    <div class="form-group">
+                        <label for="" class="col-form-label">Latitud del limite Suroeste de la ciudad</label>
+                        <input type="text" class="form-control" name="latitudlimitesuroeste" id="latitudlimitesuroeste" required>
+                    </div>
+                </div>
+                <div class="col"> 
+                    <div class="form-group">
+                        <label for="" class="col-form-label">Longitud del limite Suroeste de la ciudad</label>
+                        <input type="text" class="form-control" name="longitudlimitesuroeste" id="longitudlimitesuroeste" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="">Centro X</label>
+                        <input type="text" class="form-control" name="centrox" id="centrox" required>
+                    </div>
+                    <div class="form-group">
+                        
+                        <input type="hidden" class="form-control clasemapa" id="<?php echo $mapid['id_map'];?>">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="">Centro Y</label>
+                        <input type="text" class="form-control" name="centroy" id="centroy" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <br>
+                    <label for="customRange3" class="form-label">Zoom minimo</label>
+                    <input type="range" min="1" max="20" oninput="this.nextElementSibling.value = this.value" name="minzoom" id="minzoom">
+                    <output><?php echo $mapid['min_zoom']?></output>
+                    
+                </div>
+                <div class="col">
+                    <br>
+                    <label for="customRange3" class="form-label">Zoom maximo</label>
+                    <input type="range" min="1" max="20" oninput="this.nextElementSibling.value = this.value" name="maxzoom" id="maxzoom">
+                    <output><?php echo $mapid['max_zoom']?></output>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-1"><br>
+                    <button type="submit" id="btn_guardar_mapa" name="actualizarmapa" class="btn btn-success">Guardar</button>
+                </div>
+            </div>   
         </form>
+        <br>
      </div>
+     <br>
+
+     <div class="card-header mb-5">
+        <h5>Añadir lugar al mapa</h5>
+    </div>
+      
+    <form action="" class="maplugar" id="form_lugar_mapa">
+        <div class="row">
+            <div class="form-group col-3" >
+                <label for="">Seleccione lugar a añadir</label>
+                <select name="ingresolugarmapa3" id="ingresolugarmapa3" class="form-select" required>
+                <?php
+                    $consultmapalugares = "SELECT * FROM places_of_interest";
+                    $querymapatipo = mysqli_query($conexion,$consultmapalugares);
+                    while($tiposmapadd=mysqli_fetch_assoc($querymapatipo)){
+                        echo '<option value="'.$tiposmapadd['id_place'].'">'.$tiposmapadd['name_place'].'</option>';
+                    }
+                ?>        
+                </select><br>
+            </div>
+            <div class="col-3"><br>
+                <button type="submit" id="btn_guardar_lugar_mapa" class="btn btn-success">Añadir</button>
+            </div>
+        </div>
+    </form>
+    <div class="" id="map" >
+
+    </div>
   </div>                          
-
-
-  
-
-
-
 
 
 <button type="button" class="btn btn-success btn-floating btn-lg" id="btn-back-to-top"

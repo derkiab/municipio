@@ -3,9 +3,9 @@ require ("../../../../database.php");
 session_start();
 $data = array();
 
-$id = $_POST["id_place2"];
+$id = $_POST["id_mapa"];
 
-$sql = "SELECT * FROM `places_of_interest` WHERE id_place = '$id'";
+$sql = "SELECT * FROM `maps` WHERE id_map = '$id'";
 
 $resultado = mysqli_query($conexion, $sql);
 

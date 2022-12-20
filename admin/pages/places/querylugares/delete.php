@@ -2,7 +2,7 @@
     require ("../../../../database.php");
     session_start();
 
-    $id_user = $_POST["new_id"];
+    $id_user = $_POST["id_place2"];
 
     $sql = "DELETE FROM `places_of_interest` WHERE id_place = '$id_user'";
 
