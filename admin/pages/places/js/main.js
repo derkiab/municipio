@@ -70,8 +70,11 @@ $(document).ready(function(){
           results.addLayer(L.marker(data.results[i].latlng));
         }
       });
+
+                
+
       var latitud ='test1234';
-      var longitud ='te';
+      var longitud;
       var icono;
       $("#btn_guardar_lugar_mapa").on('click', function(){
         
@@ -85,12 +88,20 @@ $(document).ready(function(){
             data: datoslugar ,
             success: function (data) {
 
-               
-                longitud=data.result.longitude_place;
-                console.log(data);
-
-                console.log("wat");
+                latitud=data.result['icon_category'];
                 
+                var icon = L.icon({
+                    iconUrl: data.result['icon_category'],
+                    iconSize: [29, 29],
+                    iconAnchor: [29/2, 29/2],
+                    shadowAnchor: [4, 62],
+                    popupAnchor: [29/2, 29/2]
+                });
+                
+               
+                
+            
+                L.marker([data.result['latitude_place'], data.result['longitude_place']], {icon: icon}).addTo(map).bindPopup("I am a green leaf.");
                 
             },
             error: function (e) {
@@ -100,8 +111,23 @@ $(document).ready(function(){
         });    
 });
 
-console.log(latitud);
-console.log(longitud);
+var LeafIcon = L.Icon.extend({
+    options: {
+        
+        iconSize:     [29, 29],
+        
+        iconAnchor:   [29/2, 29/2],
+        shadowAnchor: [4, 62],
+        popupAnchor:  [29/2, 29/2]
+    }
+});
+
+var parkIcon = new LeafIcon({
+    
+    iconUrl: 'https://img.icons8.com/fluency/512/park-with-street-light.png'
+
+});
+
 
 
 
