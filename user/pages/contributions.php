@@ -22,7 +22,7 @@
 <div class="card border-dark mb-3 " style="max-width: 24rem;">
   <div class="card-header bg-transparent border-success">Contribucion</div>
   <div class="card-body">
-    <form id="frm_contribution">
+    <form action="pages/insert.php" method="POST" id="frm_contribution">
           <div class="form-group">
               <label for="" class="col-form-label">Nombre</label>
               <input type="text" class="form-control" name="name" id="name" value="<?php echo $_SESSION['username']; ?>">

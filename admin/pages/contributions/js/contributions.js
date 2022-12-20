@@ -30,35 +30,29 @@ $(document).ready(function(){
         $("#btn_guardar").attr("name", "guardar");
         $("#modal_insert").modal("show");
     });
-
-    $("#btn_guardar").on('click', function () {
-        var datos = $("#frm_contribution").serialize()
-        $.ajax({
-            method: "POST",
-            url: "../../pages/contributions/query/update.php",
-            data: datos,
-            success: function (data) {
-                console.log(data);
-                if (data == "success") {
-                    Swal.fire({
-                        icon: 'success',
-                        title: data,
-                        showConfirmButton: true,
-                    }) 
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Algo salio mal!',
-                    })
+    
+    $(document).on('click', '.save', function(e){
+        e.preventDefault();
+        var datos = $("#frm_registrar").serialize();
+        Swal.fire({
+            icon: 'success',
+            title: "Contestado con exito",
+            showConfirmButton: true,
+        }).then((result) => {
+            $.ajax({
+                method: "POST",
+                url: "../../pages/contributions/query/update.php",
+                data: datos,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    alert("fallo");
                 }
-            },
-            error: function (data) {
-                alert("fallo");
-            }
+            });
+            location.reload();
         });
     });
-
     // Boton Actualizar
  
     $(document).on('click', '.update', function(){
@@ -132,77 +126,5 @@ $(document).ready(function(){
     });
     
 
-    // Jquery Validate
-    $("frm_registrar").validate({
-        rules:{
-            rut:{
-                required: true,
-                number: true,
-                minleght: 7
-            },
-            name:{
-                required: true,
-                minleght: 3
-            },
-            last_name:{
-                required: true,
-                minleght: 3
-            },
-            email:{
-                required: true,
-                email: true,
-                minleght: 3
-            },
-            user_rol:{
-                required: true,
-                minleght: 3
-            },
-            phone:{
-                required: true,
-                number: true,
-                minleght: 3
-            },
-            password:{
-                required: true,
-                minleght: 8
-            },
-            address:{
-                required: true,
-                minleght: 3
-            }
-        },
-        messages:{
-            rut:{
-                required: "Por favor ingrese su rut sin guion",
-                number: "Por favor solo ingrese numeros",
-                minleght: "Por favor ingrese un rut valido"
-            },
-            name:{
-                required: "Por favor ingrese su nombre"
-            },
-            last_name:{
-                required: "Por favor ingrese su apellido"
-            },
-            email:{
-                required: "Por favor ingrese su direccion de correo",
-                email: "la direccion de correo debe tener el formato ejemplo@ejemplo.cl"
-            },
-            user_rol:{
-                required: "Por favor seleccione un tipo de usuario" 
-            },
-            phone:{
-                required: "Por favor ingrese su numero de telefono",
-                number: "Por favor solo ingrese numeros",
-                minleght: "Por favor ingrese un numero valido"
-            },
-            password:{
-                required: "Por favor ingrese una contraseña",
-                minleght: "La contraseña debe contener como minimo ocho caracteres"
-            },
-            address:{
-                required: "Por favor ingrese su direccion"
-            }
-        }
-    });
 })
 

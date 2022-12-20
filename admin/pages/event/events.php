@@ -149,7 +149,6 @@ require_once('../../templates/header.php');
 </div>
 
 
-
 <!-- Fin Contenido -->
 <?php
     require_once('../../templates/footer.php');

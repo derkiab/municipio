@@ -6,23 +6,23 @@ require_once('../../templates/header.php');
     require('../../../database.php');
     
     $js = "user/js/user.js";
-    $consulta = "SELECT COUNT(id_news) FROM news";
+    $consulta = "SELECT COUNT(id_news) as id_news FROM news";
     $news = mysqli_query($conexion, $consulta);
 
-    $consulta_rol = "SELECT COUNT(id_event) FROM events";
-    $events = mysqli_query($conexion, $consulta_rol);
+    $consulta_events = "SELECT COUNT(id_event) as id_event FROM events";
+    $events = mysqli_query($conexion, $consulta_events);
 
-    $consulta_rol = "SELECT COUNT(id_opinion) FROM opinions";
-    $opinions = mysqli_query($conexion, $consulta_rol);
+    $consulta_opinion = "SELECT COUNT(id_opinion) as id_opinion FROM opinions";
+    $opinions = mysqli_query($conexion, $consulta_opinion);
 
-    $consulta_rol = "SELECT COUNT(id_entrepreneur) FROM entrepreneurs";
-    $entrepreneurs = mysqli_query($conexion, $consulta_rol);
+    $consulta_entrepreneurs = "SELECT COUNT(id_entrepreneur) as id_entrepreneur FROM entrepreneurs";
+    $entrepreneurs = mysqli_query($conexion, $consulta_entrepreneurs);
 
-    $consulta_rol = "SELECT COUNT(id_user) FROM users WHERE rol_id = 1";
-    $admin = mysqli_query($conexion, $consulta_rol);
+    $consulta_admin = "SELECT COUNT(id_user) as id_admin FROM users WHERE rol_id = 1";
+    $admin = mysqli_query($conexion, $consulta_admin);
 
-    $consulta_rol = "SELECT COUNT(id_user) FROM users WHERE rol_id = 2";
-    $user = mysqli_query($conexion, $consulta_rol);
+    $consulta_user = "SELECT COUNT(id_user) as id_user FROM users WHERE rol_id = 2";
+    $user = mysqli_query($conexion, $consulta_user);
 ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -50,7 +50,10 @@ require_once('../../templates/header.php');
 </div>
 
 <script>
-const datos = <?php echo json_encode($news) ?>;
+const noticias = <?php echo mysqli_fetch_assoc($news)['id_news'] ?>;
+const eventos = <?php echo mysqli_fetch_assoc($events)['id_event'] ?>;
+const opiniones = <?php echo mysqli_fetch_assoc($opinions)['id_opinion'] ?>;
+const pymes = <?php echo mysqli_fetch_assoc($entrepreneurs)['id_entrepreneur'] ?>;
 
   new Chart(document.getElementById('sucesos'), {
     type: 'doughnut',
@@ -62,12 +65,12 @@ const datos = <?php echo json_encode($news) ?>;
         ],
         datasets: [{
             
-            data:[ 3, 3, 0, 2],
+            data:[ noticias, eventos, pymes, opiniones],
             backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
             'rgb(255, 205, 86)',
-            'rgb(255, 205, 32)'
+            'rgb(0, 255, 0)'
             ],
             hoverOffset: 4
         }]
@@ -82,6 +85,9 @@ const datos = <?php echo json_encode($news) ?>;
   });
 </script>
 <script>
+  
+const administrador = <?php echo mysqli_fetch_assoc($admin)['id_admin'] ?>;
+const usuarios = <?php echo mysqli_fetch_assoc($user)['id_user'] ?>;
   new Chart(document.getElementById('myChart'), {
     type: 'bar',
     data: {labels: [
@@ -89,10 +95,21 @@ const datos = <?php echo json_encode($news) ?>;
             'Usuarios',
         ],
         datasets: [{
-            data: [2, 3],
+            data:[administrador, null],
             backgroundColor: [
             'rgb(255, 99, 132)',
+            ],
+            label: [
+              'Administradores',
+            ],
+            hoverOffset: 4
+        }, {
+            data:[null, usuarios],
+            backgroundColor: [
             'rgb(54, 162, 235)'
+            ],
+            label: [
+              'Usuarios'
             ],
             hoverOffset: 4
         }]

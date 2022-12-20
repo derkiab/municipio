@@ -68,24 +68,16 @@ $(document).ready(function(){
         });
     });
 
-    // Boton Actualizar
- 
-    $(document).on('click', '.update', function(){
+
+
+    // Boton Eliminar
+    $(document).on('click', '.update', function () {
         var new_id = $(this).attr("id");
-        
-        $("#form_noticias").trigger("reset");
-        $(".modal-header").css("background-color", "#0D6EFD");
-        $(".modal-header").css("color", "white");
-        $(".modal-title").text("Actualizar Noticia");
-        $("#btn_guardar").attr("name", "actualizar");
-        $("#modal_news").modal("show");
-        
         if (new_id != '') {
             $.ajax({
-                url: "../../pages/news/query/update_info.php",
+                url: "../news/query/update_info.php",
                 method: "POST",
-                dataType: "json",
-                data: {
+                data:{
                     new_id: new_id
                 },
                 success: function (data) {
@@ -105,8 +97,6 @@ $(document).ready(function(){
             });
         }
     });
-
-    // Boton Eliminar
     $(document).on('click', '.delete', function () {
         var new_id = $(this).attr("id");
         if (new_id != '') {

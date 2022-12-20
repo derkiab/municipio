@@ -35,7 +35,6 @@ $(document).ready(function(){
         var datos = $("#frm_registrar_event").serialize();
         var name = $("#btn_guardar").attr("name");
 
-        var event_id = $(".update").attr("id");
         if(name == "guardar"){
             var url = "../../pages/event/query/insert.php";
         }else{
@@ -98,8 +97,8 @@ $(document).ready(function(){
                     $('#image').val(data.result.event_image);
                    
                 },
-                error: function (e) {
-                    alert("fallo");
+                error: function (data) {
+                    console.log(data);
 
                 }
             });

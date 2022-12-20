@@ -100,7 +100,7 @@ require_once('../../templates/header.php');
 
             <form id="frm_registrar" enctype="multipart/form-data">
                 <div class="modal-body">
-                <input hidden type="number" id="id_user_update" name="user_id"> 
+                    <input hidden type="number" id="id_user_update" name="user_id"> 
                     <div class="form-group">
                         <input type="hidden" class="form-control" name="id" id="id" >
                     </div>
