@@ -75,11 +75,9 @@ require_once('../../templates/header.php');
                                         <div class='text-center'>
                                             
                                             <div class='btn-group'>
-                                                <button class='btn btn-primary btn-editar update' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
-                                                    <i class='fa-solid fa-pen'></i>
-                                                </button>
+                                                
                                                 <button class='btn btn-danger btn-editar delete' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
-                                                    <i class='fa-solid fa-trash'></i>
+                                                    <i class='fa-solid fa-xmark'></i>
                                                 </button>
                                             </div>
                                         </div>   
@@ -156,10 +154,10 @@ require_once('../../templates/header.php');
                                             
                                             <div class='btn-group'>
                                                 <button class='btn btn-primary btn-editar update' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
-                                                    <i class='fa-solid fa-pen'></i>
+                                                    <i class='fa-solid fa-check'></i>
                                                 </button>
                                                 <button class='btn btn-danger btn-editar delete' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
-                                                    <i class='fa-solid fa-trash'></i>
+                                                    <i class='fa-solid fa-xmark'></i>
                                                 </button>
                                             </div>
                                         </div>   
@@ -236,11 +234,9 @@ require_once('../../templates/header.php');
                                             
                                             <div class='btn-group'>
                                                 <button class='btn btn-primary btn-editar update' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
-                                                    <i class='fa-solid fa-pen'></i>
+                                                    <i class='fa-solid fa-check'></i>
                                                 </button>
-                                                <button class='btn btn-danger btn-editar delete' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
-                                                    <i class='fa-solid fa-trash'></i>
-                                                </button>
+                                                
                                             </div>
                                         </div>   
                                     </td>
