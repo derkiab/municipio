@@ -25,7 +25,7 @@ require_once('../../templates/header.php');
     <div class="card-header">
         <div class="row">
             <div class="col-lg-4">
-                <h5>PYMES</h5>
+                <h5>PYMES ACEPTADAS</h5>
             </div>
             <div class="col-lg-8 text-end">
                 <button id="btn_agregar_pymes" type="button" class="btn btn-success">Agregar</button>
@@ -50,12 +50,14 @@ require_once('../../templates/header.php');
                                     <th>Categoria</th>
                                     <th>Imagen</th>
                                     <th>Descripcion</th>
+                                    <th>Estado</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                     while($entrepreneurs=mysqli_fetch_assoc($entrepreneur)){
+                                        if($entrepreneurs['state_entrepreneur'] == "Aceptado"){
                                 ?>
                                 <tr>
                                     <td><?php echo $entrepreneurs['rut_entrepreneur']?></td>
@@ -68,6 +70,7 @@ require_once('../../templates/header.php');
                                     <td><?php echo $entrepreneurs['field_entrepreneur']?></td>
                                     <td><?php echo "<img src='".$entrepreneurs['image_entrepreneur']."'style=' width:50%; height:50%; '>" ?></td>
                                     <td><?php echo $entrepreneurs['description_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['state_entrepreneur']?></td>
                                     <td>
                                         <div class='text-center'>
                                             
@@ -83,6 +86,167 @@ require_once('../../templates/header.php');
                                     </td>
                                 </tr>
                                 <?php
+                                        }
+                                    }
+                                ?>
+                            </tbody>
+                        </table>     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!-- Tabla pymes pendientes -->
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-4">
+                <h5>PYMES PENDIENTES</h5>
+            </div>
+            <div class="col-lg-8 text-end">
+                <button id="btn_agregar_pymes" type="button" class="btn btn-success">Agregar</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table id="tabla_pymes_pendientes" class="table table-striped table-bordered table-condensed" style="width:100%">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>Rut</th>
+                                    <th>Nombre</th>
+                                    <th>Direccion</th>
+                                    <th>Telefono</th>
+                                    <th>Correo</th>
+                                    <th>Nombre Empresa</th>
+                                    <th>Redes Sociales</th>
+                                    <th>Categoria</th>
+                                    <th>Imagen</th>
+                                    <th>Descripcion</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $consulta_entrepreneur= "SELECT * FROM entrepreneurs";
+                                    $entrepreneur = mysqli_query($conexion, $consulta_entrepreneur);
+                                    while($entrepreneurs=mysqli_fetch_assoc($entrepreneur)){
+                                        if($entrepreneurs['state_entrepreneur'] == "Pendiente"){
+                                ?>
+                                <tr>
+                                    <td><?php echo $entrepreneurs['rut_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['name_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['address_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['phone_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['email_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['name_company']?></td>
+                                    <td><?php echo $entrepreneurs['social_networks_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['field_entrepreneur']?></td>
+                                    <td><?php echo "<img src='".$entrepreneurs['image_entrepreneur']."'style=' width:50%; height:50%; '>" ?></td>
+                                    <td><?php echo $entrepreneurs['description_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['state_entrepreneur']?></td>
+                                    <td>
+                                        <div class='text-center'>
+                                            
+                                            <div class='btn-group'>
+                                                <button class='btn btn-primary btn-editar update' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
+                                                    <i class='fa-solid fa-pen'></i>
+                                                </button>
+                                                <button class='btn btn-danger btn-editar delete' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
+                                                    <i class='fa-solid fa-trash'></i>
+                                                </button>
+                                            </div>
+                                        </div>   
+                                    </td>
+                                </tr>
+                                <?php
+                                        }
+                                    }
+                                ?>
+                            </tbody>
+                        </table>     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!-- Tabla pymes rechazadas -->
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-4">
+                <h5>PYMES RECHAZADAS</h5>
+            </div>
+            <div class="col-lg-8 text-end">
+                <button id="btn_agregar_pymes" type="button" class="btn btn-success">Agregar</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table id="tabla_pymes_rechazadas" class="table table-striped table-bordered table-condensed" style="width:100%">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>Rut</th>
+                                    <th>Nombre</th>
+                                    <th>Direccion</th>
+                                    <th>Telefono</th>
+                                    <th>Correo</th>
+                                    <th>Nombre Empresa</th>
+                                    <th>Redes Sociales</th>
+                                    <th>Categoria</th>
+                                    <th>Imagen</th>
+                                    <th>Descripcion</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $consulta_entrepreneur= "SELECT * FROM entrepreneurs";
+                                    $entrepreneur = mysqli_query($conexion, $consulta_entrepreneur);
+                                    while($entrepreneurs=mysqli_fetch_assoc($entrepreneur)){
+                                        if($entrepreneurs['state_entrepreneur'] == "Rechazada"){
+                                ?>
+                                <tr>
+                                    <td><?php echo $entrepreneurs['rut_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['name_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['address_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['phone_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['email_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['name_company']?></td>
+                                    <td><?php echo $entrepreneurs['social_networks_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['field_entrepreneur']?></td>
+                                    <td><?php echo "<img src='".$entrepreneurs['image_entrepreneur']."'style=' width:50%; height:50%; '>" ?></td>
+                                    <td><?php echo $entrepreneurs['description_entrepreneur']?></td>
+                                    <td><?php echo $entrepreneurs['state_entrepreneur']?></td>
+                                    <td>
+                                        <div class='text-center'>
+                                            
+                                            <div class='btn-group'>
+                                                <button class='btn btn-primary btn-editar update' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
+                                                    <i class='fa-solid fa-pen'></i>
+                                                </button>
+                                                <button class='btn btn-danger btn-editar delete' id="<?php echo $entrepreneurs['id_entrepreneur']; ?>">
+                                                    <i class='fa-solid fa-trash'></i>
+                                                </button>
+                                            </div>
+                                        </div>   
+                                    </td>
+                                </tr>
+                                <?php
+                                        }
                                     }
                                 ?>
                             </tbody>

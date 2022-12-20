@@ -120,7 +120,7 @@ require_once('../../templates/header.php');
             <form id="frm_registrar">
             
                 <div class="modal-body">
-                    <input type="text" class="form-control" name="id" id="id">
+                    <input type="hidden" class="form-control" name="id" id="id">
                     <div class="form-group">
                         <label for="" class="col-form-label">Id usuario</label>
                         <input type="text" class="form-control" name="id_user" id="id_user" disabled>

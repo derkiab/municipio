@@ -9,7 +9,6 @@
 
   $consulta3 = "SELECT * FROM users";
   $user = mysqli_query($conexion,$consulta3);
-
 ?>
 <?php
 
@@ -27,11 +26,36 @@ while ($rows = mysqli_fetch_assoc($opinions)) {
         <img src="resources/<?php echo $state?>.png" class="w-50 rounded-circle img-fluid">
       </div>
       <div class="col-lg-4 col-sm-4 col-4">
-        <strong class="text-info"><?php echo $rows['department'] ?></strong>
+        <strong class="text">Departamento: <?php 
+                                    
+                                    $namedepa;
+                                    $iddepa = $rows['department'];
+                                    $sql = "SELECT * FROM departments";
+                                    $query = mysqli_query($conexion, $sql);
+                                    while($rows1 = mysqli_fetch_assoc($query)){
+                                        if($rows1['id_department']== $iddepa){
+                                            $namedepa = $rows1['name_department'];
+                                        }
+                                    }
+                                    echo $namedepa;
+
+                                    ?></strong>
         <div>
-          <?php echo $rows['id_type_contribution']?>
+          Tipo de Contribución: <?php $name_contribution;
+                                    $id_contribution = $rows['id_type_contribution'];
+                                    $sql = "SELECT * FROM contribution_types";
+                                    $query = mysqli_query($conexion, $sql);
+                                    while($rows2 = mysqli_fetch_assoc($query)){
+                                        if($rows2['id_contribution_type']== $id_contribution){
+                                            $name_contribution = $rows2['name_contribution_type'];
+                                        }
+                                    }
+                                    echo $name_contribution;?>  
         </div>
-        <small class="text-warning"><?php echo $rows['answer']?></small>
+        <div>
+          Descripción: <?php echo $rows['opinion_description']?>  
+        </div>
+        Respuesta: <?php if($rows['answer'] == ""){echo "Pendiente";} else{ echo $rows['answer'];}?>
       </div>
     </div>
   </div>
@@ -39,3 +63,4 @@ while ($rows = mysqli_fetch_assoc($opinions)) {
 }
 
 ?>
+

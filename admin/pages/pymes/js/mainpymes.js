@@ -18,6 +18,42 @@ $(document).ready(function(){
             "sProcessing":"Procesando...",
         }
     });
+    tablaPymesPendientes = $("#tabla_pymes_pendientes").DataTable({
+
+        "language":{
+            "lengthMenu":"Mostrar _MENU_ registros",
+            "zeroRecords":"No se han econtrado resultados",
+            "info":"Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "infoEmpty":"Mostrando registros del 0 al 0 de un total de 0 registros",
+            "infoFiltered":"(Filtrando un total de _MAX_ registros)",
+            "search":"Buscar:",
+            "oPaginate":{
+                "sFirst":"Primero",
+                "sLast":"Último",
+                "sNext":"Siguiente",
+                "sPrevious":"Anterior",
+            },
+            "sProcessing":"Procesando...",
+        }
+    });
+    tablaPymesRechazadas = $("#tabla_pymes_rechazadas").DataTable({
+
+        "language":{
+            "lengthMenu":"Mostrar _MENU_ registros",
+            "zeroRecords":"No se han econtrado resultados",
+            "info":"Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "infoEmpty":"Mostrando registros del 0 al 0 de un total de 0 registros",
+            "infoFiltered":"(Filtrando un total de _MAX_ registros)",
+            "search":"Buscar:",
+            "oPaginate":{
+                "sFirst":"Primero",
+                "sLast":"Último",
+                "sNext":"Siguiente",
+                "sPrevious":"Anterior",
+            },
+            "sProcessing":"Procesando...",
+        }
+    });
 
 // Configuracion Modal
 
@@ -79,10 +115,9 @@ $(document).ready(function(){
         $(".modal-title").text("Actualizar Pyme");
         $("#btn_guardar").attr("name", "actualizar");
         $("#modal_pymes").modal("show");
-        
         if (entrepreneur_id != '') {
             $.ajax({
-                url: "../../pages/pymes/query/update_info.php",
+                url: "../pymes/query/update_info.php",
                 method: "POST",
                 dataType: "json",
                 data: {
@@ -103,8 +138,8 @@ $(document).ready(function(){
                     $('#description').val(data.result.description_entrepreneur);
                    
                 },
-                error: function (e) {
-                    alert("fallo");
+                error: function (data) {
+                    console.log(data);
 
                 }
             });

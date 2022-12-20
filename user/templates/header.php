@@ -89,7 +89,7 @@
               </li>
               <li class="nav-item-dropdown">
                   <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbar_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-user me-2"></i>Demo
+                      <i class="fa-solid fa-user me-2"></i><?php echo $_SESSION['username'];?>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbar_dropdown">
                       <li><a href="index.php?p=view_contributions" class="dropdown-item">Ver contribuciones</a></li>
