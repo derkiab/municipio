@@ -30,35 +30,29 @@ $(document).ready(function(){
         $("#btn_guardar").attr("name", "guardar");
         $("#modal_insert").modal("show");
     });
-
-    $("#btn_guardar").on('click', function () {
-        var datos = $("#frm_contribution").serialize()
-        $.ajax({
-            method: "POST",
-            url: "../../pages/contributions/query/update.php",
-            data: datos,
-            success: function (data) {
-                console.log(data);
-                if (data == "success") {
-                    Swal.fire({
-                        icon: 'success',
-                        title: data,
-                        showConfirmButton: true,
-                    }) 
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Algo salio mal!',
-                    })
+    
+    $(document).on('click', '.save', function(e){
+        e.preventDefault();
+        var datos = $("#frm_registrar").serialize();
+        Swal.fire({
+            icon: 'success',
+            title: "Contestado con exito",
+            showConfirmButton: true,
+        }).then((result) => {
+            $.ajax({
+                method: "POST",
+                url: "../../pages/contributions/query/update.php",
+                data: datos,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    alert("fallo");
                 }
-            },
-            error: function (data) {
-                alert("fallo");
-            }
+            });
+            location.reload();
         });
     });
-
     // Boton Actualizar
  
     $(document).on('click', '.update', function(){

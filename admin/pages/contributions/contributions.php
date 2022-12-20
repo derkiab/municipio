@@ -120,9 +120,7 @@ require_once('../../templates/header.php');
             <form id="frm_registrar">
             
                 <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="id" id="id" disabled>
-                    </div>
+                    <input type="text" class="form-control" name="id" id="id">
                     <div class="form-group">
                         <label for="" class="col-form-label">Id usuario</label>
                         <input type="text" class="form-control" name="id_user" id="id_user" disabled>
@@ -144,7 +142,7 @@ require_once('../../templates/header.php');
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Enviar</button>
+                    <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success save">Enviar</button>
                 </div>
             </form>
         </div>

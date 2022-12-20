@@ -36,7 +36,6 @@ $(document).ready(function(){
         var datos = $("#frm_registrar").serialize();
         var name = $(".save").attr("name");
 
-        var user_id = $(".update").attr("id");
         if(name == "guardar"){
             var url = "../../pages/user/query/insert.php";
             var title = "Guardado";
@@ -54,7 +53,6 @@ $(document).ready(function(){
                 url: url,
                 data: datos,
                 success: function (data) {
-                    console.log(data);
                 },
                 error: function (data) {
                     alert("fallo");
@@ -85,7 +83,7 @@ $(document).ready(function(){
                     user_id: user_id
                 },
                 success: function (data) {
-                    $('#id_user_update').val(data.result.id_user);
+                    $('#id').val(data.result.id_user);
                     $('#rut').val(data.result.rut_user);
                     $('#name').val(data.result.name_user);
                     $('#last_name').val(data.result.lastname_user);
