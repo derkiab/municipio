@@ -6,7 +6,7 @@
 
     $consulta_status_new = "SELECT * FROM status_news";
     $status_new = mysqli_query($conexion, $consulta_status_new);
-    $js = "news/js/mainnews.js";
+
 ?>
    
 

@@ -3,8 +3,6 @@
 
     $consulta_entrepreneur= "SELECT * FROM entrepreneurs";
     $entrepreneur = mysqli_query($conexion, $consulta_entrepreneur);
-
-    $js = "pymes/js/mainpymes.js";
 ?>
    
 
