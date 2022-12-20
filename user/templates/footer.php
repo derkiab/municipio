@@ -1,7 +1,6 @@
 <footer class="mt-auto">
         <div class="pt-5" style="background-color:#486FAF;">
         <div class="card-body">
-           
             <div class="container text-star">
                 <div class="row">
                     <div class="col">
@@ -39,7 +38,6 @@
                         <P> DIRECCION: Calle Bernardo O`Higgins 525, Concepción, Bío Bío</P>
                         <P> TELEFONO: (41) 226 6500</P>
                     </div>
-
                 </div>
             </div>
         </div>
