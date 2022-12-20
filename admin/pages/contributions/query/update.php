@@ -3,7 +3,7 @@ require ("../../../../database.php");
 session_start();
 $data = array();
 
-$id_opinion = $_POST["id_opinion"];
+$id_opinion = $_POST["id"];
 $answer = $_POST["answer"];
 $sql = "UPDATE opinions SET answer='$answer' WHERE id_opinion = '$id_opinion'";
 

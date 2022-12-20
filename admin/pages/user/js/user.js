@@ -83,7 +83,7 @@ $(document).ready(function(){
                     user_id: user_id
                 },
                 success: function (data) {
-                    $('#id').val(data.result.id_user);
+                    $('#id').val(data.result.id_user); 
                     $('#rut').val(data.result.rut_user);
                     $('#name').val(data.result.name_user);
                     $('#last_name').val(data.result.lastname_user);

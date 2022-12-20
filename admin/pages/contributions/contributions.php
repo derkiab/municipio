@@ -121,6 +121,9 @@ require_once('../../templates/header.php');
             
                 <div class="modal-body">
                     <div class="form-group">
+                        <input type="text" class="form-control" name="id" id="id" disabled>
+                    </div>
+                    <div class="form-group">
                         <label for="" class="col-form-label">Id usuario</label>
                         <input type="text" class="form-control" name="id_user" id="id_user" disabled>
                     </div>

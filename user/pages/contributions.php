@@ -23,7 +23,7 @@
 <div class="card border-dark mb-3 " style="max-width: 24rem;">
   <div class="card-header bg-transparent border-success">Contribucion</div>
   <div class="card-body">
-    <form action="pages/insert.php" method="POST" id="contributionform">
+    <form id="frm_contribution">
           <div class="form-group">
               <label for="" class="col-form-label">Nombre</label>
               <input type="text" class="form-control" name="name" id="name" value="<?php echo $_SESSION['username']; ?>">
@@ -64,7 +64,7 @@
       <br>
       <div class="container d-flex justify-content-center">
         <input type="hidden" name="userid" value=<?php echo $userid ?>>
-        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Enviar Contribución</button>
+        <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success save">Enviar Contribución</button>
       </div>
     </form>
   </div>

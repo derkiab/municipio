@@ -21,7 +21,7 @@
     <!-- iconos -->
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
-  <body >
+  <body class="d-flex flex-column min-vh-100">
      <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
       <div class="container-fluid ">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -62,19 +62,40 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <div class="d-flex">
             <ul class="navbar nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item-dropdown">
+              <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbar_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bell me-2"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="row">
+                    <div class="col-lg-8 col-sm-8 col-8">
+                      <strong class="text-info">David John</strong>
+                      <div>
+                        Lorem ipsum dolor sit amet, consectetur
+                      </div>
+                      <small class="text-warning">27.11.2015, 15:00</small>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+                
+              </li>
               <li class="nav-item-dropdown">
                   <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbar_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="fa-solid fa-user me-2"></i>Demo
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbar_dropdown">
-                      <li><a href="#" class="dropdown-item">Perfil</a></li>
+                      <li><a href="index.php?p=view_contributions" class="dropdown-item">Ver contribuciones</a></li>
                       <li><a href="#" class="dropdown-item">Configuracion</a></li>
                       <li><a href="../logout.php" class="dropdown-item">Cerrar Sesion</a></li>
                   </ul>
               </li>
+              
             </ul>
           </div>
           <div class="d-flex">
+          
            
           </div>
         </ul>

@@ -1,5 +1,5 @@
-<footer>
-        <div class="card " style="background-color:#486FAF;">
+<footer class="mt-auto">
+        <div class="pt-5" style="background-color:#486FAF;">
         <div class="card-body">
            
             <div class="container text-star">

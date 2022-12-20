@@ -32,22 +32,13 @@ $(document).ready(function(){
     });
 
     $("#btn_guardar").on('click', function () {
-        var datos = $("#frm_registrar").serialize();
-        var name = $("#btn_guardar").attr("name");
-
-        var id_opinion = $(".update").attr("id");
-        if(name == "guardar"){
-            var url = "../../pages/user/query/insert.php";
-        }else{
-            var url = "../../pages/contributions/query/update.php"
-            datos += "&id_opinion=" + id_opinion;
-        }
-       
+        var datos = $("#frm_contribution").serialize()
         $.ajax({
             method: "POST",
-            url: url,
+            url: "../../pages/contributions/query/update.php",
             data: datos,
             success: function (data) {
+                console.log(data);
                 if (data == "success") {
                     Swal.fire({
                         icon: 'success',
@@ -89,9 +80,11 @@ $(document).ready(function(){
                     id_opinion: id_opinion
                 },
                 success: function (data) {
+                    $('#id').attr("value", data.result.id_opinion);
                     $('#id_user').attr("value", data.result.id_user);
                     $('#department').attr("value",data.result.department);
                     $('#opinion').val(data.result.opinion_description);
+                    $('#answer').val(data.result.answer);
                     console.log(data);
                 },
                 error: function (data) {
