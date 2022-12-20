@@ -1,11 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<<< HEAD:municipio (1).sql
 -- Tiempo de generación: 18-12-2022 a las 07:47:15
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
+========
+-- Tiempo de generación: 06-12-2022 a las 11:13:33
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.1
+>>>>>>>> diego:municipio (3).sql
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -110,7 +116,12 @@ CREATE TABLE `events` (
   `title_event` varchar(255) NOT NULL,
   `event_description` text NOT NULL,
   `event_image` varchar(255) NOT NULL,
+<<<<<<<< HEAD:municipio (1).sql
   `id_status_event` int(12) NOT NULL
+========
+  `event_status` text NOT NULL,
+  `title_event` varchar(255) NOT NULL
+>>>>>>>> diego:municipio (3).sql
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -134,16 +145,28 @@ CREATE TABLE `news` (
   `title_news` varchar(255) NOT NULL,
   `news_description` text NOT NULL,
   `news_image` varchar(255) NOT NULL,
+<<<<<<<< HEAD:municipio (1).sql
   `id_status_news` int(30) NOT NULL
+========
+  `news_status` varchar(50) NOT NULL,
+  `title_news` varchar(255) NOT NULL
+>>>>>>>> diego:municipio (3).sql
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `news`
 --
 
+<<<<<<<< HEAD:municipio (1).sql
 INSERT INTO `news` (`id_news`, `date_news`, `time_news`, `title_news`, `news_description`, `news_image`, `id_status_news`) VALUES
 (1, '2022-12-07', '15:15:00', 'michis de hasmterdar', 'michis de hamsterdas se divorcian', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 2),
 (8, '2022-12-17', '12:12:00', 'michis de hasmterdar', 'michis de hamsterdas se divorcian', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 2);
+========
+INSERT INTO `news` (`id_news`, `date_news`, `time_news`, `news_description`, `news_image`, `news_status`, `title_news`) VALUES
+(1, '2022-12-09', '09:59:00', 'Noticias ', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 'www', 'ja'),
+(5, '2022-12-17', '12:12:00', 'descripcion1 ', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 'estado1', 'Titulo1'),
+(6, '2022-12-15', '10:16:00', ' ', '', '', '');
+>>>>>>>> diego:municipio (3).sql
 
 -- --------------------------------------------------------
 
@@ -468,7 +491,11 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT de la tabla `news`
 --
 ALTER TABLE `news`
+<<<<<<<< HEAD:municipio (1).sql
   MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+========
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+>>>>>>>> diego:municipio (3).sql
 
 --
 -- AUTO_INCREMENT de la tabla `opinions`
