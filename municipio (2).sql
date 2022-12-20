@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2022 a las 12:09:34
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.1
+-- Tiempo de generación: 20-12-2022 a las 14:43:47
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,16 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `category_places_of_interest` (
   `id_category` int(11) NOT NULL,
   `name_category` text NOT NULL,
-  `icon_category` text NOT NULL
+  `icon_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `category_places_of_interest`
---
-
-INSERT INTO `category_places_of_interest` (`id_category`, `name_category`, `icon_category`) VALUES
-(47, 'Parque', 'https://img.icons8.com/fluency/512/park-with-street-light.png'),
-(48, 'Plaza', 'https://img.icons8.com/color-glass/512/carousel.png');
 
 -- --------------------------------------------------------
 
@@ -102,20 +94,31 @@ INSERT INTO `departments` (`id_department`, `name_department`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `entrepeneurs`
+-- Estructura de tabla para la tabla `entrepreneurs`
 --
 
-CREATE TABLE `entrepeneurs` (
-  `id_entrepeneur` int(11) NOT NULL,
-  `rut_entrepeneur` int(11) NOT NULL,
-  `name_entrepeneur` varchar(500) NOT NULL,
-  `address_entrepeneur` text NOT NULL,
-  `phone_entrepeneur` int(11) NOT NULL,
-  `email_entrepeneur` varchar(255) NOT NULL,
-  `social_networks_entrepeneur` text NOT NULL,
-  `field_entrepeneur` varchar(255) NOT NULL,
-  `image_entrepeneur` varchar(255) NOT NULL
+CREATE TABLE `entrepreneurs` (
+  `id_entrepreneur` int(11) NOT NULL,
+  `rut_entrepreneur` int(11) NOT NULL,
+  `name_entrepreneur` varchar(500) NOT NULL,
+  `address_entrepreneur` text NOT NULL,
+  `phone_entrepreneur` int(11) NOT NULL,
+  `email_entrepreneur` varchar(255) NOT NULL,
+  `name_company` varchar(50) NOT NULL,
+  `social_networks_entrepreneur` text NOT NULL,
+  `field_entrepreneur` varchar(255) NOT NULL,
+  `image_entrepreneur` varchar(255) NOT NULL,
+  `description_entrepreneur` text NOT NULL,
+  `state_entrepreneur` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `entrepreneurs`
+--
+
+INSERT INTO `entrepreneurs` (`id_entrepreneur`, `rut_entrepreneur`, `name_entrepreneur`, `address_entrepreneur`, `phone_entrepreneur`, `email_entrepreneur`, `name_company`, `social_networks_entrepreneur`, `field_entrepreneur`, `image_entrepreneur`, `description_entrepreneur`, `state_entrepreneur`) VALUES
+(1, 201938759, 'Ignacia Rodriguez Luengo', 'local falso #123 ', 72219603, 'correofalso@123.com', 'PinkyLaboratory', '@michi_bonito\r\nmichis\r\n', 'articulos para mascotas', 'https://ae01.alicdn.com/kf/H4ccb7c668af549b78668483829fa78e8d/Correa-ajustable-para-h-mster-arn-s-suave-para-mascota-peque-a-p-jaro-loro-rat.jpg_Q90.jpg_.webp', 'somos una pequeña tienda de articulos para tu linda mmascota, tenemos de tomo u pooc de lo que puede necesitar tu mascota', 'Aceptada'),
+(2, 200197593, 'Nicolas Cereceda Squella', 'Casa Nico', 1233457982, 'correonico@falso.com', 'la wena wena', 'redes sociales falsa 123', 'Ventas de articulos alimenticios', 'https://comidaschilenas.com/wp-content/uploads/2019/02/Receta-del-completo-italiano.jpg', 'Somos una Empresa pequeña pero vendemos completos grandes', 'Rechazada');
 
 -- --------------------------------------------------------
 
@@ -127,65 +130,21 @@ CREATE TABLE `events` (
   `id_event` int(11) NOT NULL,
   `date_event` date NOT NULL,
   `time_event` time NOT NULL,
+  `title_event` varchar(255) NOT NULL,
   `event_description` text NOT NULL,
   `event_image` varchar(255) NOT NULL,
-  `event_status` text NOT NULL,
-  `title_event` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `maps`
---
-
-CREATE TABLE `maps` (
-  `id_map` int(11) NOT NULL,
-  `lat_northeast` float NOT NULL,
-  `lng_northeast` float NOT NULL,
-  `lat_southwest` float NOT NULL,
-  `lng_southwest` float NOT NULL,
-  `center_x` float NOT NULL,
-  `center_y` float NOT NULL,
-  `min_zoom` float NOT NULL,
-  `max_zoom` float NOT NULL
+  `id_status_event` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `maps`
+-- Volcado de datos para la tabla `events`
 --
 
-INSERT INTO `maps` (`id_map`, `lat_northeast`, `lng_northeast`, `lat_southwest`, `lng_southwest`, `center_x`, `center_y`, `min_zoom`, `max_zoom`) VALUES
-(1, 10, 20, 30, 40, 50, 60, 15, 5);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `map_icons`
---
-
-CREATE TABLE `map_icons` (
-  `id_map_icon` int(11) NOT NULL,
-  `name_icon` text NOT NULL,
-  `img_icon` text NOT NULL,
-  `id_map` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `map_locations`
---
-
-CREATE TABLE `map_locations` (
-  `id_map_location` int(11) NOT NULL,
-  `lat_location` float NOT NULL,
-  `lng_location` float NOT NULL,
-  `name_location` text NOT NULL,
-  `description_location` text NOT NULL,
-  `img_location` text NOT NULL,
-  `id_map` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `events` (`id_event`, `date_event`, `time_event`, `title_event`, `event_description`, `event_image`, `id_status_event`) VALUES
+(2, '2023-03-25', '20:00:00', 'Los Bunkers', 'La banda regresa a la ciudad sureña con un show masivo en el Estadio Ester Roa Rebolledo (Collao), el sábado 25 de marzo de 2023. \"Ven Aquí\" es el nombre de la serie de shows con que la banda...Leer más sobre Radio Usach', 'https://images.sk-static.com/images/media/profile_images/artists/138900/huge_avatar', 1),
+(3, '2022-12-23', '16:00:00', 'Senderismo histórico Cerro Caracol en Parque Ecuador', 'Caupolicán 450, Concepción Hey que gusto que estés en mi perfil, soy Antonio y he tenido la oportunidad de viajar a varios países y tomar tours y actividades turísticas. Gracias a esto he recopilado lo mejor de mis viajes para enseñarte hoy mi ciudad de manera divertida, interesante y muy social. Amo hacer nuevos amigos, enseñar la importancia de nuestro entorno y hacer un turismo sostenible y dejar un hermosa huella en sus corazones. ¡Mi sueño es hacer de mi ciudad un polo turístico potente!', 'https://media.guruwalk.com/nlnqpeca36fvtroervykrfpxy0zg', 1),
+(4, '2022-12-23', '20:05:00', 'KAKOAMEDIA Y MALDITO GORDO ESPECIAL NAVIDAD ', '  Ven a celebrar junto a esta dupla una previa a la navidad totalmente diferente a lo antes visto, amigo secreto, dinámicas y webeo es lo que define a este show !! ', 'https://www.comediaticket.cl/wp-content/uploads/2022/12/kakoamedia-y-maldito-gordo-especial-navidad.jpg', 1),
+(5, '2022-12-19', '12:07:00', '¡Resuelve tus dudas en nuestro Centro de Atención al Postulante (CAP)! ', 'Nuestro equipo de Admisión estará disponible para apoyarte con tus dudas sobre el Proceso de Admisión 2023 en las sedes de Santiago (Av. Plaza 680, Las Condes) y Concepción (Ainavillo 456...Leer más sobre Universidad del Desarrollo ', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAJvvKe6GMVZfvBVB9xyyWxZPJnkLutFHMKGAzzaKe2MbI40Gv-WL70-n4_g&s=10', 3);
 
 -- --------------------------------------------------------
 
@@ -197,20 +156,20 @@ CREATE TABLE `news` (
   `id_news` int(11) NOT NULL,
   `date_news` date NOT NULL,
   `time_news` time NOT NULL,
+  `title_news` varchar(255) NOT NULL,
   `news_description` text NOT NULL,
   `news_image` varchar(255) NOT NULL,
-  `news_status` varchar(50) NOT NULL,
-  `title_news` varchar(255) NOT NULL
+  `id_status_news` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `news`
 --
 
-INSERT INTO `news` (`id_news`, `date_news`, `time_news`, `news_description`, `news_image`, `news_status`, `title_news`) VALUES
-(1, '2022-12-17', '12:12:00', 'descripcion1 ', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 'estado1', 'Noticia123'),
-(5, '2022-12-17', '12:12:00', 'descripcion1 ', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 'estado1', 'Titulo1'),
-(7, '2022-12-17', '12:12:00', 'descripcion1 ', 'https://img.freepik.com/foto-gratis/gato-rojo-o-blanco-i-estudio-blanco_155003-13189.jpg?w=2000', 'estado1', 'her');
+INSERT INTO `news` (`id_news`, `date_news`, `time_news`, `title_news`, `news_description`, `news_image`, `id_status_news`) VALUES
+(2, '2022-12-18', '21:56:00', 'Incendios forestales: Onemi informa que seis comunas se encuentran en Alerta Roja y hay 9 siniestros que se mantienen en combate', 'De acuerdo a su director (s), Mauricio Tapia, en las últimas horas se lograron extinguir 17 incendios, mientras que 38 se encuentran controlados. Del mismo modo, indicó que seis comunas se encuentran en Alerta Roja, tres en la Región de Valparaíso y otras tres en la Metropolitana. Las comunas corresponden a Quilpué, Villa Alemana, Santo Domingo, Isla de Pascua, Curacaví, Lampa y San Pedro. \"Para atender estas emergencias se encuentran en terreno todos los recursos desplegados, en coordinación con los niveles locales y regionales\", señaló.', 'https://media.elmostrador.cl/2022/12/A_UNO_1420816-700x467.jpg', 1),
+(10, '2022-12-15', '22:43:00', 'Harry y Meghan serán invitados a la coronación de Carlos III, según diario británico', 'Los duques de Sussex, Harry y Meghan, serán invitados al acto de coronación del rey Carlos III el año que viene, pese a las críticas vertidas contra la Familia Real en el documental que realizaron para Netflix, según informó este sábado el \"Daily Telegraph\".  Fuentes del Palacio de Buckingham explicaron al diario que la pareja podrá participar en el evento, previsto para el 6 de mayo, si así lo desea.  De la misma forma, el palacio no tiene la intención de responder a las acusaciones que los Sussex lanzan en el documental ni tampoco de despojar a Enrique y Meghan del ducado, como piden algunas voces.', 'https://www.24horas.cl/24horas/site/artic/20221217/imag/foto_0000000220221217063851/a1e5c80df714bbd1ca2e58c3e991fb19883784bbw.jpg', 2),
+(14, '2022-12-17', '06:24:00', 'Twitter: Elon Musk dice que restaurará cuentas suspendidas de periodistas', 'Elon Musk dijo el viernes (16.12.2022) por la noche que restaurará las cuentas de Twitter de varios periodistas que la red social había suspendido por supuestamente poner en peligro a la familia del empresario.  \"La gente ha hablado. Las cuentas que revelaron mi ubicación verán ahora la suspensión levantada\", dijo el magnate después del revuelo causado por su decisión. Musk había organizado una encuesta en Twitter preguntando a las personas usuarias si debía rehabilitar las cuentas ahora o en una semana. Casi el 59% de los 3,69 millones de participantes votaron por hacerlo inmediatamente.  El empresario provocó advertencias de la Unión Europea y Naciones Unidas tras suspender las cuentas de más de media docena de periodistas, algunos de medios como CNN, The New York Times o The Washington Post. ', 'https://www.24horas.cl/24horas/site/artic/20221217/imag/foto_0000000220221217062822/63961558_303.jpeg', 1);
 
 -- --------------------------------------------------------
 
@@ -233,11 +192,8 @@ CREATE TABLE `opinions` (
 --
 
 INSERT INTO `opinions` (`id_opinion`, `id_user`, `opinion_description`, `opinion_image`, `department`, `id_type_contribution`, `answer`) VALUES
-(41, 3, 'reclamo saluud', '', 2, 2, 'hola'),
-(42, 3, 'te denuncio', '', 3, 3, ''),
-(43, 3, 'Te denuncia', '', 2, 3, ''),
-(44, 3, 'no hay pan', '', 2, 2, ''),
-(45, 3, 'me robaron el celu', '', 4, 2, '');
+(41, 3, 'reclamo saluud', '', 2, 2, ''),
+(42, 3, 'te denuncio', '', 3, 3, '');
 
 -- --------------------------------------------------------
 
@@ -260,18 +216,9 @@ CREATE TABLE `places_of_interest` (
   `id_place` int(11) NOT NULL,
   `category_place` int(11) NOT NULL,
   `name_place` text NOT NULL,
-  `latitude_place` varchar(255) NOT NULL,
-  `longitude_place` varchar(255) NOT NULL
+  `latitude_place` float NOT NULL,
+  `longitude_place` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `places_of_interest`
---
-
-INSERT INTO `places_of_interest` (`id_place`, `category_place`, `name_place`, `latitude_place`, `longitude_place`) VALUES
-(9, 47, 'Parque Ecuador', '-36.83280540911221', '-73.04740383069989'),
-(10, 47, 'Parque Bicentenario', '-36.83161998486917', '-73.06268668429821'),
-(11, 48, 'Plaza Independencia', '-36.827196903880065', '-73.05022841526745');
 
 -- --------------------------------------------------------
 
@@ -334,6 +281,45 @@ INSERT INTO `roles` (`rol_id`, `rol_nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `status_events`
+--
+
+CREATE TABLE `status_events` (
+  `id_status_event` int(12) NOT NULL,
+  `status_event_name` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `status_events`
+--
+
+INSERT INTO `status_events` (`id_status_event`, `status_event_name`) VALUES
+(1, 'Próximamente'),
+(2, 'En curso'),
+(3, 'Finalizado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `status_news`
+--
+
+CREATE TABLE `status_news` (
+  `id_status_news` int(30) NOT NULL,
+  `status_news_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `status_news`
+--
+
+INSERT INTO `status_news` (`id_status_news`, `status_news_name`) VALUES
+(1, 'En curso'),
+(2, 'Finalizada');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -354,8 +340,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `rut_user`, `name_user`, `lastname_user`, `email_user`, `rol_id`, `phone_user`, `password_user`, `address_user`) VALUES
-(2, 123456789, 'Derqui S', 'Sanhueza', 'derquis96@gmail.com', 1, 963434488, '12345', 'dir1'),
-(3, 987654321, 'Diego', 'San Martin', 'dsanmartin@ing.ucsc.cl', 2, 1234567, '54321', 'dir2');
+(2, 1234989456, 'derki', 'userlastname', 'derquis96@gmail.com', 1, 12345, '123', 'casa derki'),
+(3, 2, 'Juan', 'Baeza', 'usertest@test.com', 1, 9999999, '123', 'casas del juan'),
+(7, 201938759, 'ignacia', 'rodriguez', 'irodriguelu@ign.ucsc.cl', 1, 9999999, '54321', 'casa nacha'),
+(8, 2147483647, 'Diego', 'San Martin', 'dsanmartin@ing.ucsc.cl', 2, 1234567, '54321', 'casa diego');
 
 --
 -- Índices para tablas volcadas
@@ -387,42 +375,24 @@ ALTER TABLE `departments`
   ADD PRIMARY KEY (`id_department`);
 
 --
--- Indices de la tabla `entrepeneurs`
+-- Indices de la tabla `entrepreneurs`
 --
-ALTER TABLE `entrepeneurs`
-  ADD PRIMARY KEY (`id_entrepeneur`);
+ALTER TABLE `entrepreneurs`
+  ADD PRIMARY KEY (`id_entrepreneur`);
 
 --
 -- Indices de la tabla `events`
 --
 ALTER TABLE `events`
-  ADD PRIMARY KEY (`id_event`);
-
---
--- Indices de la tabla `maps`
---
-ALTER TABLE `maps`
-  ADD PRIMARY KEY (`id_map`);
-
---
--- Indices de la tabla `map_icons`
---
-ALTER TABLE `map_icons`
-  ADD PRIMARY KEY (`id_map_icon`),
-  ADD KEY `id_map_fk` (`id_map`);
-
---
--- Indices de la tabla `map_locations`
---
-ALTER TABLE `map_locations`
-  ADD PRIMARY KEY (`id_map_location`),
-  ADD KEY `id_map_fk2` (`id_map`);
+  ADD PRIMARY KEY (`id_event`),
+  ADD KEY `id_status_event` (`id_status_event`);
 
 --
 -- Indices de la tabla `news`
 --
 ALTER TABLE `news`
-  ADD PRIMARY KEY (`id_news`);
+  ADD PRIMARY KEY (`id_news`),
+  ADD KEY `id_status_news` (`id_status_news`);
 
 --
 -- Indices de la tabla `opinions`
@@ -445,7 +415,7 @@ ALTER TABLE `participates`
 --
 ALTER TABLE `places_of_interest`
   ADD PRIMARY KEY (`id_place`),
-  ADD KEY `categort_place_FK` (`category_place`);
+  ADD KEY `category_place_fk` (`category_place`);
 
 --
 -- Indices de la tabla `procedures`
@@ -475,6 +445,18 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`rol_id`);
 
 --
+-- Indices de la tabla `status_events`
+--
+ALTER TABLE `status_events`
+  ADD PRIMARY KEY (`id_status_event`);
+
+--
+-- Indices de la tabla `status_news`
+--
+ALTER TABLE `status_news`
+  ADD PRIMARY KEY (`id_status_news`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -490,7 +472,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `category_places_of_interest`
 --
 ALTER TABLE `category_places_of_interest`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `commentaries`
@@ -511,52 +493,34 @@ ALTER TABLE `departments`
   MODIFY `id_department` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `entrepeneurs`
+-- AUTO_INCREMENT de la tabla `entrepreneurs`
 --
-ALTER TABLE `entrepeneurs`
-  MODIFY `id_entrepeneur` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `entrepreneurs`
+  MODIFY `id_entrepreneur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `events`
 --
 ALTER TABLE `events`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `maps`
---
-ALTER TABLE `maps`
-  MODIFY `id_map` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `map_icons`
---
-ALTER TABLE `map_icons`
-  MODIFY `id_map_icon` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `map_locations`
---
-ALTER TABLE `map_locations`
-  MODIFY `id_map_location` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `news`
 --
 ALTER TABLE `news`
-  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `opinions`
 --
 ALTER TABLE `opinions`
-  MODIFY `id_opinion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_opinion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `places_of_interest`
 --
 ALTER TABLE `places_of_interest`
-  MODIFY `id_place` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_place` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `procedures`
@@ -571,10 +535,22 @@ ALTER TABLE `roles`
   MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de la tabla `status_events`
+--
+ALTER TABLE `status_events`
+  MODIFY `id_status_event` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `status_news`
+--
+ALTER TABLE `status_news`
+  MODIFY `id_status_news` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
@@ -585,18 +561,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `commentaries`
   ADD CONSTRAINT `commentaries_FK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `map_icons`
---
-ALTER TABLE `map_icons`
-  ADD CONSTRAINT `id_map_fk` FOREIGN KEY (`id_map`) REFERENCES `maps` (`id_map`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `map_locations`
---
-ALTER TABLE `map_locations`
-  ADD CONSTRAINT `id_map_fk2` FOREIGN KEY (`id_map`) REFERENCES `maps` (`id_map`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `opinions`
@@ -610,8 +574,14 @@ ALTER TABLE `opinions`
 -- Filtros para la tabla `participates`
 --
 ALTER TABLE `participates`
-  ADD CONSTRAINT `participates_FK` FOREIGN KEY (`id_entrepeneur`) REFERENCES `entrepeneurs` (`id_entrepeneur`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `participates_FK` FOREIGN KEY (`id_entrepeneur`) REFERENCES `entrepreneurs` (`id_entrepreneur`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `participates_FK_1` FOREIGN KEY (`id_event`) REFERENCES `events` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `places_of_interest`
+--
+ALTER TABLE `places_of_interest`
+  ADD CONSTRAINT `category_place_fk` FOREIGN KEY (`category_place`) REFERENCES `category_places_of_interest` (`id_category`);
 
 --
 -- Filtros para la tabla `publishes_in`
