@@ -3,7 +3,8 @@ require ("../../../../database.php");
 session_start();
 $data = array();
 
-$id = $_POST["new_id"];
+$id = $_POST["id"];
+
 $type_place = $_POST["type"];
 $icon_place  = $_POST["icon"];
 
