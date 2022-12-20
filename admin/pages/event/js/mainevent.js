@@ -97,8 +97,8 @@ $(document).ready(function(){
                     $('#image').val(data.result.event_image);
                    
                 },
-                error: function (e) {
-                    alert("fallo");
+                error: function (data) {
+                    console.log(data);
 
                 }
             });

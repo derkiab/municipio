@@ -57,7 +57,7 @@ require_once('../../templates/header.php');
                             <tbody>
                                 <?php
                                     while($entrepreneurs=mysqli_fetch_assoc($entrepreneur)){
-                                        if($entrepreneurs['state_entrepreneur'] == "Aceptado"){
+                                        if($entrepreneurs['state_entrepreneur'] == "Aceptada"){
                                 ?>
                                 <tr>
                                     <td><?php echo $entrepreneurs['rut_entrepreneur']?></td>

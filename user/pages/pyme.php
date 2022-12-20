@@ -11,6 +11,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 m-2 " style="width: 75rem;">
     <?php
         while($entrepreneurs=mysqli_fetch_assoc($entrepreneur)){
+            if($entrepreneurs['state_entrepreneur'] == "Aceptada"){
     ?>
     <div class="col">
         <a class="navbar-link text-decoration-none text-dark" href="index.php?p=show_pymes&id_entrepreneur=<?php echo $entrepreneurs['id_entrepreneur']; ?>" >
@@ -26,6 +27,7 @@
             </a>
         </div>
     <?php
+            }
        }
     ?>
 </div>
