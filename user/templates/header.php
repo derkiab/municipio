@@ -71,6 +71,9 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="index.php?p=contributions">CONTRIBUCIONES</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.php?p=pyme">PYMES</a>
+            </li>
 
           </ul>
           
