@@ -42,11 +42,18 @@
               <a class="nav-link dropdown-toggle text-white" href="index.php?p=formalities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 TRAMITES
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <ul class="dropdown-menu ">
+                    <li ><a class="dropdown-item" href="https://www.fonasa.cl/sites/fonasa/beneficiarios">FONASA</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li ><a class="dropdown-item" href="https://homer.sii.cl">SII</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li ><a class="dropdown-item" href="https://www.servel.cl">SERVEL</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li ><a class="dropdown-item" href="https://www.registrocivil.cl">REGISTRO CIVIL</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li ><a class="dropdown-item" href="https://www.minsal.cl">MINSAL</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li ><a class="dropdown-item" href="https://www.sernac.cl/portal/617/w3-channel.html">SERNAC</a></li>
               </ul>
             </li>
             <li class="nav-item">
