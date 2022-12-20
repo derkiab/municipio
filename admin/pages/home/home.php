@@ -15,8 +15,8 @@ require_once('../../templates/header.php');
     $consulta_rol = "SELECT COUNT(id_opinion) FROM opinions";
     $opinions = mysqli_query($conexion, $consulta_rol);
 
-    $consulta_rol = "SELECT COUNT(id_entrepeneur) FROM entrepeneurs";
-    $entrepeneurs = mysqli_query($conexion, $consulta_rol);
+    $consulta_rol = "SELECT COUNT(id_entrepreneur) FROM entrepreneurs";
+    $entrepreneurs = mysqli_query($conexion, $consulta_rol);
 
     $consulta_rol = "SELECT COUNT(id_user) FROM users WHERE rol_id = 1";
     $admin = mysqli_query($conexion, $consulta_rol);

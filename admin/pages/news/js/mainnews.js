@@ -34,13 +34,11 @@ $(document).ready(function(){
     $("#btn_guardar").on('click', function () {
         var datos = $("#frm_registrar_news").serialize();
         var name = $("#btn_guardar").attr("name");
-
-        var new_id = $(".update").attr("id");
+        
         if(name == "guardar"){
             var url = "../../pages/news/query/insert.php";
         }else{
             var url = "../../pages/news/query/update.php"
-            datos += "&new_id=" + new_id;
         }
         console.log(url);
         $.ajax({
@@ -91,13 +89,14 @@ $(document).ready(function(){
                     new_id: new_id
                 },
                 success: function (data) {
+                    console.log(data);
                     $('#id_news_update').val(data.result.id_news);
                     $('#date').val(data.result.date_news);
                     $('#time').val(data.result.time_news);
                     $('#title').val(data.result.title_news);
                     $('#description').val(data.result.news_description);
                     $('#image').val(data.result.news_image);
-                    $('#status').val(data.result.news_status);
+                   
                 },
                 error: function (e) {
                     alert("fallo");
@@ -144,54 +143,6 @@ $(document).ready(function(){
     });
     
 
-    // Jquery Validate
-    $("frm_registrar_news").validate({
-        rules:{
-            date:{
-                required: true,
-                number: true,
-                minleght: 7
-            },
-            time:{
-                required: true,
-                number: true,
-                minleght: 3
-            },
-            description:{
-                required: true,
-                minleght: 3
-            },
-            image:{
-                required: true,
-                minleght: 3
-            },
-
-            status:{
-                required: true,
-                minleght: 3
-            },
-        },
-        messages:{
-            date:{
-                required: "Por favor ingrese la fecha",
-                number: "Por favor solo ingrese numeros",
-            },
-            time:{
-                required: "Por favor ingrese su nombre",
-                number: "Por favor solo ingrese numeros"
-            },
-            description:{
-                required: "Por favor ingrese una descripcion"
-            },
-            image:{
-                required: "Por favor ingrese una imagen",
-            },
-  
-            status:{
-                required: "Por favor ingrese el estado",
-
-            },
-        }
-    });
+   
 })
 

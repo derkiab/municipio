@@ -15,6 +15,10 @@ require_once('../../templates/header.php');
 
     $consulta_event = "SELECT * FROM events";
     $event = mysqli_query($conexion, $consulta_event);
+
+    $consulta_status_event = "SELECT * FROM status_events";
+    $status_event = mysqli_query($conexion, $consulta_status_event);
+    
     $js = "event/js/mainevent.js";
 ?>
 
@@ -40,6 +44,7 @@ require_once('../../templates/header.php');
                                 <tr>
                                     <th>Fecha</th>
                                     <th>Hora</th>
+                                    <th>Titulo</th>
                                     <th>Descripcion</th>
                                     <th>Imagen</th>
                                     <th>Estado</th>
@@ -54,9 +59,16 @@ require_once('../../templates/header.php');
                                 <tr>
                                     <td><?php echo $events['date_event']?></td>
                                     <td><?php echo $events['time_event']?></td>
+                                    <td><?php echo $events['title_event']?></td>
                                     <td><?php echo $events['event_description']?></td>
                                     <td><?php echo "<img src='".$events['event_image']."'style=' width:50%; height:50%; '>" ?></td>
-                                    <td><?php echo $events['event_status']?></td>
+                                    <td>
+                                        <?php 
+                                            if($events['id_status_event'] == 1) echo "Proximamente";
+                                            elseif($events['id_status_event'] == 2)echo "En curso";
+                                            else echo "Finalizado";
+                                        ?>
+                                    </td>
                                     <td>
                                          <div class='text-center'>   
                                             <div class='btn-group'>
@@ -93,6 +105,7 @@ require_once('../../templates/header.php');
 
             <form id="frm_registrar_event">
                 <div class="modal-body">
+                <input hidden type="number" id="id_event_update" name="event_id">  
                     <div class="form-group">
                         <label for="" class="col-form-label">Fecha</label>
                         <input type="date" class="form-control" name="date" id="date" required>
@@ -100,6 +113,10 @@ require_once('../../templates/header.php');
                     <div class="form-group">
                         <label for="" class="col-form-label">Hora</label>
                         <input type="time" class="form-control" name="time" id="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-form-label">Titulo</label>
+                        <input type="text" class="form-control" name="title" id="title" required>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Descripcion</label>
@@ -110,8 +127,14 @@ require_once('../../templates/header.php');
                         <input type="text" class="form-control" name="image" id="image" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label" >Estado</label>
-                        <input type="text" class="form-control" name="status" id="status" required>
+                        <label for="" class="col-form-label">Estado</label>
+                        <select class="form-select" name="status" id="status" required>
+                            <?php
+                            while($status_events=mysqli_fetch_assoc($status_event)){
+                                echo '<option value="'.$status_events['id_status_event'].'">'.$status_events['status_event_name'].'</option>';                                        
+                            }
+                            ?>
+                        </select>
                     </div>
                    
                 </div>
@@ -124,7 +147,6 @@ require_once('../../templates/header.php');
         </div>
     </div>
 </div>
-
 
 
 <!-- Fin Contenido -->

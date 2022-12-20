@@ -76,7 +76,6 @@ $(document).ready(function(){
         $(".modal-title").text("Actualizar Persona");
         $("#btn_guardar").attr("name", "actualizar");
         $("#modal_insert").modal("show");
-
         if (user_id != '') {
             $.ajax({
                 url: "../../pages/user/query/update_info.php",
@@ -140,7 +139,6 @@ $(document).ready(function(){
             });
         }
     });
-
 
     // Jquery Validate
     $("frm_registrar").validate({

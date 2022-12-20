@@ -1,6 +1,6 @@
 // Configuracion Data Tables
 $(document).ready(function(){
-    tablaEventos = $("#tabla_eventos").DataTable({
+    tablaPymes = $("#tabla_pymes").DataTable({
 
         "language":{
             "lengthMenu":"Mostrar _MENU_ registros",
@@ -22,24 +22,23 @@ $(document).ready(function(){
 // Configuracion Modal
 
 //Mostrar modal agregar
-    $("#btn_agregar_event").click(function(){
-        $("#form_eventos").trigger("reset");
+    $("#btn_agregar_pymes").click(function(){
+        $("#form_pymes").trigger("reset");
         $(".modal-header").css("background-color", "#28a745");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Agregar Eventos");
+        $(".modal-title").text("Agregar pyme");
         $("#btn_guardar").attr("name", "guardar");
-        $("#modal_event").modal("show");
+        $("#modal_pymes").modal("show");
     });
 
     $("#btn_guardar").on('click', function () {
-        var datos = $("#frm_registrar_event").serialize();
+        var datos = $("#frm_registrar_pymes").serialize();
         var name = $("#btn_guardar").attr("name");
-
-        var event_id = $(".update").attr("id");
+        
         if(name == "guardar"){
-            var url = "../../pages/event/query/insert.php";
+            var url = "../../pages/pymes/query/insert.php";
         }else{
-            var url = "../../pages/event/query/update.php"
+            var url = "../../pages/pymes/query/update.php"
         }
         console.log(url);
         $.ajax({
@@ -47,7 +46,7 @@ $(document).ready(function(){
             url: url,
             data: datos,
             success: function (data) {
-
+                // alert(data);
                 console.log(data);
                 if (data == "success") {
                     Swal.fire({
@@ -72,30 +71,36 @@ $(document).ready(function(){
     // Boton Actualizar
  
     $(document).on('click', '.update', function(){
-        var event_id = $(this).attr("id");
+        var entrepreneur_id = $(this).attr("id");
         
-        $("#form_event").trigger("reset");
+        $("#form_pymes").trigger("reset");
         $(".modal-header").css("background-color", "#0D6EFD");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Actualizar Eventos");
+        $(".modal-title").text("Actualizar Pyme");
         $("#btn_guardar").attr("name", "actualizar");
-        $("#modal_event").modal("show");
+        $("#modal_pymes").modal("show");
         
-        if (event_id != '') {
+        if (entrepreneur_id != '') {
             $.ajax({
-                url: "../../pages/event/query/update_info.php",
+                url: "../../pages/pymes/query/update_info.php",
                 method: "POST",
                 dataType: "json",
                 data: {
-                    event_id: event_id
+                    entrepreneur_id: entrepreneur_id
                 },
                 success: function (data) {
-                    $('#id_event_update').val(data.result.id_event);
-                    $('#date').val(data.result.date_event);
-                    $('#time').val(data.result.time_event);
-                    $('#title').val(data.result.title_event);
-                    $('#description').val(data.result.event_description);
-                    $('#image').val(data.result.event_image);
+                    console.log(data);
+                    $('#id_entrepreneur_update').val(data.result.id_entrepreneur);
+                    $('#rut').val(data.result.rut_entrepreneur);
+                    $('#name').val(data.result.name_entrepreneur);
+                    $('#address').val(data.result.address_entrepreneur);
+                    $('#phone').val(data.result.phone_entrepreneur);
+                    $('#email').val(data.result.email_entrepreneur);
+                    $('#name_company').val(data.result.name_company);
+                    $('#social_networksl').val(data.result.social_networks_entrepreneur);
+                    $('#field').val(data.result.field_entrepreneur);
+                    $('#image').val(data.result.image_entrepreneur);
+                    $('#description').val(data.result.description_entrepreneur);
                    
                 },
                 error: function (e) {
@@ -108,13 +113,13 @@ $(document).ready(function(){
 
     // Boton Eliminar
     $(document).on('click', '.delete', function () {
-        var event_id = $(this).attr("id");
-        if (event_id != '') {
+        var entrepreneur_id = $(this).attr("id");
+        if (entrepreneur_id != '') {
             $.ajax({
-                url: "../event/query/delete.php",
+                url: "../pymes/query/delete.php",
                 method: "POST",
                 data:{
-                    event_id: event_id
+                    entrepreneur_id: entrepreneur_id
                 },
                 success: function (data) {
                     if (data == "success") {
@@ -142,6 +147,7 @@ $(document).ready(function(){
         }
     });
     
-    
+
+   
 })
 

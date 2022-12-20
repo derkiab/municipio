@@ -22,7 +22,8 @@
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
   <body class="d-flex flex-column min-vh-100">
-     <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
       <div class="container-fluid ">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center ms-auto">
@@ -57,7 +58,12 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="index.php?p=contributions">CONTRIBUCIONES</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.php?p=pyme">PYMES</a>
+            </li>
+
           </ul>
+          
         </div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <div class="d-flex">

@@ -15,7 +15,12 @@ require_once('../../templates/header.php');
 
     $consulta_news = "SELECT * FROM news";
     $new = mysqli_query($conexion, $consulta_news);
+
+    $consulta_status_new = "SELECT * FROM status_news";
+    $status_new = mysqli_query($conexion, $consulta_status_new);
     $js = "news/js/mainnews.js";
+
+
 ?>
 
 <!-- Tabla de usuarios -->
@@ -38,6 +43,7 @@ require_once('../../templates/header.php');
                         <table id="tabla_noticias" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
+                                    <th>ID</th>
                                     <th>Fecha</th>
                                     <th>Hora</th>
                                     <th>Titulo</th>
@@ -53,13 +59,19 @@ require_once('../../templates/header.php');
                                     while($news=mysqli_fetch_assoc($new)){
                                 ?>
                                 <tr>
+                                    <td><?php echo $news['id_news']?></td>
                                     <td><?php echo $news['date_news']?></td>
                                     <td><?php echo $news['time_news']?></td>
                                     <td><?php echo $news['title_news']?></td>
 
                                     <td><?php echo $news['news_description']?></td>
                                     <td><?php echo "<img src='".$news['news_image']."'style=' width:50%; height:50%; '>" ?></td>
-                                    <td><?php echo $news['news_status']?></td>
+                                    <td>
+                                        <?php 
+                                            if($news['id_status_news'] == 1) echo "En curso";
+                                            else echo "Finalizado";
+                                        ?>
+                                    </td>
                                     <td>
                                          <div class='text-center'>   
                                             <div class='btn-group'>
@@ -96,6 +108,7 @@ require_once('../../templates/header.php');
 
             <form id="frm_registrar_news">
                 <div class="modal-body">
+                    <input hidden type="number" id="id_news_update" name="new_id">              
                     <div class="form-group">
                         <label for="" class="col-form-label">Fecha</label>
                         <input type="date" class="form-control" name="date" id="date" required>
@@ -117,8 +130,14 @@ require_once('../../templates/header.php');
                         <input type="text" class="form-control" name="image" id="image" required>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label" >Estado</label>
-                        <input type="text" class="form-control" name="status" id="status" required>
+                        <label for="" class="col-form-label">Estado</label>
+                        <select class="form-select" name="status" id="status" required>
+                            <?php
+                            while($status_news=mysqli_fetch_assoc($status_new)){
+                                echo '<option value="'.$status_news['id_status_news'].'">'.$status_news['status_news_name'].'</option>';                                        
+                            }
+                            ?>
+                        </select>
                     </div>
                    
                 </div>
