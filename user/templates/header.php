@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['rol'])){
+        header('location: ../login.php');
+    }else{
+        if($_SESSION['rol'] != 2){
+            header('location: ../login.php');
+        }
+    }
+?>
+
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -10,31 +21,7 @@
     <!-- iconos -->
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
-  <body >
-    <nav class="navbar" style="background-color: #004794;">
-      <div class="container-fluid">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <div class="d-flex">
-            <li class="nav-item px-1">
-              <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
-              <i class="fa-brands fa-facebook"></i>
-
-            </a></li>
-            <li class="nav-item px-1">
-              <a class="navbar-link" href="https://www.instagram.com/muni_conce/?hl=es">
-              <i class="fa-brands fa-instagram"></i>
-            </a></li>
-            <li class="nav-item px-1">
-              <a class="navbar-link" href="https://twitter.com/Muni_Concepcion?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-              <i class="fa-brands fa-twitter"></i>
-            </a></li>
-            </div>
-          </ul>
-          
-          <a class="btn btn-primary" href="../logout.php" role="button">CERRAR SESION</a>
-      </div>
-    </nav>
-    <img src="../assets/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
+  <body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
       <div class="container-fluid ">
@@ -71,9 +58,58 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="index.php?p=contributions">CONTRIBUCIONES</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.php?p=pyme">PYMES</a>
+            </li>
 
           </ul>
           
         </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <div class="d-flex">
+            <ul class="navbar nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item-dropdown">
+              <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbar_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bell me-2"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="row">
+                    <div class="col-lg-8 col-sm-8 col-8">
+                      <strong class="text-info">David John</strong>
+                      <div>
+                        Lorem ipsum dolor sit amet, consectetur
+                      </div>
+                      <small class="text-warning">27.11.2015, 15:00</small>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+                
+              </li>
+              <li class="nav-item-dropdown">
+                  <a href="#" class="nav-link dropdown-toggle primary-text fw-bold" id="navbar_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa-solid fa-user me-2"></i>Demo
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbar_dropdown">
+                      <li><a href="index.php?p=view_contributions" class="dropdown-item">Ver contribuciones</a></li>
+                      <li><a href="#" class="dropdown-item">Configuracion</a></li>
+                      <li><a href="../logout.php" class="dropdown-item">Cerrar Sesion</a></li>
+                  </ul>
+              </li>
+              
+            </ul>
+          </div>
+          <div class="d-flex">
+          
+           
+          </div>
+        </ul>
+        
       </div>
     </nav>
+    <img src="../assets/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
+    </nav>
+

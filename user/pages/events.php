@@ -15,14 +15,14 @@
 
 <br>
 
-<div class="row row-cols-1 row-cols-md-3 g-4 m-2">
+<div class="row row-cols-1 row-cols-md-3 g-4 m-2" style="width: 75rem;">
 <?php
         while($events=mysqli_fetch_assoc($event)){
     ?>
     <div class="col">
     <a class="navbar-link text-decoration-none text-dark" href="index.php?p=show_events&id_event=<?php echo $events['id_event']; ?>" >
         <div class="card h-100">
-        <img src="<?php echo $events['event_image'] ?>" class="rounded" alt="..." width="100%" height="60%">
+        <img src="<?php echo $events['event_image'] ?>" class="rounded" alt="..." width="100%" height="45%">
         <div class="card-body">
             <h5 class="card-title"><?php echo $events['title_event']?></h5>
         </div>

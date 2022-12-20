@@ -102,6 +102,9 @@ require_once('../../templates/header.php');
                 <div class="modal-body">
                 <input hidden type="number" id="id_user_update" name="user_id"> 
                     <div class="form-group">
+                        <input type="hidden" class="form-control" name="id" id="id" >
+                    </div>
+                    <div class="form-group">
                         <label for="" class="col-form-label">Rut</label>
                         <input type="text" class="form-control" name="rut" id="rut" required>
                     </div>

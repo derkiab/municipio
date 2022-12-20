@@ -11,25 +11,25 @@
    
 
 
-<div class="row row-cols-1 row-cols-md-3 g-4 m-2">
+<div class="row row-cols-1 row-cols-md-3 g-4 m-2" style="width: 75rem;">
 <?php
         while($news=mysqli_fetch_assoc($new)){
     ?>
     <div class="col">
     <a class="navbar-link text-decoration-none text-dark" href="index.php?p=show_news&id_news=<?php echo $news['id_news']; ?>" >
         <div class="card h-100">
-        <img src="<?php echo $news['news_image'] ?>" class="rounded" alt="..." width="100%" height="60%">
-        <div class="card-body">
-            <h5 class="card-title"><?php echo $news['title_news']?></h5>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">
-                <?php 
-                    if($news['id_status_news'] == 1) echo "En curso";
-                    else echo "Finalizado";
-                ?>
-            </small>
-        </div>
+            <img src="<?php echo $news['news_image'] ?>" class="rounded" alt="..." width="100%" height="60%">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $news['title_news']?></h5>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <?php 
+                        if($news['id_status_news'] == 1) echo "En curso";
+                        else echo "Finalizado";
+                    ?>
+                </small>
+            </div>
         </div>
         </a>
     </div>

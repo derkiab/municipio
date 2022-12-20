@@ -10,7 +10,7 @@
     <!-- iconos -->
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <nav class="navbar" style="background-color: #e3f2fd;">
       <div class="container-fluid">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
@@ -55,11 +55,7 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php?p=events">EVENTOS</a>
             </li>
-           
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="BUSQUEDA" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">BUSQUEDA</button>
-          </form>
+
         </div>
       </div>
     </nav>
