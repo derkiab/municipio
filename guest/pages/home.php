@@ -21,7 +21,7 @@
 <BR></BR>
     <h1 class="text-center">BIENVENIDOS A LA MUNICIPALIDAD DE CONCEPCION</h1>
 <BR></BR>
-<div class="p-3 mb-2 fs-3 bg-info text-dark text-center">Noticias</div>
+<div class="p-3 mb-2 fs-3  text-white text-center" style="background-color:#486FAF;">Noticias</div>
 <div class="row row-cols-1 row-cols-md-5 g-4 m-5">
 <?php
         while($news=mysqli_fetch_assoc($new)){
@@ -42,7 +42,7 @@
 </div>
 
 
-<div class="p-3 mb-2  fs-3 bg-info text-dark text-center">Eventos</div>
+<div class="p-3 mb-2  fs-3 text-white text-center" style="background-color:#486FAF;" >Eventos</div>
 <div class="row row-cols-1 row-cols-md-5 g-7 m-5">
 <?php
         while($events=mysqli_fetch_assoc($event)){

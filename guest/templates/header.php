@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar" style="background-color: #e3f2fd;">
+    <nav class="navbar" style="background-color: #486FAF;">
       <div class="container-fluid">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <div class="d-flex">
@@ -36,24 +36,24 @@
     
     <img src="../assets/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
 
-    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #486FAF;">
       <div class="container-fluid ">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.php?p=home">INICIO</a>
+              <a class="nav-link active text-white" aria-current="page" href="index.php?p=home">INICIO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=map">MAPA INTERACTIVO</a>
+              <a class="nav-link text-white" href="index.php?p=map">MAPA INTERACTIVO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=commune">NUESTRA COMUNA</a>
+              <a class="nav-link text-white" href="index.php?p=commune">NUESTRA COMUNA</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=news">NOTICIAS</a>
+              <a class="nav-link text-white" href="index.php?p=news">NOTICIAS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?p=events">EVENTOS</a>
+              <a class="nav-link text-white" href="index.php?p=events">EVENTOS</a>
             </li>
 
         </div>

@@ -11,7 +11,7 @@
    
 
 
-<div class="row row-cols-1 row-cols-md-3 g-4 m-2" style="width: 75rem;">
+<div class="row row-cols-1 row-cols-md-5 g-4 m-2" style="width: 75rem;">
 <?php
         while($news=mysqli_fetch_assoc($new)){
     ?>
