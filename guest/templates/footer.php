@@ -7,8 +7,7 @@
                     <div class="col">
                         <h5 class="card-title">&nbsp  CONOCENOS</h5>
                         <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                            <a href="index.php?p=commune" class="card-link">Nuestra Comuna</a>
                         </div>
                     </div>
                     <div class="col">

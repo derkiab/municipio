@@ -1,5 +1,4 @@
 
-
 <?php
 
   require('../database.php');
@@ -47,25 +46,25 @@
                   ?>
               </select>
           </div>
-      <div class="form-group">
-        <label for="" class="col-form-label" >Tipo contribucion</label>
-        <select class="form-select" name="contribucion" required>
-            <?php
-              while($contribuciones=mysqli_fetch_assoc($contribution)){
-                echo '<option value="'.$contribuciones['id_contribution_type'].'">'.$contribuciones['name_contribution_type'].'</option>';
-              }
-            ?>
-        </select>
-      </div>
-      <div class="form-group" Required>
-        <label for="" class="col-form-label" >Descripcion</label>
-        <textarea class="form-control" name="descripcion" required></textarea>
-      </div>
-      <br>
-      <div class="container d-flex justify-content-center">
-        <input type="hidden" name="userid" value=<?php echo $userid ?>>
-        <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success save">Enviar Contribución</button>
-      </div>
+        <div class="form-group">
+          <label for="" class="col-form-label" >Tipo contribucion</label>
+          <select class="form-select" name="contribucion" required>
+              <?php
+                while($contribuciones=mysqli_fetch_assoc($contribution)){
+                  echo '<option value="'.$contribuciones['id_contribution_type'].'">'.$contribuciones['name_contribution_type'].'</option>';
+                }
+              ?>
+          </select>
+        </div>
+        <div class="form-group" Required>
+          <label for="" class="col-form-label" >Descripcion</label>
+          <textarea class="form-control" name="descripcion" required></textarea>
+        </div>
+        <br>
+        <div class="container d-flex justify-content-center">
+          <input type="hidden" name="userid" value=<?php echo $userid ?>>
+          <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success save">Enviar Contribución</button>
+        </div>
     </form>
   </div>
 </div>
