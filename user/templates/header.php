@@ -21,31 +21,7 @@
     <!-- iconos -->
     <script src="https://kit.fontawesome.com/d75291e766.js" crossorigin="anonymous"></script>
   </head>
-  <body >
-    <nav class="navbar" style="background-color: #004794;">
-      <div class="container-fluid">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <div class="d-flex">
-            <li class="nav-item px-1">
-              <a class="navbar-link" href="https://www.facebook.com/MuniConce/">
-              <i class="fa-brands fa-facebook"></i>
-
-            </a></li>
-            <li class="nav-item px-1">
-              <a class="navbar-link" href="https://www.instagram.com/muni_conce/?hl=es">
-              <i class="fa-brands fa-instagram"></i>
-            </a></li>
-            <li class="nav-item px-1">
-              <a class="navbar-link" href="https://twitter.com/Muni_Concepcion?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-              <i class="fa-brands fa-twitter"></i>
-            </a></li>
-            </div>
-          </ul>
-          
-          <a class="btn btn-primary" href="../logout.php" role="button">CERRAR SESION</a>
-      </div>
-    </nav>
-    <img src="../assets/munimg.png" class="rounded mx-auto d-block" alt="" width="300" height="100">
+  <body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-expand-lg" style="background-color: #004794;">
       <div class="container-fluid ">

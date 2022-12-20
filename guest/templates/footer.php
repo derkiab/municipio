@@ -1,4 +1,4 @@
-    <footer>
+    <footer class="mt-auto">
         <div class="card " style="background-color:#e3f2fd;">
         <div class="card-body">
            
